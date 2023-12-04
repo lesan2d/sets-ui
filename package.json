@@ -1,5 +1,5 @@
 {
-  "name": "segment-ui",
+  "name": "sets-ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@packages/components": "workspace:*",
-    "@packages/segment-ui": "workspace:*",
+    "@packages/sets-ui": "workspace:*",
     "@packages/styles": "workspace:*",
     "@packages/utils": "workspace:*",
     "vue": "^3.3.9"

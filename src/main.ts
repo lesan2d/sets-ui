@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import segmentUi from '@packages/segment-ui';
+import setsUi from '@packages/sets-ui';
 
 const app = createApp(App);
-app.use(segmentUi);
+app.use(setsUi);
 app.mount('#app');

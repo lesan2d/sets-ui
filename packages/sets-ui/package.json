@@ -1,5 +1,5 @@
 {
-  "name": "@packages/segment-ui",
+  "name": "@packages/sets-ui",
   "private": true,
   "license": "MIT",
   "main": "index.ts"

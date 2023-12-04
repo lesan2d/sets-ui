@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "segment-ui"
-  text: "segment-ui"
+  name: "sets-ui"
+  text: "sets-ui"
   tagline: My great project tagline
   actions:
     - theme: brand

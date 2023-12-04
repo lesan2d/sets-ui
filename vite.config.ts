@@ -12,10 +12,10 @@ export default defineConfig({
 		}),
 	],
 	build: {
-		outDir: 'dist',
+		outDir: 'sets-ui/dist',
 		lib: {
-			entry: path.resolve(__dirname, './packages/segment-ui/index.ts'), // 库编译入口文件
-			name: 'segment-ui',
+			entry: path.resolve(__dirname, './packages/sets-ui/index.ts'), // 库编译入口文件
+			name: 'sets-ui',
 			fileName: 'index',
 		},
 		rollupOptions: {

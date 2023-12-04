@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "segment-ui",
-  description: "segment-ui",
+  title: "sets-ui",
+  description: "sets-ui",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
