@@ -1,0 +1,44 @@
+@import './variables';
+@import './common';
+
+:root {
+	--theme-color: #{$global-theme-color};
+	--theme-color-light: #{$global-theme-color-light};
+
+	--color-text: #{$global-color-text};
+	--color-text-light: #{$global-color-text-light};
+	--color-text-lighter: #{$global-color-text-lighter};
+	--color-icon: #{$global-color-icon};
+	--color-icon-lightest: #{$global-color-icon-lightest};
+	--color-border: #{$global-color-border};
+	--color-bg: #{$global-color-bg};
+	--color-bg-light: #{$global-color-bg-light};
+	--color-bg-lighter: #{$global-color-bg-lighter};
+	--color-bg-lightest: #{$global-color-bg-lightest};
+	--color-disabled: #{$global-color-disabled};
+	--font-size-h1: #{$global-font-size-h1};
+	--font-size-h2: #{$global-font-size-h2};
+	--font-size-h3: #{$global-font-size-h3};
+	--font-size-h4: #{$global-font-size-h4};
+	--font-size-h5: #{$global-font-size-h5};
+	--font-size-h6: #{$global-font-size-h6};
+}
+
+* {
+	box-sizing: border-box;
+}
+
+// h标题
+@for $i from 1 through 6 {
+	h#{$i},
+	.h#{$i} {
+		margin: 0;
+		line-height: 1;
+		font-size: var(--font-size-h#{$i});
+	}
+}
+
+// icon
+i {
+	color: var(--color-icon);
+}

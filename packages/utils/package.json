@@ -1,0 +1,6 @@
+{
+  "name": "@packages/utils",
+  "private": true,
+  "license": "MIT",
+  "main": "index.ts"
+}

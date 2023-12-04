@@ -1,0 +1,6 @@
+{
+  "name": "@packages/segment-ui",
+  "private": true,
+  "license": "MIT",
+  "main": "index.ts"
+}
