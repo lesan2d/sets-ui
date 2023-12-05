@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import checker from 'vite-plugin-checker';
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
 	plugins: [
@@ -10,6 +11,7 @@ export default defineConfig({
 		checker({
 			typescript: true,
 		}),
+    dts(),
 	],
 	build: {
 		outDir: 'sets-ui/dist',

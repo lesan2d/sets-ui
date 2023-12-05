@@ -1,7 +1,7 @@
 {
 	"name": "sets-ui",
-	"version": "0.0.1",
-	"description": "sets-ui",
+	"version": "0.0.2",
+	"description": "sets-ui demo",
 	"main": "dist/index.js",
 	"exports": {
 		".": "./dist/index.js",

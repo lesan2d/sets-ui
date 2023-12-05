@@ -1,6 +1,7 @@
 {
-  "name": "@packages/sets-ui",
-  "private": true,
-  "license": "MIT",
-  "main": "index.ts"
+	"name": "@packages/sets-ui",
+	"private": true,
+	"license": "MIT",
+	"main": "./index.ts",
+	"types": "./index.d.ts"
 }
