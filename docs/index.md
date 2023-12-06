@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "sets-ui"
-  text: "sets-ui"
+  text: "sets-ui docs"
   tagline: My great project tagline
   actions:
     - theme: brand

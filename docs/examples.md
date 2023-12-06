@@ -1,7 +1,7 @@
 ---
-title: Grid
+title: examples
 ---
-# Demo
+# Examples
 
 ## GitHub 样式的表
 
@@ -88,7 +88,6 @@ export default {
 ```
 
 ## 导入代码片段
-<<< @/demo.vue
 
 ## 代码组
 ::: code-group
@@ -113,9 +112,6 @@ const config: UserConfig = {
 
 export default config
 ```
-
-<<< @/demo.vue
-
 :::
 
 # Markdown 文件导入
@@ -132,7 +128,6 @@ export default config
 <script setup>
 import { ref } from 'vue'
 import { useData } from 'vitepress'
-import Demo from './demo.vue'
 
 const { page } = useData()
 
