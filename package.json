@@ -17,10 +17,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "build": "tsc && vite build"
   },
   "workspaces": [
     "packages/*"
@@ -31,8 +28,7 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vite-plugin-checker": "^0.6.2",
-    "vite-plugin-dts": "^3.6.4",
-    "vitepress": "1.0.0-rc.31"
+    "vite-plugin-dts": "^3.6.4"
   },
   "dependencies": {
     "@packages/components": "workspace:*",

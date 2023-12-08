@@ -1,10 +1,11 @@
 {
   "scripts": {
-    "docs:dev": "vitepress dev",
+    "docs:dev": "vitepress dev --mode development",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },
   "dependencies": {
-    "markdown-it-container": "^4.0.0"
+    "markdown-it-container": "^4.0.0",
+    "vitepress": "1.0.0-rc.31"
   }
 }
