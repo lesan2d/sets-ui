@@ -5,6 +5,8 @@ import DefaultTheme from 'vitepress/theme';
 import './style.css';
 import SetsUi from '@packages/sets-ui';
 import GlobalComponents from './components';
+import Demos from '../../demos';
+
 
 export default {
 	extends: DefaultTheme,
@@ -16,5 +18,6 @@ export default {
 	enhanceApp({ app, router, siteData }) {
 		app.use(SetsUi);
 		app.use(GlobalComponents);
+		app.use(Demos);
 	},
 } satisfies Theme;

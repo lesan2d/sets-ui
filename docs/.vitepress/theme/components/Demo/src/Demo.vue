@@ -1,18 +1,24 @@
-<script setup>
+<script setup lang="ts">
 defineOptions({
   name: 'Demo',
 });
 
-const props = defineProps({
-  data: () => ({}),
+const props = withDefaults(defineProps<{
+  demoName?: string,
+}>(), {
+  demoName: '',
 });
-
-console.log(props.data);
-
 </script>
 
 <template>
-  <div class="demo">test demo</div>
+  <div class="demo">
+    <div class="demo-example">
+      <component :is="props.demoName"></component>
+    </div>
+    <div class="demo-code">
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <style scoped></style>
