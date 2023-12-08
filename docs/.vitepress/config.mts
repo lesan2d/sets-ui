@@ -6,6 +6,7 @@ import mdItContainer from 'markdown-it-container';
 export default defineConfig({
 	title: 'sets-ui',
 	description: 'sets-ui docs',
+  base: '/sets-ui/',
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
 		nav: [
