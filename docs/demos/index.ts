@@ -1,6 +1,8 @@
-import { GridBasic } from './grid';
+import { GridBasic } from './Grid';
+import { ButtonBasic } from './Button';
+import { PopupBasic } from './Popup';
 
-const demos = [GridBasic];
+const demos = [GridBasic, ButtonBasic, PopupBasic];
 
 const installer = (plugin: Array<any>) => {
 	return {
