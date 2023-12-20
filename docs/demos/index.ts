@@ -1,8 +1,9 @@
 import { GridBasic } from './Grid';
 import { ButtonBasic } from './Button';
+import { OverlayBasic } from './Overlay';
 import { PopupBasic } from './Popup';
 
-const demos = [GridBasic, ButtonBasic, PopupBasic];
+const demos = [GridBasic, ButtonBasic, OverlayBasic, PopupBasic];
 
 const installer = (plugin: Array<any>) => {
 	return {

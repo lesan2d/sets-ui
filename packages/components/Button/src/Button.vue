@@ -3,11 +3,13 @@ defineOptions({
   name: 'SButton',
 });
 
-const props = withDefaults(defineProps<{
+interface Props {
   type?: String,
-}>(), {
+}
+
+const props = withDefaults(defineProps<Props>(), {
   type: 'default',
-});
+})
 </script>
 
 <template>
@@ -16,7 +18,7 @@ const props = withDefaults(defineProps<{
   </button>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .s-button {
   display: inline-block;
   padding: 8px 14px;

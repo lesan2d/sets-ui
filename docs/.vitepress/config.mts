@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress';
 import mdItContainer from 'markdown-it-container';
 import type { ConfigEnv } from 'vite';
 import type { UserConfig } from 'vitepress';
+import components from '@packages/components';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig(({ mode }: ConfigEnv): UserConfig<any> => {
@@ -18,15 +19,19 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig<any> => {
 				{ text: '组件', link: '/component/grid' },
 			],
 
-			sidebar: [
-				{
-					text: 'Examples',
-					items: [
-						{ text: 'Markdown Examples', link: '/markdown-examples' },
-						{ text: 'Runtime API Examples', link: '/api-examples' },
-					],
-				},
-			],
+			sidebar: {
+				'/component/': [
+					{
+						text: '基础',
+						items: [
+							{ text: 'Grid', link: '/component/grid' },
+							{ text: 'Button', link: '/component/button' },
+							{ text: 'Overlay', link: '/component/overlay' },
+							{ text: 'Popup', link: '/component/popup' },
+						],
+					},
+				],
+			},
 
 			socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
 		},

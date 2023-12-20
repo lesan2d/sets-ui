@@ -22,8 +22,10 @@
 	--font-size-h4: #{$global-font-size-h4};
 	--font-size-h5: #{$global-font-size-h5};
 	--font-size-h6: #{$global-font-size-h6};
+  --z-index-top: #{$global-z-index-top};
 
 	--shadow-box: #{$global-shadow-box};
+	--radius-box: #{$global-radius-box};
 }
 
 * {
