@@ -2,18 +2,20 @@
 import { computed } from 'vue';
 import { SOverlay } from '@packages/components/Overlay';
 
-interface Props {
-  modelValue: Boolean,
-}
-
 defineOptions({
   name: 'SPopup',
 });
 
+interface Props {
+  modelValue: Boolean,
+  overlay?: Boolean,
+}
+
 const props = withDefaults(defineProps<Props>(), {
   modelValue: false,
+  overlay: true,
 });
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue']);
 
 const visible = computed({
   get() {
@@ -26,13 +28,18 @@ const visible = computed({
 </script>
 
 <template>
-  <s-overlay v-model="visible">
+  <s-overlay v-if="overlay" v-model="visible">
     <div class="s-popup">
       <div class="s-popup--content">
         <slot></slot>
       </div>
     </div>
   </s-overlay>
+  <div v-else class="s-popup">
+    <div class="s-popup--content">
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <style scoped>

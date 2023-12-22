@@ -22,10 +22,14 @@ const visible = computed({
     emit('update:modelValue', value)
   }
 });
+
+function handleClick() {
+  visible.value = false;
+};
 </script>
 
 <template>
-  <div v-if="visible" class="s-overlay">
+  <div v-if="visible" class="s-overlay" @click.self="handleClick">
     <slot></slot>
   </div>
 </template>
