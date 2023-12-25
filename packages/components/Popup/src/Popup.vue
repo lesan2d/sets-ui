@@ -35,7 +35,7 @@ const visible = computed({
       </div>
     </div>
   </s-overlay>
-  <div v-else class="s-popup">
+  <div v-else-if="visible" class="s-popup">
     <div class="s-popup--content">
       <slot></slot>
     </div>

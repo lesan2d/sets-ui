@@ -2,8 +2,8 @@ import { withInstall } from '@packages/utils';
 import ButtonBasicInstace from './ButtonBasic.vue';
 
 export const ButtonBasic = withInstall({
+  ...ButtonBasicInstace,
 	name: 'ButtonBasic',
-	...ButtonBasicInstace,
 });
 
-export default ButtonBasic;
+export default [ButtonBasic];

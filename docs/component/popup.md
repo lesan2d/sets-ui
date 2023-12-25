@@ -2,7 +2,7 @@
 title: Popup
 ---
 
-# Popup
+# Popup 弹出层
 
 ## 基础用法
 
@@ -10,4 +10,12 @@ title: Popup
 
 :::demo test
 <<< @/demos/popup/PopupBasic.vue
+:::
+
+## 隐藏遮罩
+
+将overlay设为false
+
+:::demo test
+<<< @/demos/popup/PopupOverlay.vue
 :::

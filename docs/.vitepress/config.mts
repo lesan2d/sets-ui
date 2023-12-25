@@ -24,10 +24,10 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig<any> => {
 					{
 						text: '基础',
 						items: [
-							{ text: 'Grid', link: '/component/grid' },
-							{ text: 'Button', link: '/component/button' },
-							{ text: 'Overlay', link: '/component/overlay' },
-							{ text: 'Popup', link: '/component/popup' },
+							{ text: 'Button 按钮', link: '/component/button' },
+							{ text: 'Grid 布局网格', link: '/component/grid' },
+							{ text: 'Overlay 遮罩层', link: '/component/overlay' },
+							{ text: 'Popup 弹出层', link: '/component/popup' },
 						],
 					},
 				],
