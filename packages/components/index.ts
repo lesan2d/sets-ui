@@ -8,5 +8,6 @@ import { SCell } from './Cell';
 import { SButton } from './Button';
 import { SOverlay } from './Overlay';
 import { SPopup } from './Popup';
+import { SDialog } from './Dialog';
 
-export default [SGrid, SCell, SButton, SOverlay, SPopup];
+export default [SGrid, SCell, SButton, SOverlay, SPopup, SDialog];

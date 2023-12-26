@@ -2,8 +2,9 @@ import GridDemos from './Grid';
 import ButtonDemos from './Button';
 import OverlayDemos from './Overlay';
 import PopupDemos from './Popup';
+import DialogDemos from './Dialog';
 
-const demos = [...GridDemos, ...ButtonDemos, ...OverlayDemos, ...PopupDemos];
+const demos = [...GridDemos, ...ButtonDemos, ...OverlayDemos, ...PopupDemos, ...DialogDemos];
 
 const installer = (plugin: Array<any>) => {
 	return {

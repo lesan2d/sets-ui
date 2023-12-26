@@ -28,6 +28,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig<any> => {
 							{ text: 'Grid 布局网格', link: '/component/grid' },
 							{ text: 'Overlay 遮罩层', link: '/component/overlay' },
 							{ text: 'Popup 弹出层', link: '/component/popup' },
+							{ text: 'Dialog 对话框', link: '/component/dialog' },
 						],
 					},
 				],

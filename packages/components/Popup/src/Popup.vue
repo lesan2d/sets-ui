@@ -4,11 +4,12 @@ import { SOverlay } from '@packages/components/Overlay';
 
 defineOptions({
   name: 'SPopup',
+  inheritAttrs: false,
 });
 
 interface Props {
-  modelValue: Boolean,
-  overlay?: Boolean,
+  modelValue: boolean
+  overlay?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -29,20 +30,16 @@ const visible = computed({
 
 <template>
   <s-overlay v-if="overlay" v-model="visible">
-    <div class="s-popup">
-      <div class="s-popup--content">
-        <slot></slot>
-      </div>
-    </div>
-  </s-overlay>
-  <div v-else-if="visible" class="s-popup">
-    <div class="s-popup--content">
+    <div class="s-popup" v-bind="$attrs">
       <slot></slot>
     </div>
+  </s-overlay>
+  <div v-else-if="visible" class="s-popup" v-bind="$attrs">
+    <slot></slot>
   </div>
 </template>
 
-<style scoped>
+<style>
 .s-popup {
   --s-popup-padding: 20px;
   --s-popup-z-index: 1;
