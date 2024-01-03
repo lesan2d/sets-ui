@@ -4,16 +4,19 @@ defineOptions({
 });
 
 interface Props {
-  type?: String,
+  type?: string,
+  size?: string,
 }
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'default',
 })
+
+const extendsClass = [props.type, props.size].reduce((accumulator, cur) => cur ? `${accumulator} s-button--${cur}` : accumulator);
 </script>
 
 <template>
-  <button class="s-button" :class="[`s-button--${props.type}`]">
+  <button class="s-button" :class="[extendsClass]">
     <slot></slot>
   </button>
 </template>
