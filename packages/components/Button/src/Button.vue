@@ -14,9 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'default',
 });
 
-console.log(genBEMClass('s-button', [props.type, props.size].filter((p) => Boolean(p)) as Array<string>)); 
-
-const extendsClass = [props.type, props.size].reduce((accumulator, cur) => cur ? `${accumulator}s-button--${cur} ` : accumulator, '');
+const extendsClass = genBEMClass('s-button', [props.type, props.size].filter((p) => Boolean(p)) as Array<string>);
 </script>
 
 <template>
@@ -54,6 +52,12 @@ const extendsClass = [props.type, props.size].reduce((accumulator, cur) => cur ?
   &--primary {
     background-color: var(--theme-color);
     color: #fff;
+  }
+
+  // 大小
+  &--small {
+    font-size: 12px;
+    padding: 5px 10px;
   }
 }
 </style>
