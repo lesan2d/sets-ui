@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { genBEMClass } from '@packages/utils';
+
 defineOptions({
   name: 'SButton',
 });
@@ -6,13 +8,15 @@ defineOptions({
 interface Props {
   type?: string,
   size?: string,
-}
+};
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'default',
-})
+});
 
-const extendsClass = [props.type, props.size].reduce((accumulator, cur) => cur ? `${accumulator} s-button--${cur}` : accumulator);
+console.log(genBEMClass('s-button', [props.type, props.size].filter((p) => Boolean(p)) as Array<string>)); 
+
+const extendsClass = [props.type, props.size].reduce((accumulator, cur) => cur ? `${accumulator}s-button--${cur} ` : accumulator, '');
 </script>
 
 <template>
