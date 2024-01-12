@@ -3,7 +3,6 @@ import { defineConfig } from 'vitepress';
 import mdItContainer from 'markdown-it-container';
 import type { ConfigEnv } from 'vite';
 import type { UserConfig } from 'vitepress';
-import components from '@packages/components';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig(({ mode }: ConfigEnv): UserConfig<any> => {
@@ -25,6 +24,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig<any> => {
 						text: '基础',
 						items: [
 							{ text: 'Button 按钮', link: '/component/button' },
+							{ text: 'Radio 单选框', link: '/component/radio' },
 							{ text: 'Grid 布局网格', link: '/component/grid' },
 							{ text: 'Overlay 遮罩层', link: '/component/overlay' },
 							{ text: 'Popup 弹出层', link: '/component/popup' },

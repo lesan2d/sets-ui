@@ -25,6 +25,7 @@ const extendsClass = genBEMClass('s-button', [props.type, props.size].filter((p)
 
 <style lang="scss">
 .s-button {
+  --space-button: 10px;
   display: inline-block;
   padding: 8px 14px;
   line-height: 1;
@@ -47,6 +48,10 @@ const extendsClass = genBEMClass('s-button', [props.type, props.size].filter((p)
   &:active {
     background-color: var(--theme-color);
     color: #fff;
+  }
+
+  +.s-button {
+    margin-left: var(--space-button, 10px);
   }
 
   &--primary {

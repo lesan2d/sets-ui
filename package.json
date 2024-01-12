@@ -32,9 +32,10 @@
   },
   "dependencies": {
     "@packages/components": "workspace:*",
+    "@packages/constants": "workspace:*",
     "@packages/sets-ui": "workspace:*",
     "@packages/styles": "workspace:*",
     "@packages/utils": "workspace:*",
-    "vue": "^3.3.9"
+    "vue": "^3.4.8"
   }
 }
