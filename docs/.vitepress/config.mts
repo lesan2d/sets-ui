@@ -8,6 +8,7 @@ export default defineConfig({
 	title: 'sets-ui',
 	description: 'sets-ui docs',
   srcDir: './',
+  outDir: '../dist',
 	base: '/sets/',
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
