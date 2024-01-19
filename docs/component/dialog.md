@@ -7,5 +7,5 @@ title: Dialog
 ## 基础用法
 
 :::demo test
-<<< @/demos/Dialog/DialogBasic.vue
+<<< ../demos/Dialog/DialogBasic.vue
 :::

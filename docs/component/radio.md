@@ -7,11 +7,11 @@ title: Radio
 ## 基础用法
 
 :::demo test
-<<< @/demos/Radio/RadioBasic.vue
+<<< ../demos/Radio/RadioBasic.vue
 :::
 
 ## 单选框组
 
 :::demo test
-<<< @/demos/Radio/RadioGroup.vue
+<<< ../demos/Radio/RadioGroup.vue
 :::
