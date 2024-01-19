@@ -9,5 +9,5 @@ title: Grid
 代码演示
 
 :::demo test
-<<< ../demos/grid/GridBasic.vue{1 vue}
+<<< @/demos/grid/GridBasic.vue{1 vue}
 :::

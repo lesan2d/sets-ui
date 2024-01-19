@@ -9,5 +9,5 @@ title: Button
 代码演示
 
 :::demo test
-<<< ../demos/Button/ButtonBasic.vue
+<<< @/demos/Button/ButtonBasic.vue
 :::

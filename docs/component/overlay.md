@@ -9,5 +9,5 @@ title: Overlay
 代码演示
 
 :::demo test
-<<< ../demos/overlay/OverlayBasic.vue
+<<< @/demos/overlay/OverlayBasic.vue
 :::
