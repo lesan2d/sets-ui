@@ -1,4 +1,12 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const value = ref('');
+</script>
+
 <template>
-  <s-radio :value="0">Option1</s-radio>
-  <s-radio :value="1">Option2</s-radio>
+  <s-radio v-model="value" value="Option">Radio</s-radio>
+  <p>value: {{ value }}</p>
+  <s-button size="small" @click="value = ''">cancel</s-button>
 </template>
+

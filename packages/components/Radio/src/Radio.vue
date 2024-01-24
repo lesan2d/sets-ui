@@ -11,8 +11,10 @@ interface SRadioProps {
 }
 const props = defineProps<SRadioProps>();
 
+// 当 model 与 props.value 相等时,Radio为选中状态
 const model = defineModel<string | number | boolean>({ default: '' });
 
+// 选中状态
 const picked = computed(() => {
   return model.value === props.value;
 });
@@ -27,7 +29,6 @@ function handleChange() {
 }
 
 watch(() => radioGroup.modelValue, (val) => {
-  console.log('radioGroupModel', val.value);
   model.value = val.value;
 }, {
   deep: true
@@ -35,9 +36,8 @@ watch(() => radioGroup.modelValue, (val) => {
 </script>
 
 <template>
-  <label class="s-radio">
-    <input type="radio" class="s-radio--input" v-model="model" :value="props.value" :class="{ 's-radio--picked': picked }"
-      @change="handleChange" />
+  <label class="s-radio" :class="{ 's-radio--picked': picked }">
+    <input type="radio" class="s-radio--input" v-model="model" :value="props.value" @change="handleChange" />
     <div class="s-radio--case"></div>
     <div class="s-radio--label">
       <slot></slot>
@@ -51,17 +51,25 @@ watch(() => radioGroup.modelValue, (val) => {
   cursor: pointer;
 
   &--input {
+    display: none;
 
     &:checked {
       &+.s-radio--case {
-        background-color: red;
+        background-color: var(--theme-color);
       }
     }
   }
 
   &--case {
+    display: inline-block;
     width: var(--s-radio-size);
     height: var(--s-radio-size);
+    border-radius: 50%;
+    border: 1px solid var(--color-icon);
+  }
+
+  &--label {
+    display: inline-block;
   }
 }
 </style>
