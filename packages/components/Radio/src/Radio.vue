@@ -55,21 +55,72 @@ watch(() => radioGroup.modelValue, (val) => {
 
     &:checked {
       &+.s-radio--case {
-        background-color: var(--theme-color);
+        &::after {
+          transform: translateY(-50%) scale(0.75);
+        }
       }
     }
   }
 
   &--case {
+    position: relative;
     display: inline-block;
     width: var(--s-radio-size);
     height: var(--s-radio-size);
     border-radius: 50%;
     border: 1px solid var(--color-icon);
+
+    &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: var(--theme-color);
+      transform-origin: 50% center;
+      transform: translateY(-50%) scale(0);
+      transition: transform 0.25s ease;
+    }
+
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #fff;
+      transform-origin: 50% center;
+      transform: translateY(-50%) scale(1);
+      transition: transform 0.4s ease;
+    }
   }
 
   &--label {
     display: inline-block;
+  }
+
+  &:hover {
+    .s-radio--case {
+      border-color: var(--theme-color);
+    }
+  }
+
+  &:active {
+    .s-radio--case {
+      background-color: var(--color-bg-light);
+
+      &::before {
+        transform: translateY(-50%) scale(0);
+      }
+    }
   }
 }
 </style>
