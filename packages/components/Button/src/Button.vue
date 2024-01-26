@@ -25,11 +25,13 @@ const extendsClass = genBEMClass('s-button', [props.type, props.size].filter((p)
 
 <style lang="scss">
 .s-button {
-  --space-button: 10px;
+  --s-button-font-size: 14px;
+  --s-button-padding: 8px 14px;
+  --s-button-series-gap: 10px;
   display: inline-block;
-  padding: 8px 14px;
+  padding: var(--s-button-padding);
   line-height: 1;
-  font-size: 14px;
+  font-size: var(--s-button-font-size);
   border: 1px solid;
   border-radius: 4px;
   box-sizing: border-box;
@@ -51,7 +53,7 @@ const extendsClass = genBEMClass('s-button', [props.type, props.size].filter((p)
   }
 
   +.s-button {
-    margin-left: var(--space-button, 10px);
+    margin-left: var(--s-button-series-gap, 10px);
   }
 
   &--primary {
@@ -61,8 +63,13 @@ const extendsClass = genBEMClass('s-button', [props.type, props.size].filter((p)
 
   // 大小
   &--small {
-    font-size: 12px;
-    padding: 5px 10px;
+    --s-button-font-size: 12px;
+    --s-button-padding: 5px 10px;
+  }
+
+  &--large {
+    --s-button-font-size: 14px;
+    --s-button-padding: 12px 18px;
   }
 }
 </style>

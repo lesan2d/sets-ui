@@ -55,7 +55,7 @@ const visible = computed({
   border-radius: var(--radius-box);
   box-shadow: var(--shadow-box);
   transform: translate(-50%, -50%);
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-lightest);
 
   &--center {
     left: 50%;

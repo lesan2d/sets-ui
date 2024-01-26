@@ -14,7 +14,7 @@ title: Popup
 
 ## 隐藏遮罩
 
-将overlay设为false
+将 `overlay` 设为 `false`
 
 :::demo test
 <<< @/demos/popup/PopupOverlay.vue
