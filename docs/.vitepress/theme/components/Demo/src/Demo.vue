@@ -21,4 +21,23 @@ const props = withDefaults(defineProps<{
   </div>
 </template>
 
-<style scoped></style>
+<style lang="scss">
+.demo {
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+
+  &-example {
+    padding: 10px 20px 15px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  div[class*='language-'] {
+    margin: 0;
+    border-radius: 0;
+  }
+}
+</style>

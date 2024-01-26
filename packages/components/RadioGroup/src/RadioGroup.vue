@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide } from 'vue';
+import { provide, watch } from 'vue';
 import { CONST_COMPONENT } from '@packages/constants';
 
 defineOptions({
@@ -15,6 +15,14 @@ const changeModel = (value: string | number | boolean) => {
 provide(CONST_COMPONENT.RADIO_GROUP_KEY, {
   modelValue: model,
   changeModel,
+});
+
+const emit = defineEmits<{
+  (e: 'change', value: typeof model.value): void
+}>();
+
+watch(model, (val) => {
+  emit('change', val);
 });
 </script>
 
