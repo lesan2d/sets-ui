@@ -18,22 +18,22 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-		"docs:dev": "vitepress dev docs",
-		"docs:build": "vitepress build docs",
-		"docs:preview": "vitepress preview docs"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.1",
+    "markdown-it-container": "^4.0.0",
     "sass": "^1.69.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vite-plugin-checker": "^0.6.2",
     "vite-plugin-dts": "^3.6.4",
-		"markdown-it-container": "^4.0.0",
-		"vitepress": "1.0.0-rc.31"
+    "vitepress": "1.0.0-rc.31"
   },
   "dependencies": {
     "@packages/components": "workspace:*",
@@ -41,6 +41,7 @@
     "@packages/sets-ui": "workspace:*",
     "@packages/styles": "workspace:*",
     "@packages/utils": "workspace:*",
+    "color": "^4.2.3",
     "vue": "^3.4.8"
   }
 }

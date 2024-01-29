@@ -6,7 +6,7 @@ title: Button
 
 ## 基础用法
 
-通过设置 `type` 定义不同的按钮样式
+通过 `type` 属性定义不同的按钮样式
 
 :::demo test
 <<< @/demos/Button/ButtonBasic.vue
@@ -19,4 +19,12 @@ title: Button
 
 :::demo test
 <<< @/demos/Button/ButtonSize.vue
+:::
+
+## 按钮颜色
+
+通过 `color` 设置按钮颜色
+
+:::demo test
+<<< @/demos/Button/ButtonColor.vue
 :::

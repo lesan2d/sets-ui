@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import Color from 'color';
+import { computed } from 'vue';
 import { genBEMClass } from '@packages/utils';
 
 defineOptions({
@@ -8,6 +10,7 @@ defineOptions({
 interface Props {
   type?: string,
   size?: string,
+  color?: string,
 };
 
 const props = withDefaults(defineProps<Props>(), {
@@ -15,19 +18,49 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const extendsClass = genBEMClass('s-button', [props.type, props.size].filter((p) => Boolean(p)) as Array<string>);
+
+const style = computed(() => {
+  const buttonColor = props.color;
+  let styles: {
+    [key: string]: string;
+  } = {};
+  if (buttonColor) {
+    let color = null;
+    try {
+      color = Color(props.color);
+    } catch (e) {
+      return styles;
+    }
+    Object.assign(styles, {
+      '--s-button-theme-color': color.string(),
+      '--s-button-theme-color-light': color.fade(0.5).string(),
+    });
+  }
+  return styles;
+});
 </script>
 
 <template>
-  <button class="s-button" :class="[extendsClass]">
+  <button class="s-button" :class="[extendsClass]" :style="style">
     <slot></slot>
   </button>
 </template>
 
 <style lang="scss">
 .s-button {
+  // 按钮尺寸
   --s-button-font-size: 14px;
   --s-button-padding: 8px 14px;
   --s-button-series-gap: 10px;
+  // 按钮颜色
+  --s-button-theme-color: var(--theme-color);
+  --s-button-theme-color-light: var(--theme-color-light);
+  --s-button-color-text: var(--color-text);
+  --s-button-color-text-hover: var(--s-button-theme-color);
+  --s-button-color-border: var(--color-border);
+  --s-button-color-border-hover: var(--s-button-theme-color);
+  --s-button-color-bg: var(---theme-color-light);
+  --s-button-color-bg-hover: var(--s-button-theme-color-light);
   display: inline-block;
   padding: var(--s-button-padding);
   line-height: 1;
@@ -36,19 +69,19 @@ const extendsClass = genBEMClass('s-button', [props.type, props.size].filter((p)
   border-radius: 4px;
   box-sizing: border-box;
   cursor: pointer;
-  background-color: var(--color-bg-light);
-  border-color: var(--color-border);
-  color: var(--color-text);
+  color: var(--s-button-color-text);
+  border-color: var(--s-button-color-border);
+  background-color: var(--s-button-color-bg);
   transition: 0.1s;
 
   &:hover {
-    background-color: var(--theme-color-light);
-    border-color: var(--theme-color);
-    color: var(--theme-color);
+    color: var(--s-button-color-text-hover);
+    border-color: var(--s-button-color-border-hover);
+    background-color: var(--s-button-color-bg-hover);
   }
 
   &:active {
-    background-color: var(--theme-color);
+    background-color: var(--s-button-theme-color);
     color: #fff;
   }
 
@@ -57,8 +90,9 @@ const extendsClass = genBEMClass('s-button', [props.type, props.size].filter((p)
   }
 
   &--primary {
-    background-color: var(--theme-color);
-    color: #fff;
+    --s-button-color-text: var(--color-text-lightest-reverse);
+    --s-button-color-border: var(--s-button-theme-color);
+    --s-button-color-bg: var(--s-button-theme-color);
   }
 
   // 大小

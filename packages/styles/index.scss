@@ -8,6 +8,11 @@
 	--color-text: #{$global-color-text};
 	--color-text-light: #{$global-color-text-light};
 	--color-text-lighter: #{$global-color-text-lighter};
+	--color-text-lightest: #{$global-color-text-lightest};
+	--color-text-reverse: #{$global-color-text-reverse};
+	--color-text-light-reverse: #{$global-color-text-light-reverse};
+	--color-text-lighter-reverse: #{$global-color-text-lighter-reverse};
+	--color-text-lightest-reverse: #{$global-color-text-lightest-reverse};
 	--color-icon: #{$global-color-icon};
 	--color-icon-lightest: #{$global-color-icon-lightest};
 	--color-border: #{$global-color-border};
@@ -22,7 +27,7 @@
 	--font-size-h4: #{$global-font-size-h4};
 	--font-size-h5: #{$global-font-size-h5};
 	--font-size-h6: #{$global-font-size-h6};
-  --z-index-top: #{$global-z-index-top};
+	--z-index-top: #{$global-z-index-top};
 
 	--shadow-box: #{$global-shadow-box};
 	--radius-box: #{$global-radius-box};
