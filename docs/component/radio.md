@@ -9,7 +9,7 @@ title: Radio
 Radio 选中值为其绑定的 `value` 属性，当 Radio `v-model` 的值与其 `value` 全等时，Radio 处于选中状态。
 
 ::: tip
-如果你忽略了 `value` 属性，Radio 则会根据[原生规则](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#value)默认分配 `'on'` 的提交值
+如果你忽略了 `value` 属性，Radio 则会根据 [W3C标准](https://html.spec.whatwg.org/multipage/input.html#radio-button-state-(type=radio)) 提交 `'on'` 的默认值
 
 :::
 

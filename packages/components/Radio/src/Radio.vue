@@ -134,7 +134,7 @@ function handleChange() {
       background-color: var(--color-bg-light);
 
       &::after {
-        transform: translateY(-50%) scale(0.15);
+        transform: translateY(-50%) scale(0.25);
       }
 
       &::before {

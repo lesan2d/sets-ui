@@ -15,7 +15,7 @@ title: Button
 
 ## 按钮大小
 
-预制了 `large` 和 `small` 两种值配置大小，可自行配置CSS变量使用
+预制了 `large` 和 `small` 两种值配置大小，可使用CSS变量自定义尺寸
 
 :::demo test
 <<< @/demos/Button/ButtonSize.vue
