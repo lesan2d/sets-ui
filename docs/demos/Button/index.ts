@@ -18,4 +18,4 @@ export const ButtonColor = withInstall({
 	name: 'ButtonColor',
 });
 
-export default [ButtonBasic, ButtonColor];
+export default [ButtonBasic, ButtonSize, ButtonColor];

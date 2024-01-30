@@ -42,7 +42,9 @@ const style = computed(() => {
 
 <template>
   <button class="s-button" :class="[extendsClass]" :style="style">
-    <slot></slot>
+    <div class="s-button--content">
+      <slot></slot>
+    </div>
   </button>
 </template>
 
@@ -61,6 +63,7 @@ const style = computed(() => {
   --s-button-color-border-hover: var(--s-button-theme-color);
   --s-button-color-bg: var(---theme-color-light);
   --s-button-color-bg-hover: var(--s-button-theme-color-light);
+  position: relative;
   display: inline-block;
   padding: var(--s-button-padding);
   line-height: 1;
@@ -71,28 +74,56 @@ const style = computed(() => {
   cursor: pointer;
   color: var(--s-button-color-text);
   border-color: var(--s-button-color-border);
-  background-color: var(--s-button-color-bg);
   transition: 0.1s;
 
-  &:hover {
-    color: var(--s-button-color-text-hover);
-    border-color: var(--s-button-color-border-hover);
-    background-color: var(--s-button-color-bg-hover);
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--s-button-color-bg);
+    transition: background-color .25s ease;
   }
 
-  &:active {
-    background-color: var(--s-button-theme-color);
-    color: #fff;
-  }
 
   +.s-button {
     margin-left: var(--s-button-series-gap, 10px);
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--s-button-color-text-hover);
+    border-color: var(--s-button-color-border-hover);
+
+    &::after {
+      background-color: var(--s-button-color-bg-hover);
+    }
   }
 
   &--primary {
     --s-button-color-text: var(--color-text-lightest-reverse);
     --s-button-color-border: var(--s-button-theme-color);
     --s-button-color-bg: var(--s-button-theme-color);
+
+    &:active,
+    &:focus {
+      color: #fff;
+
+      &::after {
+        background-color: var(--s-button-theme-color);
+      }
+    }
+
+    &:active {
+      &::after {
+        filter: saturate(0.6);
+      }
+    }
   }
 
   // 大小
