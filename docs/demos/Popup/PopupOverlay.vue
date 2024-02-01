@@ -7,6 +7,6 @@ const visible = ref<Boolean>(false);
 <template>
   <s-button @click="visible = true">打开</s-button>
   <s-popup v-model="visible" :overlay="false">
-    <p>测试内容</p>
+    <s-button text @click="visible = false">点击关闭</s-button>
   </s-popup>
 </template>
