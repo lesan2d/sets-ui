@@ -8,22 +8,31 @@ defineOptions({
 });
 
 interface Props {
-  type?: string,
-  size?: string,
-  color?: string,
+  type?: string;
+  size?: string;
+  color?: string;
+  text?: boolean;
+  bg?: boolean;
 };
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'default',
+  text: false,
+  bg: true,
 });
 
-const extendsClass = genBEMClass('s-button', [props.type, props.size].filter((p) => Boolean(p)) as Array<string>);
+const extendsClass = computed(() => genBEMClass('s-button', [props.type, props.size].filter((p) => Boolean(p)) as Array<string>));
+const atomicClass = computed(() => ({
+  'is-text': props.text,
+  'no-bg': !props.bg,
+}));
 
 const style = computed(() => {
-  const buttonColor = props.color;
   let styles: {
     [key: string]: string;
   } = {};
+
+  const buttonColor = props.color;
   if (buttonColor) {
     let color = null;
     try {
@@ -36,12 +45,13 @@ const style = computed(() => {
       '--s-button-theme-color-light': color.fade(0.5).string(),
     });
   }
+
   return styles;
 });
 </script>
 
 <template>
-  <button class="s-button" :class="[extendsClass]" :style="style">
+  <button class="s-button" :class="[...extendsClass, atomicClass]" :style="style">
     <div class="s-button--content">
       <slot></slot>
     </div>
@@ -50,19 +60,19 @@ const style = computed(() => {
 
 <style lang="scss">
 .s-button {
-  // 按钮尺寸
-  --s-button-font-size: 14px;
-  --s-button-padding: 8px 14px;
-  --s-button-series-gap: 10px;
   // 按钮颜色
-  --s-button-theme-color: var(--theme-color);
-  --s-button-theme-color-light: var(--theme-color-light);
+  --s-button-theme-color: var(--theme-color); // 原子变量
+  --s-button-theme-color-light: var(--theme-color-light); // 原子变量
   --s-button-color-text: var(--color-text);
   --s-button-color-text-hover: var(--s-button-theme-color);
   --s-button-color-border: var(--color-border);
   --s-button-color-border-hover: var(--s-button-theme-color);
   --s-button-color-bg: var(---theme-color-light);
   --s-button-color-bg-hover: var(--s-button-theme-color-light);
+  // 按钮尺寸
+  --s-button-font-size: 14px;
+  --s-button-padding: 8px 14px;
+  --s-button-series-gap: 10px;
   position: relative;
   display: inline-block;
   padding: var(--s-button-padding);
@@ -112,16 +122,19 @@ const style = computed(() => {
 
     &:active,
     &:focus {
-      color: #fff;
+      --s-button-color-text-hover: var(--color-text-lightest-reverse);
+      --s-button-color-bg-hover: var(--s-button-theme-color)
+    }
 
+    &:focus {
       &::after {
-        background-color: var(--s-button-theme-color);
+        filter: saturate(0.6);
       }
     }
 
     &:active {
       &::after {
-        filter: saturate(0.6);
+        filter: saturate(1);
       }
     }
   }
@@ -135,6 +148,28 @@ const style = computed(() => {
   &--large {
     --s-button-font-size: 14px;
     --s-button-padding: 12px 18px;
+  }
+
+  // 文本
+  &.is-text {
+    --s-button-color-border: transparent;
+    --s-button-color-border-hover: transparent;
+    --s-button-color-bg: transparent;
+
+    &.s-button--primary {
+      --s-button-color-text: var(--s-button-theme-color);
+    }
+  }
+
+  // 背景
+  &.no-bg {
+    --s-button-color-bg: transparent;
+    --s-button-color-bg-hover: transparent;
+    --s-button-color-text-hover: var(--s-button-theme-color);
+
+    &.s-button--primary {
+      --s-button-color-text: var(--s-button-theme-color);
+    }
   }
 }
 </style>

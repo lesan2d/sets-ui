@@ -14,7 +14,7 @@ export default defineConfig({
 		nav: [
 			{ text: 'Home', link: '/' },
 			{ text: 'Examples', link: '/markdown-examples' },
-			{ text: '组件', link: '/component/grid' },
+			{ text: '组件', link: '/component/button' },
 		],
 
 		sidebar: {

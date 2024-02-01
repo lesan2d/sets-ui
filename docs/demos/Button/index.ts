@@ -2,6 +2,7 @@ import { withInstall } from '@packages/utils';
 import ButtonBasicInstace from './ButtonBasic.vue';
 import ButtonSizeInstace from './ButtonSize.vue';
 import ButtonColorInstace from './ButtonColor.vue';
+import ButtonTextInstace from './ButtonText.vue';
 
 export const ButtonBasic = withInstall({
 	...ButtonBasicInstace,
@@ -18,4 +19,9 @@ export const ButtonColor = withInstall({
 	name: 'ButtonColor',
 });
 
-export default [ButtonBasic, ButtonSize, ButtonColor];
+export const ButtonText = withInstall({
+	...ButtonTextInstace,
+	name: 'ButtonText',
+});
+
+export default [ButtonBasic, ButtonSize, ButtonColor, ButtonText];
