@@ -1,17 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
+    "baseUrl": "./",
     "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
+      "esnext",
+      "dom",
+      "dom.iterable"
     ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "useDefineForClassFields": true,
     "skipLibCheck": true,
     /* Bundler mode */
-    "moduleResolution": "node",
     // "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -46,11 +48,7 @@
     "packages/**/*.ts",
     "packages/**/*.d.ts",
     "packages/**/*.tsx",
-    "packages/**/*.vue"
+    "packages/**/*.vue",
+    "vite.config.ts"
   ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
 }
