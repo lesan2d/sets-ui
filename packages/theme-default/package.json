@@ -1,0 +1,6 @@
+{
+  "name": "@packages/theme-default",
+  "private": true,
+  "license": "MIT",
+  "main": "index.js"
+}

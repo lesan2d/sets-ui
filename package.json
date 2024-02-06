@@ -1,48 +1,54 @@
 {
-  "name": "sets-ui",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "files": [
-    "dist",
-    "index.d.ts"
-  ],
-  "main": "./dist/index.umd.cjs",
-  "module": "./dist/index.js",
-  "types": "./index.d.ts",
-  "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/index.js",
-    "require": "./dist/index.umd.cjs"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
-  },
-  "workspaces": [
-    "packages/*"
-  ],
-  "devDependencies": {
-    "@types/color": "^3.0.6",
-    "@vitejs/plugin-vue": "^4.5.1",
-    "markdown-it-container": "^4.0.0",
-    "sass": "^1.69.5",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.0",
-    "vite-plugin-checker": "^0.6.2",
-    "vite-plugin-dts": "^3.6.4",
-    "vitepress": "1.0.0-rc.31"
-  },
-  "dependencies": {
-    "@packages/components": "workspace:*",
-    "@packages/constants": "workspace:*",
-    "@packages/sets-ui": "workspace:*",
-    "@packages/styles": "workspace:*",
-    "@packages/utils": "workspace:*",
-    "color": "^4.2.3",
-    "vue": "^3.4.8"
-  }
+	"name": "sets-ui",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"files": [
+		"dist",
+		"index.d.ts"
+	],
+	"main": "./dist/index.umd.cjs",
+	"module": "./dist/index.js",
+	"types": "./index.d.ts",
+	"exports": {
+		"types": "./index.d.ts",
+		"import": "./dist/index.js",
+		"require": "./dist/index.umd.cjs"
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"theme:build": "pnpm webpack --config ./scripts/build-theme/webpack.config.cjs",
+		"docs:dev": "vitepress dev docs",
+		"docs:build": "vitepress build docs",
+		"docs:preview": "vitepress preview docs"
+	},
+	"workspaces": [
+		"packages/*"
+	],
+	"devDependencies": {
+		"@types/color": "^3.0.6",
+		"@vitejs/plugin-vue": "^4.5.1",
+		"css-loader": "^6.10.0",
+		"css-minimizer-webpack-plugin": "^6.0.0",
+		"markdown-it-container": "^4.0.0",
+		"mini-css-extract-plugin": "^2.8.0",
+		"sass": "^1.69.5",
+		"typescript": "^5.2.2",
+		"vite": "^5.0.0",
+		"vite-plugin-checker": "^0.6.2",
+		"vite-plugin-dts": "^3.6.4",
+		"vitepress": "1.0.0-rc.31",
+		"webpack": "^5.90.1"
+	},
+	"dependencies": {
+		"@packages/components": "workspace:*",
+		"@packages/constants": "workspace:*",
+		"@packages/sets-ui": "workspace:*",
+		"@packages/theme-default": "workspace:*",
+		"@packages/styles": "workspace:*",
+		"@packages/utils": "workspace:*",
+		"color": "^4.2.3",
+		"vue": "^3.4.8"
+	}
 }
