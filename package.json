@@ -17,7 +17,7 @@
 	},
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc && vite build",
+		"build": "vite build",
 		"theme:build": "pnpm webpack --config ./scripts/build-theme/webpack.config.cjs",
 		"docs:dev": "vitepress dev docs",
 		"docs:build": "vitepress build docs",

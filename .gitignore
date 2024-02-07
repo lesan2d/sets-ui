@@ -8,11 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
-!/docs/.vitepress/dist
 dist-ssr
-*.local
+*/dist
+dist/src
 docs/.vitepress/cache
+!/docs/.vitepress/dist
+*.local
 
 # Editor directories and files
 .vscode/*

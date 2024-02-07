@@ -1,3 +1,18 @@
 .s-button {
-	color: red;
+	border-radius: 4px;
+	transition: 0.1s;
+
+	&--primary {
+		&:focus {
+			&::after {
+				filter: saturate(0.6);
+			}
+		}
+
+		&:active {
+			&::after {
+				filter: saturate(1);
+			}
+		}
+	}
 }

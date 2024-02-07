@@ -79,12 +79,10 @@ const style = computed(() => {
   line-height: 1;
   font-size: var(--s-button-font-size);
   border: 1px solid;
-  border-radius: 4px;
   box-sizing: border-box;
   cursor: pointer;
   color: var(--s-button-color-text);
   border-color: var(--s-button-color-border);
-  transition: 0.1s;
 
   &::after {
     content: '';
@@ -124,18 +122,6 @@ const style = computed(() => {
     &:focus {
       --s-button-color-text-hover: var(--color-text-lightest-reverse);
       --s-button-color-bg-hover: var(--s-button-theme-color)
-    }
-
-    &:focus {
-      &::after {
-        filter: saturate(0.6);
-      }
-    }
-
-    &:active {
-      &::after {
-        filter: saturate(1);
-      }
     }
   }
 

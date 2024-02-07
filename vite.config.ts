@@ -30,59 +30,51 @@ import dts from 'vite-plugin-dts';
 // 	};
 // }
 
-export default defineConfig((data) => {
-	console.log(data);
-	return {
-		envDir: './',
-		// publicDir: './packages/sets-ui/public',
-		plugins: [
-			// buildPlugin(),
-			vue(),
-			checker({
-				typescript: true,
-			}),
-			dts(),
-		],
-		build: {
-			outDir: 'sets-ui/dist',
-			sourcemap: true,
-			lib: {
-				// 库编译入口文件
-				entry: path.resolve(__dirname, './packages/sets-ui/index.ts'),
-				name: 'sets-ui',
-				fileName: 'index',
-				// formats: ['es'],
-			},
-			rollupOptions: {
-				external: ['vue'],
-				output: {
-					globals: {
-						vue: 'Vue',
-					},
-					// inlineDynamicImports: false,
-					// manualChunks(id: any) {
-					// 	console.log('manualChunks', id);
-					// 	if (id.includes('index.scss')) {
-					// 		// 需要单独分割那些资源 就写判断逻辑就行
-					// 		return 'style';
-					// 	}
-					// 	if (id.includes('default.module.scss')) {
-					// 		console.log('has default.module.scss ------------------------------------------------------------');
-					// 		// 需要单独分割那些资源 就写判断逻辑就行
-					// 		return 'theme';
-					// 	}
-					// 	if (id.includes('node_modules')) {
-					// 		return id.toString().split('node_modules/')[1].split('/')[0].toString();
-					// 	}
-					// },
+export default defineConfig({
+	envDir: './',
+	// publicDir: './packages/sets-ui/public',
+	plugins: [
+		// buildPlugin(),
+		vue(),
+		checker({
+			typescript: true,
+		}),
+		dts(),
+	],
+	build: {
+		outDir: 'dist/src',
+		sourcemap: true,
+		lib: {
+			// 库编译入口文件
+			entry: path.resolve(__dirname, './packages/sets-ui/index.ts'),
+			name: 'sets-ui',
+			fileName: 'index',
+			formats: ['es'],
+		},
+		rollupOptions: {
+			external: ['vue'],
+			output: {
+				globals: {
+					vue: 'Vue',
+				},
+				inlineDynamicImports: false,
+				manualChunks(id: string) {
+					if (id.includes('node_modules')) {
+						return 'vendor';
+					}
+					if (id.includes('.vue')) {
+						const regex = /\/([^/]+)\.vue$/;
+						const match = id.match(regex);
+						if (match) return `components/${match[1]}/index`;
+					}
 				},
 			},
 		},
-		resolve: {
-			alias: {
-				'@': fileURLToPath(new URL('./src', import.meta.url)),
-				'@packages': fileURLToPath(new URL('./packages', import.meta.url)),
-			},
+	},
+	resolve: {
+		alias: {
+			'@': fileURLToPath(new URL('./src', import.meta.url)),
+			'@packages': fileURLToPath(new URL('./packages', import.meta.url)),
 		},
-	};
+	},
 });
