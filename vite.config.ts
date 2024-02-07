@@ -1,5 +1,4 @@
 import path from 'path';
-import { readdirSync } from 'node:fs';
 // import type { Plugin } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
@@ -31,10 +30,8 @@ import dts from 'vite-plugin-dts';
 // 	};
 // }
 
-console.log('readdirSync', readdirSync(path.resolve(__dirname, './packages/components')));
-
 export default defineConfig((data) => {
-  console.log(data);
+	console.log(data);
 	return {
 		envDir: './',
 		// publicDir: './packages/sets-ui/public',

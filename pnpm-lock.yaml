@@ -20,6 +20,9 @@ importers:
       '@packages/styles':
         specifier: workspace:*
         version: link:packages/styles
+      '@packages/theme-default':
+        specifier: workspace:*
+        version: link:packages/theme-default
       '@packages/utils':
         specifier: workspace:*
         version: link:packages/utils
@@ -51,6 +54,9 @@ importers:
       sass:
         specifier: ^1.69.5
         version: 1.69.5
+      ts-loader:
+        specifier: ^9.5.1
+        version: 9.5.1(typescript@5.2.2)(webpack@5.90.1)
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
@@ -77,6 +83,8 @@ importers:
   packages/sets-ui: {}
 
   packages/styles: {}
+
+  packages/theme-default: {}
 
   packages/utils: {}
 
@@ -2918,6 +2926,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /source-map@0.7.4:
+    resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
+    engines: {node: '>= 8'}
+    dev: true
+
   /space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
     dev: true
@@ -3062,6 +3075,22 @@ packages:
 
   /trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
+    dev: true
+
+  /ts-loader@9.5.1(typescript@5.2.2)(webpack@5.90.1):
+    resolution: {integrity: sha512-rNH3sK9kGZcH9dYzC7CewQm4NtxJTjSEVRJ2DyBZR7f8/wcta+iV44UPCXc5+nzDzivKtlzV6c9P4e+oFhDLYg==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      typescript: '*'
+      webpack: ^5.0.0
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 5.15.0
+      micromatch: 4.0.5
+      semver: 7.5.4
+      source-map: 0.7.4
+      typescript: 5.2.2
+      webpack: 5.90.1
     dev: true
 
   /type-fest@0.21.3:

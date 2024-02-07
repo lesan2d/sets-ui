@@ -1,22 +1,45 @@
 const path = require('path');
+const fs = require('fs');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = () => {
 	return {
 		mode: 'production',
-		entry: path.resolve(__dirname, '../../packages/theme-default/index.js'),
+		entry: () => {
+			const entry = {
+				index: path.resolve(__dirname, '../../packages/theme-default'),
+			};
+			const componentsDir = path.resolve(__dirname, '../../packages/theme-default/src');
+			const componentsName = fs.readdirSync(componentsDir);
+			componentsName.forEach((name) => {
+				entry[name] = {
+					import: path.resolve(componentsDir, name),
+				};
+			});
+			return entry;
+		},
 		output: {
+			clean: true,
 			path: path.resolve(__dirname, '../../sets-ui/dist/theme'),
+			filename: (pathData) => {
+				return pathData.chunk.name === 'index' ? '[name].js' : '[name]/[name].js';
+			},
 		},
 		plugins: [
 			new MiniCssExtractPlugin({
-				filename: 'index.css',
-				chunkFilename: '[id].css',
+				filename: (pathData) => {
+					return pathData.chunk.name === 'index' ? '[name].css' : '[name]/[name].css';
+				},
 			}),
 		],
 		module: {
 			rules: [
+				{
+					test: /\.tsx?$/,
+					use: 'ts-loader',
+					exclude: /node_modules/,
+				},
 				{
 					test: /\.css$/i,
 					use: [MiniCssExtractPlugin.loader, 'css-loader'],
@@ -26,12 +49,14 @@ module.exports = () => {
 					use: [
 						{
 							loader: MiniCssExtractPlugin.loader,
-							options: {},
 						},
 						'css-loader',
 					],
 				},
 			],
+		},
+		resolve: {
+			extensions: ['.tsx', '.ts', '.js'],
 		},
 		optimization: {
 			minimize: true,
