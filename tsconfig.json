@@ -11,24 +11,26 @@
     "target": "esnext",
     "useDefineForClassFields": true,
     "skipLibCheck": true,
+    "types": [
+      "node",
+      "vite/client"
+    ],
     /* Bundler mode */
     // "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "jsxImportSource": "vue",
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "declaration": true, // 自动生成声明文件
-    "declarationDir": "dist", // 声明文件输出的目录
+    // "declaration": true, // 自动生成声明文件
+    // "declarationDir": "dist/src", // 声明文件输出的目录
     // "emitDeclarationOnly": true, // 只输出声明文件，不转译ts文件
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
       "@packages/*": [
         "./packages/*"
       ],
@@ -41,10 +43,7 @@
     },
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
+    "./global.d.ts",
     "packages/**/*.ts",
     "packages/**/*.d.ts",
     "packages/**/*.tsx",

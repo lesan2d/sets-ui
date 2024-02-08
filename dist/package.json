@@ -3,7 +3,7 @@
 	"version": "0.0.2",
 	"description": "sets-ui demo",
 	"main": "src/index.js",
-	"types": "index.d.ts",
+	"types": "./src/sets-ui/index.d.ts",
 	"exports": {
 		".": "./src/index.js",
 		"./style": "./src/style.css"

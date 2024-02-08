@@ -21,7 +21,7 @@ module.exports = () => {
 		},
 		output: {
 			clean: true,
-			path: path.resolve(__dirname, '../../sets-ui/dist/theme'),
+			path: path.resolve(__dirname, '../../dist/src/theme-default'),
 			filename: (pathData) => {
 				return pathData.chunk.name === 'index' ? '[name].js' : '[name]/[name].js';
 			},

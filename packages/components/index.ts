@@ -16,7 +16,4 @@ import { SOverlay } from './Overlay';
 import { SPopup } from './Popup';
 import { SDialog } from './Dialog';
 
-console.log(SRadioGroup);
-
-
 export default [SGrid, SCell, SButton, SRadio, SRadioGroup, SOverlay, SPopup, SDialog];
