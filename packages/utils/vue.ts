@@ -7,5 +7,5 @@ export function withInstall<T>(plugin: T) {
 	comp.install = (app: any): void => {
 		app.component(comp.name, plugin);
 	};
-	return plugin;
+	return plugin as SFCWithInstall<T>;
 }

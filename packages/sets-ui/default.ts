@@ -1,8 +1,9 @@
+import type { App, Plugin } from 'vue';
 import Components from '@packages/components';
 
-const installer = (plugin: Array<any>) => {
+const installer = (plugin: Plugin[]) => {
 	return {
-		install: (app: any) => {
+		install: (app: App) => {
 			plugin.forEach((i) => {
 				app.use(i);
 			});
