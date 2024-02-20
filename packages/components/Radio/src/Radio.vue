@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, inject, computed, watch } from 'vue';
-import { CONST_COMPONENT } from '@packages/constants';
+import { CONST_COMPONENT } from '@sets-ui/constants';
 
 defineOptions({
   name: 'SRadio',

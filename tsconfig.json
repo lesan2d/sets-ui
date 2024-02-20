@@ -31,12 +31,6 @@
     // "declarationDir": "dist/src", // 声明文件输出的目录
     // "emitDeclarationOnly": true, // 只输出声明文件，不转译ts文件
     "paths": {
-      "@packages/*": [
-        "./packages/*"
-      ],
-      "@slime-view/*": [
-        "./packages/*"
-      ],
       "#/*": [
         "./types/*"
       ],

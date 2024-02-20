@@ -1,5 +1,5 @@
 {
-  "name": "@packages/constants",
+  "name": "@sets-ui/constants",
   "private": true,
   "license": "MIT",
   "main": "index.ts"

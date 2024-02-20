@@ -71,9 +71,4 @@ export default defineConfig({
 			},
 		},
 	},
-	resolve: {
-		alias: {
-			'@packages': fileURLToPath(new URL('./packages', import.meta.url)),
-		},
-	},
 });

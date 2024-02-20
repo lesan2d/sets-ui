@@ -1,5 +1,5 @@
 {
-  "name": "@packages/theme-default",
+  "name": "@sets-ui/theme-default",
   "private": true,
   "license": "MIT",
   "main": "index.js"

@@ -2,12 +2,12 @@
 import { h } from 'vue';
 import type { Theme } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
-import SetsUi from '@packages/sets-ui';
+import SetsUi from 'sets-ui';
 import GlobalComponents from './components';
 import Demos from '../../demos';
 
 import './style.css';
-import '@packages/theme-default/index.scss';
+import '@sets-ui/theme-default/index.scss';
 
 export default {
 	extends: DefaultTheme,

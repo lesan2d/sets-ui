@@ -1,5 +1,5 @@
 import type { App, Plugin } from 'vue';
-import Components from '@packages/components';
+import Components from '@sets-ui/components';
 
 const installer = (plugin: Plugin[]) => {
 	return {

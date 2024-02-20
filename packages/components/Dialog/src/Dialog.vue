@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { SPopup } from '@packages/components/Popup';
-import { SButton } from '@packages/components/Button';
+import { SPopup } from '@sets-ui/components/Popup';
+import { SButton } from '@sets-ui/components/Button';
 
 defineOptions({
   name: 'SDialog',

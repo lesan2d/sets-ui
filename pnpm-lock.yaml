@@ -8,27 +8,27 @@ importers:
 
   .:
     dependencies:
-      '@packages/components':
-        specifier: workspace:*
-        version: link:packages/components
-      '@packages/constants':
-        specifier: workspace:*
-        version: link:packages/constants
-      '@packages/sets-ui':
-        specifier: workspace:*
-        version: link:packages/sets-ui
       '@packages/styles':
         specifier: workspace:*
         version: link:packages/styles
-      '@packages/theme-default':
-        specifier: workspace:*
-        version: link:packages/theme-default
       '@packages/utils':
         specifier: workspace:*
         version: link:packages/utils
+      '@sets-ui/components':
+        specifier: workspace:*
+        version: link:packages/components
+      '@sets-ui/constants':
+        specifier: workspace:*
+        version: link:packages/constants
+      '@sets-ui/theme-default':
+        specifier: workspace:*
+        version: link:packages/theme-default
       color:
         specifier: ^4.2.3
         version: 4.2.3
+      sets-ui:
+        specifier: workspace:*
+        version: link:packages/sets-ui
       vue:
         specifier: ^3.4.8
         version: 3.4.8(typescript@5.2.2)

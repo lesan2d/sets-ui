@@ -1,5 +1,5 @@
 {
-	"name": "@packages/sets-ui",
+	"name": "sets-ui",
 	"private": true,
 	"license": "MIT",
 	"main": "./index.ts",

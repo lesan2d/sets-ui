@@ -43,12 +43,12 @@
 		"webpack": "^5.90.1"
 	},
 	"dependencies": {
-		"@packages/components": "workspace:*",
-		"@packages/constants": "workspace:*",
-		"@packages/sets-ui": "workspace:*",
 		"@packages/styles": "workspace:*",
-		"@packages/theme-default": "workspace:*",
 		"@packages/utils": "workspace:*",
+		"@sets-ui/constants": "workspace:*",
+		"@sets-ui/components": "workspace:*",
+		"@sets-ui/theme-default": "workspace:*",
+		"sets-ui": "workspace:*",
 		"color": "^4.2.3",
 		"vue": "^3.4.8"
 	}
