@@ -74,7 +74,6 @@ const style = computed(() => {
   --s-button-padding: 8px 14px;
   --s-button-series-gap: 10px;
   position: relative;
-  display: inline-block;
   padding: var(--s-button-padding);
   line-height: 1;
   font-size: var(--s-button-font-size);
@@ -83,6 +82,10 @@ const style = computed(() => {
   cursor: pointer;
   color: var(--s-button-color-text);
   border-color: var(--s-button-color-border);
+
+  +.s-button {
+    margin-left: var(--s-button-series-gap, 10px);
+  }
 
   &::after {
     content: '';
@@ -94,23 +97,6 @@ const style = computed(() => {
     width: 100%;
     height: 100%;
     background-color: var(--s-button-color-bg);
-    transition: background-color .25s ease;
-  }
-
-
-  +.s-button {
-    margin-left: var(--s-button-series-gap, 10px);
-  }
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: var(--s-button-color-text-hover);
-    border-color: var(--s-button-color-border-hover);
-
-    &::after {
-      background-color: var(--s-button-color-bg-hover);
-    }
   }
 
   &--primary {
