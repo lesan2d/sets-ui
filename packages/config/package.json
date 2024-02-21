@@ -1,0 +1,6 @@
+{
+  "name": "@sets-ui/config",
+  "private": true,
+  "license": "MIT",
+  "main": "index.ts"
+}

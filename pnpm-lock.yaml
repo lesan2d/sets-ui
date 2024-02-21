@@ -17,6 +17,9 @@ importers:
       '@sets-ui/components':
         specifier: workspace:*
         version: link:packages/components
+      '@sets-ui/config':
+        specifier: workspace:*
+        version: link:packages/config
       '@sets-ui/constants':
         specifier: workspace:*
         version: link:packages/constants
@@ -77,6 +80,8 @@ importers:
         version: 5.90.1
 
   packages/components: {}
+
+  packages/config: {}
 
   packages/constants: {}
 

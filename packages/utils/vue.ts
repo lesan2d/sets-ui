@@ -4,7 +4,8 @@ export type SFCWithInstall<T> = T & Plugin;
 
 export function withInstall<T>(plugin: T) {
 	const comp = plugin as SFCWithInstall<T> & { name: string };
-	comp.install = (app: any): void => {
+	comp.install = (app: any, options: any): void => {
+		if (options && options.namespace) console.log(options.namespace);
 		app.component(comp.name, plugin);
 	};
 	return plugin as SFCWithInstall<T>;

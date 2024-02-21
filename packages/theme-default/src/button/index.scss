@@ -1,4 +1,4 @@
-.s-button {
+.s-button--theme_default {
 	display: inline-block;
 	border-radius: 4px;
 	transition: 0.1s;
@@ -18,16 +18,18 @@
 		}
 	}
 
-	&--primary {
-		&:focus {
-			&::after {
-				filter: saturate(0.6);
+	&.s-button {
+		&--primary {
+			&:focus {
+				&::after {
+					filter: saturate(0.6);
+				}
 			}
-		}
 
-		&:active {
-			&::after {
-				filter: saturate(1);
+			&:active {
+				&::after {
+					filter: saturate(1);
+				}
 			}
 		}
 	}

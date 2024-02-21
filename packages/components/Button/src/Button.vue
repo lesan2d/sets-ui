@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Color from 'color';
 import { computed } from 'vue';
+import { useTheme } from '@sets-ui/config';
 import { genBEMClass } from '@packages/utils';
 
 defineOptions({
@@ -21,7 +22,9 @@ const props = withDefaults(defineProps<Props>(), {
   bg: true,
 });
 
-const extendsClass = computed(() => genBEMClass('s-button', [props.type, props.size].filter((p) => Boolean(p)) as Array<string>));
+const { name: themeName } = useTheme();
+
+const extendsClass = computed(() => genBEMClass('s-button', [props.type, props.size, ...themeName].filter((p) => Boolean(p)) as Array<string>));
 const atomicClass = computed(() => ({
   'is-text': props.text,
   'no-bg': !props.bg,

@@ -46,6 +46,7 @@
 		"@packages/styles": "workspace:*",
 		"@packages/utils": "workspace:*",
 		"@sets-ui/constants": "workspace:*",
+		"@sets-ui/config": "workspace:*",
 		"@sets-ui/components": "workspace:*",
 		"@sets-ui/theme-default": "workspace:*",
 		"sets-ui": "workspace:*",
