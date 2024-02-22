@@ -3,7 +3,7 @@ import { provide, watch } from 'vue';
 import { CONST_COMPONENT } from '@sets-ui/constants';
 
 defineOptions({
-  name: 'SRadioGroup',
+  name: 'RadioGroup',
 });
 
 const model = defineModel<string | number | boolean>({ default: '' });

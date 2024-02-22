@@ -5,7 +5,7 @@ import { useTheme } from '@sets-ui/config';
 import { genBEMClass } from '@packages/utils';
 
 defineOptions({
-  name: 'SButton',
+  name: 'Button',
 });
 
 interface Props {

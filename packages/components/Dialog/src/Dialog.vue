@@ -4,7 +4,7 @@ import { SPopup } from '@sets-ui/components/Popup';
 import { SButton } from '@sets-ui/components/Button';
 
 defineOptions({
-  name: 'SDialog',
+  name: 'Dialog',
 });
 
 interface Props {

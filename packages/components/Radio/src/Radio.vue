@@ -3,7 +3,7 @@ import { ref, inject, computed, watch } from 'vue';
 import { CONST_COMPONENT } from '@sets-ui/constants';
 
 defineOptions({
-  name: 'SRadio',
+  name: 'Radio',
 });
 
 interface SRadioProps {

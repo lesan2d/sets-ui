@@ -4,7 +4,7 @@ import { genBEMClass } from '@packages/utils';
 import { SOverlay } from '@sets-ui/components/Overlay';
 
 defineOptions({
-  name: 'SPopup',
+  name: 'Popup',
   inheritAttrs: false,
 });
 

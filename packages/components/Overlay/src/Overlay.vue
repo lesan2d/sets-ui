@@ -6,7 +6,7 @@ interface Props {
 }
 
 defineOptions({
-  name: 'SOverlay',
+  name: 'Overlay',
 });
 
 const props = withDefaults(defineProps<Props>(), {

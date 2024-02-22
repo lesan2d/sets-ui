@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'SCell',
+  name: 'Cell',
 })
 </script>
 

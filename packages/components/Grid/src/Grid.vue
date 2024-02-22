@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 
 defineOptions({
-  name: 'SGrid',
+  name: 'Grid',
 });
 
 const props = withDefaults(defineProps<{
