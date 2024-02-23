@@ -1,6 +1,6 @@
 <template>
   <div>
-    <spanp>基础用法：</spanp>
+    <span>基础用法：</span>
     <s-button text>基础按钮</s-button>
     <s-button type="primary" text>主要按钮</s-button>
   </div>

@@ -85,9 +85,15 @@ const style = computed(() => {
   cursor: pointer;
   color: var(--s-button-color-text);
   border-color: var(--s-button-color-border);
+  overflow: hidden;
 
   +.s-button {
     margin-left: var(--s-button-series-gap, 10px);
+  }
+
+  &--content {
+    position: relative;
+    z-index: 1;
   }
 
   &::after {
@@ -95,7 +101,7 @@ const style = computed(() => {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: 0;
     display: block;
     width: 100%;
     height: 100%;
