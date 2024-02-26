@@ -1,0 +1,68 @@
+.s-popup--theme_default {
+	border-radius: var(--radius-box);
+	box-shadow: var(--shadow-box);
+
+	&.ttb,
+	&.rtl,
+	&.btt,
+	&.ltr {
+		animation-duration: 0.5s;
+		animation-fill-mode: forwards;
+	}
+
+	@keyframes popup-animation-ttb {
+		0% {
+			transform: translate(-50%, -100%);
+		}
+
+		100% {
+			transform: translate(-50%, 0%);
+		}
+	}
+
+	&.ttb {
+		animation-name: popup-animation-ttb;
+	}
+
+	@keyframes popup-animation-rtl {
+		0% {
+			transform: translate(100%, 0%);
+		}
+
+		100% {
+			transform: translate(0%, 0%);
+		}
+	}
+
+	&.rtl {
+		animation-name: popup-animation-rtl;
+	}
+
+	@keyframes popup-animation-btt {
+		0% {
+			transform: translate(-50%, 100%);
+		}
+
+		100% {
+			transform: translate(-50%, 0%);
+		}
+	}
+
+	&.btt {
+		animation-name: popup-animation-btt;
+	}
+
+	@keyframes popup-animation-ltr {
+		0% {
+			transform: translate(-100%, 0%);
+		}
+
+		100% {
+			transform: translate(0%, 0%);
+		}
+	}
+
+	&.ltr {
+		animation-name: popup-animation-ltr;
+	}
+}

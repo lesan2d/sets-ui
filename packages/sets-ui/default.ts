@@ -11,17 +11,15 @@ type InstallOptions = {
 
 const installer = (plugin: Plugin[]) => {
 	return {
-		install: (
-			app: App,
-			options: InstallOptions = {
-				namespace: 'S',
-			},
-		) => {
-			const { namespace, theme } = options;
+		install: (app: App, options: InstallOptions = {}) => {
+			const { namespace = 'S', theme } = options;
 			if (namespace) configNamespace(namespace, app);
 			if (theme) configTheme(theme, app);
 			plugin.forEach((comp) => {
-				app.use(comp, options);
+				app.use(comp, {
+          namespace,
+					...options,
+				});
 			});
 		},
 	};

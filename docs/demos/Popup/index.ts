@@ -1,15 +1,21 @@
 import { withInstall } from '@packages/utils';
 import PopupBasicInstace from './PopupBasic.vue';
 import PopupOverlayInstace from './PopupOverlay.vue';
+import PopupDirectionInstace from './PopupDirection.vue';
 
 export const PopupBasic = withInstall({
-  ...PopupBasicInstace,
+	...PopupBasicInstace,
 	name: 'PopupBasic',
 });
 
 export const PopupOverlay = withInstall({
-  ...PopupOverlayInstace,
+	...PopupOverlayInstace,
 	name: 'PopupOverlay',
 });
 
-export default [PopupBasic, PopupOverlay];
+export const PopupDirection = withInstall({
+	...PopupDirectionInstace,
+	name: 'PopupDirection',
+});
+
+export default [PopupBasic, PopupOverlay, PopupDirection];
