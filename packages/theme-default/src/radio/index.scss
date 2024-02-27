@@ -1,0 +1,35 @@
+.s-radio--theme_default {
+	.s-radio {
+		@at-root {
+			#{&}--case {
+				&::after {
+					transition: transform 0.25s ease;
+				}
+
+				&::before {
+					transition: transform 0.25s ease;
+				}
+			}
+		}
+	}
+
+	&:hover {
+		.s-radio--case {
+			border-color: var(--theme-color);
+		}
+	}
+
+	&:active {
+		.s-radio--case {
+			background-color: var(--color-bg-light);
+
+			&::after {
+				transform: translateY(-50%) scale(0.25);
+			}
+
+			&::before {
+				transform: translateY(-50%) scale(0);
+			}
+		}
+	}
+}

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, inject, computed, watch } from 'vue';
 import { CONST_COMPONENT } from '@sets-ui/constants';
+import { genBEMClass } from '@packages/utils';
+import { useTheme } from '@sets-ui/config';
 
 defineOptions({
   name: 'Radio',
@@ -13,6 +15,8 @@ const props = withDefaults(defineProps<SRadioProps>(), {
   value: 'on',
 });
 
+const { name: themeName } = useTheme();
+
 // 当 model 与 props.value 相等时,Radio为选中状态
 const model = defineModel<string | number | boolean>({ default: '' });
 
@@ -20,6 +24,8 @@ const model = defineModel<string | number | boolean>({ default: '' });
 const picked = computed(() => {
   return model.value === props.value;
 });
+
+const extendsClass = genBEMClass('s-radio', [...themeName].filter((p) => Boolean(p)) as Array<string>);
 
 
 const radioGroup = inject(CONST_COMPONENT.RADIO_GROUP_KEY, () => ({
@@ -46,7 +52,7 @@ function handleChange() {
 </script>
 
 <template>
-  <label class="s-radio" :class="{ 's-radio--picked': picked }">
+  <label class="s-radio" :class="[extendsClass, { 's-radio--picked': picked }]">
     <input type="radio" class="s-radio--input" v-model="model" :value="props.value" @change="handleChange" />
     <div class="s-radio--case"></div>
     <div class="s-radio--label">
@@ -99,7 +105,6 @@ function handleChange() {
       background-color: var(--theme-color);
       transform-origin: 50% center;
       transform: translateY(-50%) scale(0);
-      transition: transform 0.25s ease;
     }
 
     &::before {
@@ -115,32 +120,11 @@ function handleChange() {
       background-color: #fff;
       transform-origin: 50% center;
       transform: translateY(-50%) scale(1);
-      transition: transform 0.25s ease;
     }
   }
 
   +.s-radio {
     margin-left: var(--s-radio-series-gap);
-  }
-
-  &:hover {
-    .s-radio--case {
-      border-color: var(--theme-color);
-    }
-  }
-
-  &:active {
-    .s-radio--case {
-      background-color: var(--color-bg-light);
-
-      &::after {
-        transform: translateY(-50%) scale(0.25);
-      }
-
-      &::before {
-        transform: translateY(-50%) scale(0);
-      }
-    }
   }
 }
 </style>
