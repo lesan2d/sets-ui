@@ -1,12 +1,13 @@
 {
 	"name": "sets-ui",
-	"version": "0.0.3",
+	"version": "0.0.6",
 	"description": "sets-ui demo",
 	"main": "src/index.js",
 	"types": "./src/sets-ui/index.d.ts",
 	"exports": {
 		".": "./src/index.js",
-		"./style": "./src/style.css"
+		"./style": "./src/style.css",
+		"./theme-default": "./src/theme-default/index.css"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"

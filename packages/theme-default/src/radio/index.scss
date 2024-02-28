@@ -1,7 +1,7 @@
 .s-radio--theme_default {
 	.s-radio {
 		@at-root {
-			#{&}--case {
+			&--case {
 				&::after {
 					transition: transform 0.25s ease;
 				}

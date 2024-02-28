@@ -7,7 +7,7 @@ import { useTheme } from '@sets-ui/config';
 
 defineOptions({
   name: 'Popup',
-  inheritAttrs: false,
+  inheritAttrs: false, // 禁用 Attributes 继承
 });
 
 interface Props {
@@ -39,7 +39,7 @@ const visible = computed({
 </script>
 
 <template>
-  <s-overlay v-if="overlay" v-model="visible">
+  <s-overlay v-if="props.overlay" v-model="visible">
     <div class="s-popup" :class="[extendsClass, props.direction]" v-bind="$attrs">
       <slot></slot>
     </div>

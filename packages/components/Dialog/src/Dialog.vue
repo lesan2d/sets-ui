@@ -9,13 +9,11 @@ defineOptions({
 
 interface Props {
   modelValue: boolean
-  overlay?: boolean
   title?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: false,
-  overlay: true,
 });
 const emit = defineEmits(['update:modelValue', 'cancel', 'confirm']);
 
