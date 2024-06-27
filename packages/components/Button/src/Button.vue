@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Color from 'color';
-import { computed } from 'vue';
+import { inject, computed } from 'vue';
+import { CONST_CONFIG } from '@sets-ui/constants';
 import { useTheme } from '@sets-ui/config';
 import { genBEMClass } from '@packages/utils';
 
@@ -15,6 +16,9 @@ interface Props {
   text?: boolean;
   bg?: boolean;
 };
+
+// TODO 应用namespace
+// const namespace = inject(CONST_CONFIG.NAMESPACE);
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'default',
