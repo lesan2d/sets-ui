@@ -36,7 +36,9 @@ title: Button
 <<< @/demos/Button/ButtonText.vue
 :::
 
-## 样式变量
+## Button API
+
+### Button CSS
 
 | 名称                         |    说明    |                   默认值 |
 | ---------------------------- | :--------: | -----------------------: |
