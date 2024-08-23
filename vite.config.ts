@@ -41,6 +41,12 @@ export default defineConfig({
 		}),
 		dts(),
 	],
+	resolve: {
+		alias: {
+			'@packages': path.resolve(__dirname, './packages'),
+			'@sets-ui': path.resolve(__dirname, './packages'),
+		},
+	},
 	build: {
 		outDir: 'dist/src',
 		sourcemap: true,
