@@ -76,7 +76,7 @@ function handleClose() {
   display: grid;
   padding: var(--s-popup-padding);
   transform: translate(-50%, -50%);
-  background-color: var(--color-bg-lightest);
+  background-color: var(--base-color-lighter);
 
   &.ttb {
     width: 100%;

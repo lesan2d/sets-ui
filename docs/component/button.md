@@ -38,9 +38,24 @@ title: Button
 
 ## API
 
+### Button Attributes
+
+| 名称  |                说明                |    类型 | 默认值              |
+| ----- | :--------------------------------: | ------: | ------------------- |
+| type  |              样式类型              |    enum | 'default'/'primary' |
+| size  |              按钮大小              |    enum | 'small'/'large'     |
+| color | 自定义按钮颜色, 自动计算按钮辅助色 |  string | -                   |
+| text  |           是否为文字按钮           | boolean | false               |
+| bg    |           是否显示背景色           | boolean | true                |
+
 ### Button CSS
 
-| 名称                         |    说明    |                   默认值 |
-| ---------------------------- | :--------: | -----------------------: |
-| --s-button-theme-color       | 按钮主题色 |       var(--theme-color) |
-| --s-button-theme-color-light | 按钮辅助色 | var(--theme-color-light) |
+| 名称                         |     说明     |                   默认值 |
+| ---------------------------- | :----------: | -----------------------: |
+| --s-button-theme-color       |  按钮主题色  |       var(--theme-color) |
+| --s-button-theme-color-light |  按钮辅助色  | var(--theme-color-light) |
+| --s-button-color-text        |  按钮字体色  |        var(--color-text) |
+| --s-button-color-bg          | 按钮默认背景 |  var(--base-color-light) |
+| --s-button-font-size         |   字体大小   |                     14px |
+| --s-button-padding           |    内边距    |                 8px 14px |
+| --s-button-series-gap        |  按钮间边距  |                     10px |

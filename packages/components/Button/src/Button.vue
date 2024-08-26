@@ -72,9 +72,7 @@ const style = computed(() => {
   --s-button-theme-color-light: var(--theme-color-light); // 原子变量
   --s-button-color-text: var(--color-text);
   --s-button-color-text-hover: var(--s-button-theme-color);
-  --s-button-color-border: var(--color-border);
-  --s-button-color-border-hover: var(--s-button-theme-color);
-  --s-button-color-bg: var(---theme-color-light);
+  --s-button-color-bg: var(--base-color-light);
   --s-button-color-bg-hover: var(--s-button-theme-color-light);
   // 按钮尺寸
   --s-button-font-size: 14px;
@@ -84,11 +82,9 @@ const style = computed(() => {
   padding: var(--s-button-padding);
   line-height: 1;
   font-size: var(--s-button-font-size);
-  border: 1px solid;
   box-sizing: border-box;
   cursor: pointer;
   color: var(--s-button-color-text);
-  border-color: var(--s-button-color-border);
   overflow: hidden;
 
   +.s-button {
@@ -112,14 +108,14 @@ const style = computed(() => {
     background-color: var(--s-button-color-bg);
   }
 
+  // 类型
   &--primary {
-    --s-button-color-text: var(--color-text-lightest-reverse);
-    --s-button-color-border: var(--s-button-theme-color);
+    --s-button-color-text: var(--color-text-inverse);
     --s-button-color-bg: var(--s-button-theme-color);
 
     &:active,
     &:focus {
-      --s-button-color-text-hover: var(--color-text-lightest-reverse);
+      --s-button-color-text-hover: var(--color-text-inverse);
       --s-button-color-bg-hover: var(--s-button-theme-color)
     }
   }
@@ -137,8 +133,6 @@ const style = computed(() => {
 
   // 文本
   &.is-text {
-    --s-button-color-border: transparent;
-    --s-button-color-border-hover: transparent;
     --s-button-color-bg: transparent;
 
     &.s-button--primary {

@@ -4,23 +4,13 @@
 :root {
 	--theme-color: #{$global-theme-color};
 	--theme-color-light: #{$global-theme-color-light};
+	--base-color: #{$global-base-color};
+	--base-color-light: #{$global-base-color-light};
+	--base-color-lighter: #{$global-base-color-lighter};
+	--base-color-inverse: #{$global-base-color-inverse};
+	--base-color-light-inverse: #{$global-base-color-light-inverse};
+	--base-color-lighter-inverse: #{$global-base-color-lighter-inverse};
 
-	--color-text: #{$global-color-text};
-	--color-text-light: #{$global-color-text-light};
-	--color-text-lighter: #{$global-color-text-lighter};
-	--color-text-lightest: #{$global-color-text-lightest};
-	--color-text-reverse: #{$global-color-text-reverse};
-	--color-text-light-reverse: #{$global-color-text-light-reverse};
-	--color-text-lighter-reverse: #{$global-color-text-lighter-reverse};
-	--color-text-lightest-reverse: #{$global-color-text-lightest-reverse};
-	--color-icon: #{$global-color-icon};
-	--color-icon-lightest: #{$global-color-icon-lightest};
-	--color-border: #{$global-color-border};
-	--color-bg: #{$global-color-bg};
-	--color-bg-light: #{$global-color-bg-light};
-	--color-bg-lighter: #{$global-color-bg-lighter};
-	--color-bg-lightest: #{$global-color-bg-lightest};
-	--color-disabled: #{$global-color-disabled};
 	--font-size-h1: #{$global-font-size-h1};
 	--font-size-h2: #{$global-font-size-h2};
 	--font-size-h3: #{$global-font-size-h3};
@@ -28,9 +18,14 @@
 	--font-size-h5: #{$global-font-size-h5};
 	--font-size-h6: #{$global-font-size-h6};
 	--z-index-top: #{$global-z-index-top};
+}
 
-	--shadow-box: #{$global-shadow-box};
-	--radius-box: #{$global-radius-box};
+:root {
+	--color-text: var(--base-color-inverse);
+	--color-text-inverse: var(--base-color-lighter);
+	--color-icon: var(--base-color-light-inverse);
+	--color-border: var(--base-color);
+	--color-bg: var(--base-color-light);
 }
 
 * {

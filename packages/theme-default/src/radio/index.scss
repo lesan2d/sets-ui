@@ -21,7 +21,7 @@
 
 	&:active {
 		.s-radio--case {
-			background-color: var(--color-bg-light);
+			background-color: var(--base-color-light);
 
 			&::after {
 				transform: translateY(-50%) scale(0.25);

@@ -1,6 +1,6 @@
 .s-popup--theme_default {
-	border-radius: var(--radius-box);
-	box-shadow: var(--shadow-box);
+	border-radius: 4px;
+	box-shadow: 0 0 10px 2px var(--base-color-lighter-inverse);
 
 	&.ttb,
 	&.rtl,
