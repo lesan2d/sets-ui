@@ -10,10 +10,12 @@ defineOptions({
 interface Props {
   modelValue: boolean;
   title?: string;
+  showFooter?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: false,
+  showFooter: true,
 });
 
 const emit = defineEmits(['update:modelValue', 'cancel', 'confirm']);
@@ -48,7 +50,7 @@ function handleConfirm() {
     <div class="s-dialog--body">
       <slot></slot>
     </div>
-    <div class="s-dialog--footer">
+    <div v-if="showFooter" class="s-dialog--footer">
       <slot name="footer">
         <s-button size="small" @click="handleCancel">取消</s-button>
         <s-button type="primary" size="small" @click="handleConfirm">确定</s-button>

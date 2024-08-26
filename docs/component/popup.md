@@ -32,15 +32,16 @@ title: Popup
 
 ### Popup Attributes
 
-| 名称             |       说明       |    类型 | 默认值 |
-| ---------------- | :--------------: | ------: | ------ |
-| overlay          |  是否显示遮罩层  | boolean | true   |
-| destroy-on-close |  关闭时销毁元素  | boolean | false  |
-| show-close        | 是否显示关闭按钮 | boolean | false  |
-| direction        |     弹出方向     |    enum | ''     |
+| 名称                   |       说明       |    类型 | 默认值 |
+| ---------------------- | :--------------: | ------: | ------ |
+| overlay                |  是否显示遮罩层  | boolean | true   |
+| destroy-on-close       |  关闭时销毁元素  | boolean | false  |
+| show-close             | 是否显示关闭按钮 | boolean | false  |
+| direction              |     弹出方向     |    enum | ''     |
+| close-on-click-overlay |  点击遮罩时关闭  | boolean | true   |
 
 ### Popup Events
 
-| 名称    |     说明     |     类型 |
-| ------- | :----------: | -------: |
+| 名称  |      说明      |     类型 |
+| ----- | :------------: | -------: |
 | close | 弹出层关闭回调 | Function |

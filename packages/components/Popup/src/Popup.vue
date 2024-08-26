@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { DirectionType } from '#/component';
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import { useTheme } from '@sets-ui/config';
 import { genBEMClass } from '@packages/utils';
 import { SOverlay } from '@sets-ui/components/Overlay';
@@ -17,6 +17,7 @@ interface Props {
   showClose?: boolean;
   destroyOnClose?: boolean;
   direction?: DirectionType;
+  closeOnClickOverlay?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -25,6 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
   destroyOnClose: false,
   showClose: false,
   direction: '',
+  closeOnClickOverlay: true,
 });
 
 const { name: themeName } = useTheme();
@@ -42,14 +44,19 @@ const visible = computed({
   },
 });
 
+watch(visible, (value) => {
+  if (!value) {
+    emit('close');
+  }
+});
+
 function handleClose() {
   visible.value = false;
-  emit('close');
 }
 </script>
 
 <template>
-  <s-overlay v-if="props.overlay" v-model="visible" :destroy-on-close="props.destroyOnClose" />
+  <s-overlay v-if="props.overlay" v-model="visible" :destroy-on-close="props.destroyOnClose" :close-on-click-overlay="props.closeOnClickOverlay" />
   <template v-if="props.destroyOnClose">
     <div v-if="visible" class="s-popup" :class="[extendsClass, props.direction]" v-bind="$attrs">
       <SButton v-if="props.showClose" text :bg="false" class="btn-close" @click="handleClose">

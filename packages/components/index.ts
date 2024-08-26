@@ -16,6 +16,8 @@ import { SOverlay } from './Overlay';
 import { SPopup } from './Popup';
 import { SDialog } from './Dialog';
 
+import './Icon';
+
 import type { Plugin } from 'vue';
 
 export default [SGrid, SCell, SButton, SRadio, SRadioGroup, SOverlay, SPopup, SDialog] as Plugin[];

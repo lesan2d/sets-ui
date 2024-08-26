@@ -6,7 +6,7 @@ const visible = ref<Boolean>(false);
 
 <template>
   <s-button @click="visible = true">打开</s-button>
-  <s-dialog v-model="visible" show-close>
+  <s-dialog v-model="visible" show-close :close-on-click-overlay="false">
     <template #header>
       <h4>自定义头部</h4>
     </template>

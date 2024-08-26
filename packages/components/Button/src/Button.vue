@@ -143,6 +143,7 @@ const style = computed(() => {
 
   // 背景
   &.no-bg {
+    background-color: transparent;
     --s-button-color-bg: transparent;
     --s-button-color-bg-hover: transparent;
     --s-button-color-text-hover: var(--s-button-theme-color);
