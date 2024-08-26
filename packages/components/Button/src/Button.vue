@@ -134,6 +134,7 @@ const style = computed(() => {
 
   // 文本
   &.is-text {
+    background-color: transparent;
     --s-button-color-bg: transparent;
 
     &.s-button--primary {
