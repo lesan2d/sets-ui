@@ -12,7 +12,7 @@ title: Grid
 <<< @/demos/grid/GridBasic.vue{1 vue}
 :::
 
-## Grid API
+## API
 
 ### Grid Attributes
 

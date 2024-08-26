@@ -12,7 +12,7 @@ title: Overlay
 <<< @/demos/overlay/OverlayBasic.vue
 :::
 
-## Overlay API
+## API
 
 ### Overlay Attributes
 

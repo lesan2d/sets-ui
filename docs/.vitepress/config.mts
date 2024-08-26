@@ -45,9 +45,9 @@ export default defineConfig({
 				{
 					text: '反馈',
 					items: [
-						{ text: 'Dialog 对话框', link: '/component/dialog' },
-						{ text: 'Overlay 遮罩层', link: '/component/overlay' },
+            { text: 'Overlay 遮罩层', link: '/component/overlay' },
 						{ text: 'Popup 弹出层', link: '/component/popup' },
+						{ text: 'Dialog 对话框', link: '/component/dialog' },
 					],
 				},
 			],

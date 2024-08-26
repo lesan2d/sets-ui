@@ -36,7 +36,7 @@ title: Button
 <<< @/demos/Button/ButtonText.vue
 :::
 
-## Button API
+## API
 
 ### Button CSS
 
