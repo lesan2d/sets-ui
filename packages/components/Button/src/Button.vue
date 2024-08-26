@@ -80,6 +80,7 @@ const style = computed(() => {
   --s-button-series-gap: 10px;
   position: relative;
   padding: var(--s-button-padding);
+  border: none;
   line-height: 1;
   font-size: var(--s-button-font-size);
   box-sizing: border-box;

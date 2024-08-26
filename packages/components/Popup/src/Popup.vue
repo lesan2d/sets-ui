@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import type { DirectionType } from '#/component';
 import { computed } from 'vue';
+import { useTheme } from '@sets-ui/config';
 import { genBEMClass } from '@packages/utils';
 import { SOverlay } from '@sets-ui/components/Overlay';
-import { useTheme } from '@sets-ui/config';
+import { SButton } from '@sets-ui/components/Button';
 
 defineOptions({
   name: 'Popup',
@@ -51,16 +52,16 @@ function handleClose() {
   <s-overlay v-if="props.overlay" v-model="visible" :destroy-on-close="props.destroyOnClose" />
   <template v-if="props.destroyOnClose">
     <div v-if="visible" class="s-popup" :class="[extendsClass, props.direction]" v-bind="$attrs">
-      <s-button v-if="props.showClose" text :bg="false" class="btn-close" @click="handleClose">
+      <SButton v-if="props.showClose" text :bg="false" class="btn-close" @click="handleClose">
         <i class="s-icon s-icon--close"></i>
-      </s-button>
+      </SButton>
       <slot></slot>
     </div>
   </template>
   <div v-else v-show="visible" class="s-popup" :class="[extendsClass, props.direction]" v-bind="$attrs">
-    <s-button v-if="props.showClose" text :bg="false" class="btn-close" @click="handleClose">
+    <SButton v-if="props.showClose" text :bg="false" class="btn-close" @click="handleClose">
       <i class="s-icon s-icon--close"></i>
-    </s-button>
+    </SButton>
     <slot></slot>
   </div>
 </template>
