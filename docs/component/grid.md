@@ -16,7 +16,9 @@ title: Grid
 
 ### Grid Attributes
 
-| 名称             |               说明                |   类型 | 默认值            |
-| ---------------- | :-------------------------------: | -----: | ----------------- |
-| template-columns | 同 CSS 属性 grid-template-columns | string | "repeat(24, 1fr)" |
-| template-rows    |  同 CSS 属性 grid-template-rows   | string | ''                |
+| 名称             |               说明                |                           类型 | 默认值            |
+| ---------------- | :-------------------------------: | -----------------------------: | ----------------- |
+| template-columns | 同 CSS 属性 grid-template-columns | Array[string]\| number\|string | 'repeat(24, 1fr)' |
+| template-rows    |  同 CSS 属性 grid-template-rows   | Array[string]\| number\|string | ''                |
+| gap              |       同 CSS 属性 grid-gap        | Array[string]\| number\|string | 0                 |
+

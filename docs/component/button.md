@@ -42,8 +42,8 @@ title: Button
 
 | 名称  |                说明                |    类型 | 默认值              |
 | ----- | :--------------------------------: | ------: | ------------------- |
-| type  |              样式类型              |    enum | 'default'/'primary' |
-| size  |              按钮大小              |    enum | 'small'/'large'     |
+| type  |              样式类型              |    enum | 'default'\|'primary' |
+| size  |              按钮大小              |    enum | 'small'\|'large'     |
 | color | 自定义按钮颜色, 自动计算按钮辅助色 |  string | -                   |
 | text  |           是否为文字按钮           | boolean | false               |
 | bg    |           是否显示背景色           | boolean | true                |
