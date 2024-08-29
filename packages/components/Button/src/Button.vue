@@ -15,6 +15,8 @@ interface Props {
   color?: string;
   text?: boolean;
   bg?: boolean;
+  round?: boolean;
+  circle?: boolean;
 };
 
 // TODO 应用namespace
@@ -24,6 +26,8 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'default',
   text: false,
   bg: true,
+  round: false,
+  circle: false,
 });
 
 const { name: themeName } = useTheme();
@@ -32,6 +36,8 @@ const extendsClass = computed(() => genBEMClass('s-button', [props.type, props.s
 const atomicClass = computed(() => ({
   'is-text': props.text,
   'no-bg': !props.bg,
+  'is-round': props.round,
+  'is-circle': props.circle,
 }));
 
 const style = computed(() => {
@@ -75,9 +81,11 @@ const style = computed(() => {
   --s-button-color-bg: var(--base-color-light);
   --s-button-color-bg-hover: var(--s-button-theme-color-light);
   // 按钮尺寸
+  --s-button-size: 30px;
   --s-button-font-size: 14px;
   --s-button-padding: 8px 14px;
   --s-button-series-gap: 10px;
+  --s-button-round: 20px;
   position: relative;
   padding: var(--s-button-padding);
   border: none;
@@ -121,13 +129,28 @@ const style = computed(() => {
     }
   }
 
+  // 椭圆
+  &.is-round {
+    border-radius: var(--s-button-round);
+  }
+
+  // 圆型
+  &.is-circle {
+    width: var(--s-button-size);
+    height: var(--s-button-size);
+    padding: 0;
+    border-radius: 50%;
+  }
+
   // 大小
   &--small {
+    --s-button-size: 22px;
     --s-button-font-size: 12px;
     --s-button-padding: 5px 10px;
   }
 
   &--large {
+    --s-button-size: 38px;
     --s-button-font-size: 14px;
     --s-button-padding: 12px 18px;
   }

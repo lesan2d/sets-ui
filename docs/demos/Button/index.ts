@@ -3,6 +3,7 @@ import ButtonBasicInstace from './ButtonBasic.vue';
 import ButtonSizeInstace from './ButtonSize.vue';
 import ButtonColorInstace from './ButtonColor.vue';
 import ButtonTextInstace from './ButtonText.vue';
+import ButtonShapeInstace from './ButtonShape.vue';
 
 export const ButtonBasic = withInstall({
 	...ButtonBasicInstace,
@@ -24,4 +25,9 @@ export const ButtonText = withInstall({
 	name: 'ButtonText',
 });
 
-export default [ButtonBasic, ButtonSize, ButtonColor, ButtonText];
+export const ButtonShape = withInstall({
+	...ButtonShapeInstace,
+	name: 'ButtonShape',
+});
+
+export default [ButtonBasic, ButtonSize, ButtonColor, ButtonText, ButtonShape];

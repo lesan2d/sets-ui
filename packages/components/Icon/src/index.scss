@@ -1,9 +1,9 @@
 i.s-icon {
+  display: inline-block;
 	color: inherit;
 	--width-border: 1px;
 	&--close {
 		position: relative;
-		display: block;
 		height: var(--font-size-h6);
 		width: var(--font-size-h6);
 		&::before {
