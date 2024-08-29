@@ -20,3 +20,9 @@ title: Overlay
 | ---------------------- | :------------: | ------: | ------ |
 | destroy-on-close       | 关闭时销毁元素 | boolean | false  |
 | close-on-click-overlay | 点击遮罩时关闭 | boolean | true   |
+
+### Overlay CSS
+
+| 名称              |  说明  | 默认值 |
+| ----------------- | :----: | -----: |
+| --opacity-overlay | 透明度 |    0.5 |

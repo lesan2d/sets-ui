@@ -56,17 +56,18 @@ function handleClose() {
 </script>
 
 <template>
-  <s-overlay v-if="props.overlay" v-model="visible" :destroy-on-close="props.destroyOnClose" :close-on-click-overlay="props.closeOnClickOverlay" />
+  <s-overlay v-if="props.overlay" v-model="visible" :destroy-on-close="props.destroyOnClose"
+    :close-on-click-overlay="props.closeOnClickOverlay" />
   <template v-if="props.destroyOnClose">
     <div v-if="visible" class="s-popup" :class="[extendsClass, props.direction]" v-bind="$attrs">
-      <SButton v-if="props.showClose" text :bg="false" class="btn-close" @click="handleClose">
+      <SButton v-if="props.showClose" text circle class="btn-close" @click="handleClose">
         <i class="s-icon s-icon--close"></i>
       </SButton>
       <slot></slot>
     </div>
   </template>
   <div v-else v-show="visible" class="s-popup" :class="[extendsClass, props.direction]" v-bind="$attrs">
-    <SButton v-if="props.showClose" text :bg="false" class="btn-close" @click="handleClose">
+    <SButton v-if="props.showClose" text circle class="btn-close" @click="handleClose">
       <i class="s-icon s-icon--close"></i>
     </SButton>
     <slot></slot>
@@ -117,8 +118,8 @@ function handleClose() {
 
   .btn-close {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 4px;
+    right: 4px;
     z-index: 1;
   }
 }

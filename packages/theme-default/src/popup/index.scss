@@ -1,68 +1,42 @@
 .s-popup--theme_default {
 	border-radius: 4px;
-	box-shadow: 0 0 10px 2px var(--base-color-lighter-inverse);
+	animation-name: fade-in-center;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		display: block;
+		width: 100%;
+		height: 100%;
+		box-shadow: 0 0 10px 2px var(--base-color-lighter-inverse);
+		opacity: 0.3;
+	}
 
 	&.ttb,
 	&.rtl,
 	&.btt,
 	&.ltr {
 		animation-duration: 0.5s;
-		animation-fill-mode: forwards;
-	}
-
-	@keyframes popup-animation-ttb {
-		0% {
-			transform: translate(-50%, -100%);
-		}
-
-		100% {
-			transform: translate(-50%, 0%);
-		}
 	}
 
 	&.ttb {
-		animation-name: popup-animation-ttb;
-	}
-
-	@keyframes popup-animation-rtl {
-		0% {
-			transform: translate(100%, 0%);
-		}
-
-		100% {
-			transform: translate(0%, 0%);
-		}
+		animation-name: ttb-center;
 	}
 
 	&.rtl {
-		animation-name: popup-animation-rtl;
-	}
-
-	@keyframes popup-animation-btt {
-		0% {
-			transform: translate(-50%, 100%);
-		}
-
-		100% {
-			transform: translate(-50%, 0%);
-		}
+		animation-name: rtl;
 	}
 
 	&.btt {
-		animation-name: popup-animation-btt;
-	}
-
-	@keyframes popup-animation-ltr {
-		0% {
-			transform: translate(-100%, 0%);
-		}
-
-		100% {
-			transform: translate(0%, 0%);
-		}
+		animation-name: btt-center;
 	}
 
 	&.ltr {
-		animation-name: popup-animation-ltr;
+		animation-name: ltr;
 	}
 }

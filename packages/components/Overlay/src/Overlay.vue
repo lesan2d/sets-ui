@@ -45,7 +45,7 @@ function handleClick() {
 
 <style scoped>
 .s-overlay {
-  --opacity-overlay: 0.7;
+  --opacity-overlay: 0.5;
   position: fixed;
   left: 0;
   top: 0;

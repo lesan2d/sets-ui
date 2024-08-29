@@ -11,9 +11,8 @@
   </div>
   <div>
     <span>文本按钮：</span>
-    <s-button text>基础按钮</s-button>
     <span style="font-size:14px;">
-      通过CSS变量去除间距让<s-button type="primary" text :bg="false" style="--s-button-padding: 0;">按钮</s-button>看起来更像文本
+      通过CSS变量去除间距让<s-button text :bg="false" style="--s-button-padding: 0;text-decoration-line: underline;">按钮</s-button>看起来更接近文本
     </span>
   </div>
 </template>

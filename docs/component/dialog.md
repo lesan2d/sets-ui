@@ -43,3 +43,15 @@ Dialog 基于 Popup 开发，通过 [透传 Attributes](https://cn.vuejs.org/gui
 | ------- | :----------: | -------: |
 | confirm | 弹窗提交回调 | Function |
 | cancel  | 弹窗关闭回调 | Function |
+
+### Dialog CSS
+
+| 名称                      |      说明      |              默认值 |
+| ------------------------- | :------------: | ------------------: |
+| --s-dialog-width          |      宽度      |                 30% |
+| --s-dialog-padding-header |   头部内边距   |                10px |
+| --s-dialog-padding-body   |   内容内边距   |                15px |
+| --s-dialog-padding-footer |   底部内边距   |                10px |
+| --s-dialog-border-width   | 区域间隔线宽度 |                 1px |
+| --s-dialog-border-style   | 区域间隔线样式 |               solid |
+| --s-dialog-border-color   | 区域间隔线颜色 | var(--color-border) |

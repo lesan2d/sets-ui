@@ -52,8 +52,10 @@ function handleConfirm() {
     </div>
     <div v-if="showFooter" class="s-dialog--footer">
       <slot name="footer">
-        <s-button size="small" @click="handleCancel">取消</s-button>
-        <s-button type="primary" size="small" @click="handleConfirm">确定</s-button>
+        <div class="s-dialog--footer_action">
+          <s-button size="small" @click="handleCancel">取消</s-button>
+          <s-button type="primary" size="small" @click="handleConfirm">确定</s-button>
+        </div>
       </slot>
     </div>
   </s-popup>
@@ -63,9 +65,9 @@ function handleConfirm() {
 .s-dialog {
   --s-popup-padding: 0;
   --s-dialog-width: 30%;
-  --s-dialog-padding-header: 8px;
+  --s-dialog-padding-header: 10px;
   --s-dialog-padding-body: 15px;
-  --s-dialog-padding-footer: 8px;
+  --s-dialog-padding-footer: 10px;
   --s-dialog-border-width: 1px;
   --s-dialog-border-style: solid;
   --s-dialog-border-color: var(--color-border);
@@ -89,8 +91,9 @@ function handleConfirm() {
 
   &--footer {
     padding: var(--s-dialog-padding-footer);
-    border-top: var(--s-dialog-border-width) var(--s-dialog-border-style) var(--s-dialog-border-color);
-    text-align: right;
+    &_action {
+      text-align: right;
+    }
   }
 }
 </style>
