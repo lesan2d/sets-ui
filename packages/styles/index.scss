@@ -10,13 +10,16 @@
 	--base-color-inverse: #{$global-base-color-inverse};
 	--base-color-light-inverse: #{$global-base-color-light-inverse};
 	--base-color-lighter-inverse: #{$global-base-color-lighter-inverse};
+  --color-danger: #{$global-color-danger};
 
-	--font-size-h1: #{$global-font-size-h1};
-	--font-size-h2: #{$global-font-size-h2};
-	--font-size-h3: #{$global-font-size-h3};
-	--font-size-h4: #{$global-font-size-h4};
-	--font-size-h5: #{$global-font-size-h5};
-	--font-size-h6: #{$global-font-size-h6};
+	--base-font-size: #{$global-base-font-size};
+	--base-font-size-small: #{$global-base-font-size};
+	--font-size-h1: calc(var(--base-font-size) * 2.5);
+	--font-size-h2: calc(var(--base-font-size) * 2);
+	--font-size-h3: calc(var(--base-font-size) * 1.75);
+	--font-size-h4: calc(var(--base-font-size) * 1.5);
+	--font-size-h5: calc(var(--base-font-size) * 1.25);
+	--font-size-h6: calc(var(--base-font-size) * 1);
 	--z-index-top: #{$global-z-index-top};
 }
 
