@@ -1,5 +1,5 @@
 i.s-icon {
-  display: inline-block;
+	display: inline-block;
 	color: inherit;
 	--width-border: 1px;
 	&--close {
@@ -17,7 +17,7 @@ i.s-icon {
 			border-bottom-width: var(--width-border);
 			border-bottom-style: solid;
 			border-color: inherit;
-			transition: all 0.25s;
+			transition: border-color 0.25s ease-in-out;
 			transform: translateY(-50%) rotate(45deg);
 		}
 		&::after {
@@ -31,8 +31,14 @@ i.s-icon {
 			border-bottom-width: var(--width-border);
 			border-bottom-style: solid;
 			border-color: inherit;
-			transition: all 0.25s;
+			transition: border-color 0.25s ease-in-out;
 			transform: translateY(-50%) rotate(-45deg);
 		}
+	}
+	&.circle {
+		border-width: var(--width-border);
+		border-style: solid;
+		border-radius: 100%;
+		transition: border-color 0.25s ease-in-out;
 	}
 }

@@ -37,8 +37,9 @@ export default defineConfig({
 				{
 					text: '基础',
 					items: [
-						{ text: 'Button 按钮', link: '/component/button' },
 						{ text: 'Grid 布局网格', link: '/component/grid' },
+						{ text: 'Button 按钮', link: '/component/button' },
+						{ text: 'Input 输入框', link: '/component/input' },
 						{ text: 'Radio 单选框', link: '/component/radio' },
 					],
 				},
