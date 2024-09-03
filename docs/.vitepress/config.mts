@@ -77,13 +77,14 @@ export default defineConfig({
 						// const m = containerToken.info.trim().match(/^demo\s*(.*)$/);
 						// // 标题描述
 						// const description = md.utils.escapeHtml(m[1]);
-						// const sourceFileToken = tokens[idx + 1];
+						const sourceFileToken = tokens[idx + 1];
 
 						// const sourceFile = sourceFileToken.children?.[0].content ?? '';
 						// let source = '';
-						// const sourceSrc = sourceFileToken.src && sourceFileToken.src.length > 0 ? sourceFileToken.src[0] : '';
+						const sourceSrc = sourceFileToken.src && sourceFileToken.src.length > 0 ? sourceFileToken.src[0] : '';
 						// if (!sourceSrc) throw new Error(`Incorrect source file: ${sourceFile}`);
 						// source = fs.readFileSync(sourceSrc, 'utf-8');
+            console.log(sourceSrc);
 
 						let vueComponentName = 'ButtonBasic';
 						// 文件类型为.vue
