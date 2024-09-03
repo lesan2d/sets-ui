@@ -65,57 +65,57 @@ export default defineConfig({
 			detailsLabel: '详细信息',
 		},
 		config: (md) => {
-			md.use(mdItContainer, 'demo', {
-				validate(params) {
-					return !!params.trim().match(/^demo\s*(.*)$/);
-				},
+			// md.use(mdItContainer, 'demo', {
+			// 	validate(params) {
+			// 		return !!params.trim().match(/^demo\s*(.*)$/);
+			// 	},
 
-				render(tokens, idx) {
-					const containerToken = tokens[idx];
+			// 	render(tokens, idx) {
+			// 		const containerToken = tokens[idx];
 
-					if (containerToken.nesting === 1 /* is an opening tag */) {
-						const m = containerToken.info.trim().match(/^demo\s*(.*)$/);
-						// 标题描述
-						const description = md.utils.escapeHtml(m[1]);
-						const sourceFileToken = tokens[idx + 1];
+			// 		if (containerToken.nesting === 1 /* is an opening tag */) {
+			// 			const m = containerToken.info.trim().match(/^demo\s*(.*)$/);
+			// 			// 标题描述
+			// 			const description = md.utils.escapeHtml(m[1]);
+			// 			const sourceFileToken = tokens[idx + 1];
 
-						const sourceFile = sourceFileToken.children?.[0].content ?? '';
-						let source = '';
-						const sourceSrc = sourceFileToken.src && sourceFileToken.src.length > 0 ? sourceFileToken.src[0] : '';
-						if (!sourceSrc) throw new Error(`Incorrect source file: ${sourceFile}`);
-						source = fs.readFileSync(sourceSrc, 'utf-8');
+			// 			const sourceFile = sourceFileToken.children?.[0].content ?? '';
+			// 			let source = '';
+			// 			const sourceSrc = sourceFileToken.src && sourceFileToken.src.length > 0 ? sourceFileToken.src[0] : '';
+			// 			if (!sourceSrc) throw new Error(`Incorrect source file: ${sourceFile}`);
+			// 			source = fs.readFileSync(sourceSrc, 'utf-8');
 
-						let vueComponentName = '';
-						// 文件类型为.vue
-						if (/\.vue/.test(sourceSrc)) {
-							// 自动读取文件内 defineOptions 定义的组件名
-							const startIndex = source.indexOf('defineOptions');
-							const endIndex = source.indexOf('});');
-							// vue define options
-							const vueDefineOptions = source.substring(startIndex, endIndex);
-							const m1 = vueDefineOptions.match(/name:\s*[\'\"]([a-zA-Z]+)[\'\"]/);
-							// define options name value
-							const vueDefineOptionsName = m1 ? m1[1] : '';
-							vueComponentName = vueDefineOptionsName;
+			// 			let vueComponentName = '';
+			// 			// 文件类型为.vue
+			// 			if (/\.vue/.test(sourceSrc)) {
+			// 				// 自动读取文件内 defineOptions 定义的组件名
+			// 				const startIndex = source.indexOf('defineOptions');
+			// 				const endIndex = source.indexOf('});');
+			// 				// vue define options
+			// 				const vueDefineOptions = source.substring(startIndex, endIndex);
+			// 				const m1 = vueDefineOptions.match(/name:\s*[\'\"]([a-zA-Z]+)[\'\"]/);
+			// 				// define options name value
+			// 				const vueDefineOptionsName = m1 ? m1[1] : '';
+			// 				vueComponentName = vueDefineOptionsName;
 
-							// 读取文件名作为组件名
-							if (!vueComponentName) {
-								const m2 = sourceSrc.match(/\\([a-zA-Z]+).vue/);
-								const vueDefineOptionsName = m2 ? m2[1] : '';
-								vueComponentName = vueDefineOptionsName;
-							}
+			// 				// 读取文件名作为组件名
+			// 				if (!vueComponentName) {
+			// 					const m2 = sourceSrc.match(/\\([a-zA-Z]+).vue/);
+			// 					const vueDefineOptionsName = m2 ? m2[1] : '';
+			// 					vueComponentName = vueDefineOptionsName;
+			// 				}
 
-							// vue文件无组件名报错
-							if (!vueComponentName) throw new Error(`Incorrect source name: ${sourceSrc}`);
-						}
+			// 				// vue文件无组件名报错
+			// 				if (!vueComponentName) throw new Error(`Incorrect source name: ${sourceSrc}`);
+			// 			}
 
-            console.log(vueComponentName, sourceSrc);
-						return `<Demo demo-name='${vueComponentName}'>`;
-					} else {
-						return `</Demo>\n`;
-					}
-				},
-			});
+      //       console.log(vueComponentName, sourceSrc);
+			// 			return `<Demo demo-name='${vueComponentName}'>`;
+			// 		} else {
+			// 			return `</Demo>\n`;
+			// 		}
+			// 	},
+			// });
 		},
 	},
 });
