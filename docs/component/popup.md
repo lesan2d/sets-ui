@@ -9,7 +9,7 @@ title: Popup
 代码演示
 
 :::demo test
-<<< @/demos/popup/PopupBasic.vue
+<<< @/demos/Popup/PopupBasic.vue
 :::
 
 ## 隐藏遮罩
@@ -17,7 +17,7 @@ title: Popup
 将 `overlay` 设为 `false`
 
 :::demo
-<<< @/demos/popup/PopupOverlay.vue
+<<< @/demos/Popup/PopupOverlay.vue
 :::
 
 ## 弹出方向
