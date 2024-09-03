@@ -9,7 +9,7 @@ title: Overlay
 代码演示
 
 :::demo
-<<< @/demos/overlay/OverlayBasic.vue
+<<< @/demos/Overlay/OverlayBasic.vue
 :::
 
 ## API
