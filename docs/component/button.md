@@ -67,7 +67,7 @@ title: Button
 | --s-button-color-text-hover  |      按钮字体移入色      |       var(--s-button-theme-color) |
 | --s-button-color-bg          |       按钮默认背景       |           var(--base-color-light) |
 | --s-button-color-bg-hover    |    按钮默认背景移入色    | var(--s-button-theme-color-light) |
-| --s-button-size              | 按钮大小(仅形状按钮适用) |                              30px |
-| --s-button-font-size         |         字体大小         |                              14px |
+| --s-button-size              | 按钮大小(仅形状按钮适用) |   calc(var(--base-font-size) * 2) |
+| --s-button-font-size         |         字体大小         |             var(--base-font-size) |
 | --s-button-padding           |          内边距          |                          8px 14px |
 | --s-button-series-gap        |        按钮间边距        |                              10px |

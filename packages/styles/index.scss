@@ -10,10 +10,16 @@
 	--base-color-inverse: #{$global-base-color-inverse};
 	--base-color-light-inverse: #{$global-base-color-light-inverse};
 	--base-color-lighter-inverse: #{$global-base-color-lighter-inverse};
-  --color-danger: #{$global-color-danger};
-
 	--base-font-size: #{$global-base-font-size};
-	--base-font-size-small: #{$global-base-font-size};
+	--base-font-size-small: #{$global-base-font-size-small};
+
+	--color-danger: #{$global-color-danger};
+	--color-text: var(--base-color-inverse);
+	--color-text-inverse: var(--base-color-lighter);
+	--color-icon: var(--base-color-light-inverse);
+	--color-border: var(--base-color);
+	--color-bg: var(--base-color-light);
+
 	--font-size-h1: calc(var(--base-font-size) * 2.5);
 	--font-size-h2: calc(var(--base-font-size) * 2);
 	--font-size-h3: calc(var(--base-font-size) * 1.75);
@@ -21,16 +27,16 @@
 	--font-size-h5: calc(var(--base-font-size) * 1.25);
 	--font-size-h6: calc(var(--base-font-size) * 1);
 	--z-index-top: #{$global-z-index-top};
-}
 
-:root {
-	--color-text: var(--base-color-inverse);
-	--color-text-inverse: var(--base-color-lighter);
-	--color-icon: var(--base-color-light-inverse);
-	--color-border: var(--base-color);
-	--color-bg: var(--base-color-light);
+	&.dark {
+		--base-color: #{$global-base-color-lighter-inverse};
+		--base-color-light: #{$global-base-color-light-inverse};
+		--base-color-lighter: #{$global-base-color-inverse};
+		--base-color-inverse: #{$global-base-color-lighter};
+		--base-color-light-inverse: #{$global-base-color-light};
+		--base-color-lighter-inverse: #{$global-base-color};
+	}
 }
-
 * {
 	box-sizing: border-box;
 }

@@ -13,7 +13,7 @@ Radio 选中值为其绑定的 `value` 属性，当 Radio `v-model` 的值与其
 
 :::
 
-:::demo test
+:::demo
 <<< @/demos/Radio/RadioBasic.vue
 :::
 
@@ -21,6 +21,15 @@ Radio 选中值为其绑定的 `value` 属性，当 Radio `v-model` 的值与其
 
 使用 s-radio-group 来组合互斥选项
 
-:::demo test
+:::demo
 <<< @/demos/Radio/RadioGroup.vue
 :::
+
+## API
+
+### Radio CSS
+
+| 名称                 |        说明        |                             默认值 |
+| -------------------- | :----------------: | ---------------------------------: |
+| --s-radio-size       | 单选框框大小基准值 | calc(var(--base-font-size) * 1.25) |
+| --s-radio-series-gap |  单选框之间的间距  |                               10px |

@@ -81,8 +81,8 @@ const style = computed(() => {
   --s-button-color-bg: var(--base-color-light);
   --s-button-color-bg-hover: var(--s-button-theme-color-light);
   // 按钮尺寸
-  --s-button-size: 30px;
-  --s-button-font-size: 14px;
+  --s-button-size: calc(var(--base-font-size) * 2);
+  --s-button-font-size: var(--base-font-size);
   --s-button-padding: 8px 14px;
   --s-button-series-gap: 10px;
   --s-button-round: 20px;
@@ -144,14 +144,13 @@ const style = computed(() => {
 
   // 大小
   &--small {
-    --s-button-size: 22px;
-    --s-button-font-size: 12px;
+    --s-button-size: calc(var(--base-font-size-small) * 2);
+    --s-button-font-size: var(--base-font-size-small);
     --s-button-padding: 5px 10px;
   }
 
   &--large {
-    --s-button-size: 38px;
-    --s-button-font-size: 14px;
+    --s-button-size: calc(var(--base-font-size) * 2.5);
     --s-button-padding: 12px 18px;
   }
 
