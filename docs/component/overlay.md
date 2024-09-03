@@ -8,7 +8,7 @@ title: Overlay
 
 代码演示
 
-:::demo test
+:::demo
 <<< @/demos/overlay/OverlayBasic.vue
 :::
 
