@@ -100,7 +100,7 @@ export default defineConfig({
 
 							// 读取文件名作为组件名
 							if (!vueComponentName) {
-								const m2 = sourceSrc.match(/\\([a-zA-Z]+).vue/);
+								const m2 = sourceSrc.match(/[\\\/]([a-zA-Z]+).vue/);
 								const vueDefineOptionsName = m2 ? m2[1] : '';
 								vueComponentName = vueDefineOptionsName;
 							}
