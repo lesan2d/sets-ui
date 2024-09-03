@@ -6,8 +6,8 @@ import SetsUi from 'sets-ui';
 import GlobalComponents from './components';
 import Demos from '../../demos';
 
+import '@sets-ui/theme-default';
 import './style.css';
-import '@sets-ui/theme-default/index.scss';
 
 export default {
 	extends: DefaultTheme,
