@@ -4,8 +4,6 @@ title: Button
 
 # Button 按钮
 
-<<< @/demos/Button/ButtonBasic.vue{2}
-
 ## 基础用法
 
 通过 `type` 属性定义不同的按钮样式
