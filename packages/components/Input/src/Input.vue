@@ -72,6 +72,7 @@ function handleClearable() {
     border-color: var(--s-input-color-border);
     border-radius: var(--s-input-border-radius);
     padding: var(--s-input-padding);
+    background-color: var(--base-color-lighter);
     overflow: hidden;
 
     &:hover {
