@@ -1,7 +1,6 @@
 {
-	"name": "sets-ui",
+	"name": "@sets-ui/main",
 	"private": true,
 	"license": "MIT",
-	"main": "./index.ts",
-	"types": "./index.d.ts"
+	"main": "./index.ts"
 }

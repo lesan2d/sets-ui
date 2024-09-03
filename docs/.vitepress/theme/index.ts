@@ -2,7 +2,7 @@
 import { h } from 'vue';
 import type { Theme } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
-import SetsUi from 'sets-ui';
+import SetsUi from '@sets-ui/main';
 import GlobalComponents from './components';
 import Demos from '../../demos';
 
