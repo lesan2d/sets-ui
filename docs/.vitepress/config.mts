@@ -106,10 +106,10 @@ export default defineConfig({
 							}
 
 							// vue文件无组件名报错
-							// if (!vueComponentName) throw new Error(`Incorrect source name: ${sourceSrc}`);
+							if (!vueComponentName) console.error(`Incorrect source name: ${sourceSrc}`);
 						}
 
-						return `<Demo demo-name='${vueComponentName}'>`;
+						return `<Demo demo-name='${vueComponentName}' content='${sourceSrc}' >`;
 					} else {
 						return `</Demo>\n`;
 					}

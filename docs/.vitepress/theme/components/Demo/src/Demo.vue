@@ -5,8 +5,10 @@ defineOptions({
 
 const props = withDefaults(defineProps<{
   demoName?: string,
+  content?: string,
 }>(), {
   demoName: '',
+  content: '',
 });
 </script>
 
@@ -14,6 +16,9 @@ const props = withDefaults(defineProps<{
   <div class="demo">
     <div class="demo-example">
       <component :is="props.demoName"></component>
+    </div>
+    <div v-if="props.content" class="demo-content">
+      <p>{{ props.content }}</p>
     </div>
     <div class="demo-code">
       <slot></slot>
