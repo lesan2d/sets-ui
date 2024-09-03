@@ -94,6 +94,7 @@ const style = computed(() => {
   box-sizing: border-box;
   cursor: pointer;
   color: var(--s-button-color-text);
+  background-color: transparent;
   overflow: hidden;
 
   +.s-button {

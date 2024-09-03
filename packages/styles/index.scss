@@ -37,21 +37,7 @@
 		--base-color-lighter-inverse: #{$global-base-color};
 	}
 }
+
 * {
 	box-sizing: border-box;
-}
-
-// h标题
-@for $i from 1 through 6 {
-	h#{$i},
-	.h#{$i} {
-		margin: 0;
-		line-height: 1;
-		font-size: var(--font-size-h#{$i});
-	}
-}
-
-// icon
-i {
-	color: var(--color-icon);
 }

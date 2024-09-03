@@ -44,7 +44,7 @@ function handleConfirm() {
   <s-popup v-model="visible" class="s-dialog">
     <div v-if="title || $slots.header" class="s-dialog--header">
       <slot name="header">
-        <h4>{{ title }}</h4>
+        <h4 class="s-h4">{{ title }}</h4>
       </slot>
     </div>
     <div class="s-dialog--body">
@@ -74,6 +74,7 @@ function handleConfirm() {
   width: var(--s-dialog-width, 50%);
   display: grid;
   grid-template-rows: auto 1fr auto;
+  color: var(--color-text);
 
   &--header {
     padding: var(--s-dialog-padding-header);
@@ -91,6 +92,7 @@ function handleConfirm() {
 
   &--footer {
     padding: var(--s-dialog-padding-footer);
+
     &_action {
       text-align: right;
     }

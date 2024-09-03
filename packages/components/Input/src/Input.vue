@@ -85,6 +85,9 @@ function handleClearable() {
   &--inner {
     flex-grow: 1;
     min-width: 0;
+    padding: 0;
+    border: none;
+    outline: none;
     font-size: var(--s-input-size-base);
     line-height: calc(var(--s-input-size-base) * 2);
   }

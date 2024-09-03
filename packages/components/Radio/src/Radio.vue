@@ -63,7 +63,7 @@ function handleChange() {
 
 <style lang="scss">
 .s-radio {
-  --s-radio-size: calc(var(--base-font-size) * 1.25);
+  --s-radio-size: calc(var(--base-font-size) + 2px);
   --s-radio-series-gap: 10px;
   cursor: pointer;
   display: inline-grid;
@@ -121,6 +121,10 @@ function handleChange() {
       transform-origin: 50% center;
       transform: translateY(-50%) scale(1);
     }
+  }
+
+  &--label {
+    font-size: var(--base-font-size);
   }
 
   +.s-radio {

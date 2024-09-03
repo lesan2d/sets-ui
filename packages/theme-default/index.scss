@@ -5,3 +5,17 @@
 @import './src/input/index.scss';
 @import './src/radio/index.scss';
 @import './src/popup/index.scss';
+
+// h标题
+@for $i from 1 through 6 {
+	.s-h#{$i} {
+		margin: 0;
+		line-height: 1;
+		font-size: var(--font-size-h#{$i});
+	}
+}
+
+// icon
+.s-icon {
+	color: var(--color-icon);
+}
