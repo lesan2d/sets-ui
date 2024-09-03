@@ -109,6 +109,7 @@ export default defineConfig({
 							if (!vueComponentName) throw new Error(`Incorrect source name: ${sourceSrc}`);
 						}
 
+            console.log(vueComponentName, sourceSrc);
 						return `<Demo demo-name='${vueComponentName}'>`;
 					} else {
 						return `</Demo>\n`;
