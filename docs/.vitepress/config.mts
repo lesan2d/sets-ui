@@ -84,11 +84,10 @@ export default defineConfig({
 						const sourceSrc = sourceFileToken.src && sourceFileToken.src.length > 0 ? sourceFileToken.src[0] : '';
 						// if (!sourceSrc) throw new Error(`Incorrect source file: ${sourceFile}`);
 						// source = fs.readFileSync(sourceSrc, 'utf-8');
-            console.log(sourceSrc);
 
-						let vueComponentName = 'ButtonBasic';
+						let vueComponentName = '';
 						// 文件类型为.vue
-						// if (/\.vue/.test(sourceSrc)) {
+						if (/\.vue/.test(sourceSrc)) {
 							// // 自动读取文件内 defineOptions 定义的组件名
 							// const startIndex = source.indexOf('defineOptions');
 							// const endIndex = source.indexOf('});');
@@ -100,15 +99,15 @@ export default defineConfig({
 							// vueComponentName = vueDefineOptionsName;
 
 							// 读取文件名作为组件名
-							// if (!vueComponentName) {
-								// const m2 = sourceSrc.match(/\\([a-zA-Z]+).vue/);
-								// const vueDefineOptionsName = m2 ? m2[1] : '';
-								// vueComponentName = vueDefineOptionsName;
-							// }
+							if (!vueComponentName) {
+								const m2 = sourceSrc.match(/\\([a-zA-Z]+).vue/);
+								const vueDefineOptionsName = m2 ? m2[1] : '';
+								vueComponentName = vueDefineOptionsName;
+							}
 
 							// vue文件无组件名报错
 							// if (!vueComponentName) throw new Error(`Incorrect source name: ${sourceSrc}`);
-						// }
+						}
 
 						return `<Demo demo-name='${vueComponentName}'>`;
 					} else {
