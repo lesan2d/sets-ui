@@ -1,6 +1,6 @@
 {
 	"name": "sets-ui",
-	"version": "0.0.17",
+	"version": "0.0.18",
 	"description": "sets-ui demo",
 	"main": "src/index.js",
 	"types": "./src/sets-ui/index.d.ts",
