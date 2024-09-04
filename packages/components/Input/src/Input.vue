@@ -24,7 +24,7 @@ const atomicClass = computed(() => ({
   'is-focus': focused.value,
 }));
 
-const model = defineModel<string | number>('');
+const model = defineModel<string | number>({ required: true });
 const focused = ref(false);
 
 function handleFocus() {

@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<SRadioProps>(), {
 const { name: themeName } = useTheme();
 
 // 当 model 与 props.value 相等时,Radio为选中状态
-const model = defineModel<string | number | boolean>({ default: '' });
+const model = defineModel<string | number | boolean>({ required: true });
 
 // 选中状态
 const picked = computed(() => {
