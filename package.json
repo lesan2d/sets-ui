@@ -46,6 +46,7 @@
 	"dependencies": {
 		"@packages/styles": "workspace:*",
 		"@packages/utils": "workspace:*",
+		"@packages/composables": "workspace:*",
 		"@sets-ui/components": "workspace:*",
 		"@sets-ui/config": "workspace:*",
 		"@sets-ui/constants": "workspace:*",

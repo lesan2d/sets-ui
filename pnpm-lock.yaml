@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@packages/composables':
+        specifier: workspace:*
+        version: link:packages/composables
       '@packages/styles':
         specifier: workspace:*
         version: link:packages/styles
@@ -83,6 +86,8 @@ importers:
         version: 5.90.1
 
   packages/components: {}
+
+  packages/composables: {}
 
   packages/config: {}
 

@@ -1,10 +1,13 @@
 <script lang="ts" setup>
 import type { DirectionType } from '#/component';
-import { computed, watch } from 'vue';
-import { useTheme } from '@sets-ui/config';
+import { ref, computed, watch } from 'vue';
 import { genBEMClass } from '@packages/utils';
+import { useAnimationReverse } from '@packages/composables';
+import { useTheme } from '@sets-ui/config';
 import { SOverlay } from '@sets-ui/components/Overlay';
 import { SButton } from '@sets-ui/components/Button';
+
+const { name: themeName } = useTheme();
 
 defineOptions({
   name: 'Popup',
@@ -29,48 +32,67 @@ const props = withDefaults(defineProps<Props>(), {
   closeOnClickOverlay: true,
 });
 
-const { name: themeName } = useTheme();
-
-const emit = defineEmits(['update:modelValue', 'close']);
+const emit = defineEmits(['update:modelValue', 'close', 'closed']);
 
 const extendsClass = genBEMClass('s-popup', [...themeName].filter((p) => Boolean(p)) as Array<string>);
 
+const closed = ref(false); // 弹窗关闭中
+const animationPlaying = ref(false); // 过渡动画播放中
+
+const shouldVisible = ref(props.modelValue); // 不确定的弹窗状态(判断动画过渡后才能确定显示状态)
 const visible = computed({
   get() {
     return props.modelValue;
   },
-  set(value) {
-    emit('update:modelValue', value);
+  set(val) {
+    emit('update:modelValue', val);
   },
 });
 
-watch(visible, (value) => {
-  if (!value) {
-    emit('close');
-  }
+watch(visible, (val) => {
+  changeShouldVisible(val);
 });
 
-function handleClose() {
+const { style: animationStyle } = useAnimationReverse(closed);
+
+const changeShouldVisible = (val: boolean) => {
+  if (val) {
+    shouldVisible.value = val;
+  } else {
+    closed.value = true;
+    emit('close'); // 弹窗关闭回调
+    const timer = setInterval(() => {
+      if (animationPlaying.value) return; // 动画播放中时继续轮询
+      closed.value = false;
+      shouldVisible.value = val;
+      emit('closed'); // 关闭动画结束回调
+      clearInterval(timer);
+    }, 100);
+  }
+};
+const handleClose = () => {
   visible.value = false;
+};
+const handleAnimationstart = () => {
+  animationPlaying.value = true;
+};
+const handleAnimationend = () => {
+  animationPlaying.value = false;
 }
 </script>
 
 <template>
   <s-overlay v-if="props.overlay" v-model="visible" :destroy-on-close="props.destroyOnClose"
     :close-on-click-overlay="props.closeOnClickOverlay" />
-  <template v-if="props.destroyOnClose">
-    <div v-if="visible" class="s-popup" :class="[extendsClass, props.direction]" v-bind="$attrs">
+  <div v-if="props.destroyOnClose ? shouldVisible : true" v-show="shouldVisible" class="s-popup"
+    :class="[extendsClass, props.direction]" v-bind="$attrs">
+    <div class="s-popup--wrapper" :style="animationStyle" @animationstart.self="handleAnimationstart"
+      @animationend.self="handleAnimationend">
       <SButton v-if="props.showClose" text circle class="btn-close" @click="handleClose">
         <i class="s-icon s-icon--close"></i>
       </SButton>
       <slot></slot>
     </div>
-  </template>
-  <div v-else v-show="visible" class="s-popup" :class="[extendsClass, props.direction]" v-bind="$attrs">
-    <SButton v-if="props.showClose" text circle class="btn-close" @click="handleClose">
-      <i class="s-icon s-icon--close"></i>
-    </SButton>
-    <slot></slot>
   </div>
 </template>
 
@@ -82,10 +104,22 @@ function handleClose() {
   z-index: calc(var(--z-index-top) + var(--s-popup-z-index));
   top: 50%;
   left: 50%;
-  display: grid;
-  padding: var(--s-popup-padding);
   transform: translate(-50%, -50%);
-  background-color: var(--base-color-lighter);
+
+  &--wrapper {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    padding: var(--s-popup-padding);
+    background-color: var(--base-color-lighter);
+
+    .btn-close {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      z-index: 1;
+    }
+  }
 
   &.ttb {
     width: 100%;
@@ -116,11 +150,5 @@ function handleClose() {
     transform: translate(0%, 0%);
   }
 
-  .btn-close {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    z-index: 1;
-  }
 }
 </style>

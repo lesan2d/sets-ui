@@ -1,0 +1,6 @@
+{
+  "name": "@packages/composables",
+  "private": true,
+  "license": "MIT",
+  "main": "index.ts"
+}
