@@ -2,7 +2,7 @@
 import type { DirectionType } from '#/component';
 import { ref, computed, watch } from 'vue';
 import { genBEMClass } from '@packages/utils';
-import { useAnimationReverse } from '@packages/composables';
+import { useAnimationReset, useAnimationReverse } from '@packages/composables';
 import { useTheme } from '@sets-ui/config';
 import { SOverlay } from '@sets-ui/components/Overlay';
 import { SButton } from '@sets-ui/components/Button';
@@ -36,13 +36,35 @@ const emit = defineEmits(['update:modelValue', 'close', 'closed']);
 
 const extendsClass = genBEMClass('s-popup', [...themeName].filter((p) => Boolean(p)) as Array<string>);
 
+const shouldVisible = ref(props.modelValue); // 不确定的弹窗状态(判断动画过渡后才能确定显示状态)
+const animationReset = ref(false); // 重置动画
 const closed = ref(false); // 弹窗关闭中
 const animationPlaying = ref(false); // 过渡动画播放中
+const timer = ref<NodeJS.Timer | null>(null);
 
-const shouldVisible = ref(props.modelValue); // 不确定的弹窗状态(判断动画过渡后才能确定显示状态)
+const { style: animationReverseStyle } = useAnimationReverse(closed);
+const { style: animationResetStyle } = useAnimationReset(animationReset);
+
+const animationStyle = computed(() => {
+  const value = {
+    ...animationReverseStyle.value,
+    ...animationResetStyle.value,
+  };
+  return value;
+})
+
 const visible = computed({
   get() {
     return props.modelValue;
+  },
+  set(val) {
+    emit('update:modelValue', val);
+  },
+});
+
+const overlayVisible = computed({
+  get() {
+    return shouldVisible.value;
   },
   set(val) {
     emit('update:modelValue', val);
@@ -53,22 +75,23 @@ watch(visible, (val) => {
   changeShouldVisible(val);
 });
 
-const { style: animationStyle } = useAnimationReverse(closed);
-
+// 异步控制弹窗显示
 const changeShouldVisible = (val: boolean) => {
-  if (val) {
-    shouldVisible.value = val;
-  } else {
-    closed.value = true;
-    emit('close'); // 弹窗关闭回调
-    const timer = setInterval(() => {
-      if (animationPlaying.value) return; // 动画播放中时继续轮询
-      closed.value = false;
-      shouldVisible.value = val;
-      emit('closed'); // 关闭动画结束回调
-      clearInterval(timer);
-    }, 100);
-  }
+  if (timer.value) clearInterval(timer.value);
+
+  animationReset.value = val; // 快速开启/关闭时，重启弹窗需要清除关闭动画
+  closed.value = !val;
+
+  if (!val) emit('close'); // 弹窗关闭回调
+
+  timer.value = setInterval(() => {
+    if (animationPlaying.value) return; // 动画播放中时继续轮询
+    animationReset.value = false; // 重置重置状态
+    closed.value = false; // 重置关闭中状态
+    shouldVisible.value = val; // 更新弹窗显示
+    if (!val) emit('closed'); // 关闭动画结束回调
+    if (timer.value) clearInterval(timer.value);
+  }, 100);
 };
 const handleClose = () => {
   visible.value = false;
@@ -82,7 +105,7 @@ const handleAnimationend = () => {
 </script>
 
 <template>
-  <s-overlay v-if="props.overlay" v-model="visible" :destroy-on-close="props.destroyOnClose"
+  <s-overlay v-if="props.overlay" v-model="overlayVisible" :destroy-on-close="props.destroyOnClose"
     :close-on-click-overlay="props.closeOnClickOverlay" />
   <div v-if="props.destroyOnClose ? shouldVisible : true" v-show="shouldVisible" class="s-popup"
     :class="[extendsClass, props.direction]" v-bind="$attrs">
