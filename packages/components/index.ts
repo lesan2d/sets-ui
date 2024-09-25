@@ -2,6 +2,7 @@ export * from './Button';
 export * from './Cell';
 export * from './Dialog';
 export * from './Form';
+export * from './FormItem';
 export * from './Grid';
 export * from './Input';
 export * from './Overlay';
@@ -13,6 +14,7 @@ import { SButton } from './Button';
 import { SCell } from './Cell';
 import { SDialog } from './Dialog';
 import { SForm } from './Form';
+import { SFormItem } from './FormItem';
 import { SGrid } from './Grid';
 import { SInput } from './Input';
 import { SOverlay } from './Overlay';
@@ -24,4 +26,16 @@ import './Icon';
 
 import type { Plugin } from 'vue';
 
-export default [SButton, SCell, SDialog, SForm, SGrid, SInput, SOverlay, SPopup, SRadio, SRadioGroup] as Plugin[];
+export default [
+	SButton,
+	SCell,
+	SDialog,
+	SForm,
+	SFormItem,
+	SGrid,
+	SInput,
+	SOverlay,
+	SPopup,
+	SRadio,
+	SRadioGroup,
+] as Plugin[];
