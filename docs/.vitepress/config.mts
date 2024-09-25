@@ -37,24 +37,30 @@ export default defineConfig({
 				{
 					text: '基础',
 					items: [
-						{ text: 'Grid 布局网格', link: '/component/grid' },
 						{ text: 'Button 按钮', link: '/component/button' },
+						{ text: 'Grid 布局网格', link: '/component/grid' },
 						{ text: 'Input 输入框', link: '/component/input' },
 						{ text: 'Radio 单选框', link: '/component/radio' },
+					],
+				},
+        {
+					text: '表单',
+					items: [
+						{ text: 'Form 表单', link: '/component/form' },
 					],
 				},
 				{
 					text: '反馈',
 					items: [
+						{ text: 'Dialog 对话框', link: '/component/dialog' },
 						{ text: 'Overlay 遮罩层', link: '/component/overlay' },
 						{ text: 'Popup 弹出层', link: '/component/popup' },
-						{ text: 'Dialog 对话框', link: '/component/dialog' },
 					],
 				},
 			],
 		},
 
-		socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
+		socialLinks: [{ icon: 'github', link: 'https://github.com/lesan2d/sets-ui' }],
 	},
 	markdown: {
 		container: {

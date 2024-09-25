@@ -1,12 +1,22 @@
-import GridDemos from './Grid';
 import ButtonDemos from './Button';
+import DialogDemos from './Dialog';
+import FormtDemos from './Form';
+import GridDemos from './Grid';
 import InputDemos from './Input';
-import RadioDemos from './Radio';
 import OverlayDemos from './Overlay';
 import PopupDemos from './Popup';
-import DialogDemos from './Dialog';
+import RadioDemos from './Radio';
 
-const demos = [...GridDemos, ...ButtonDemos, ...InputDemos, ...RadioDemos, ...OverlayDemos, ...PopupDemos, ...DialogDemos];
+const demos = [
+	...ButtonDemos,
+	...DialogDemos,
+	...FormtDemos,
+	...GridDemos,
+	...InputDemos,
+	...OverlayDemos,
+	...PopupDemos,
+	...RadioDemos,
+];
 
 const installer = (plugin: Array<any>) => {
 	return {

@@ -1,25 +1,27 @@
-export * from './Grid';
-export * from './Cell';
 export * from './Button';
+export * from './Cell';
+export * from './Dialog';
+export * from './Form';
+export * from './Grid';
 export * from './Input';
-export * from './Radio';
-export * from './RadioGroup';
 export * from './Overlay';
 export * from './Popup';
-export * from './Dialog';
+export * from './Radio';
+export * from './RadioGroup';
 
-import { SGrid } from './Grid';
-import { SCell } from './Cell';
 import { SButton } from './Button';
+import { SCell } from './Cell';
+import { SDialog } from './Dialog';
+import { SForm } from './Form';
+import { SGrid } from './Grid';
 import { SInput } from './Input';
-import { SRadio } from './Radio';
-import { SRadioGroup } from './RadioGroup';
 import { SOverlay } from './Overlay';
 import { SPopup } from './Popup';
-import { SDialog } from './Dialog';
+import { SRadio } from './Radio';
+import { SRadioGroup } from './RadioGroup';
 
 import './Icon';
 
 import type { Plugin } from 'vue';
 
-export default [SGrid, SCell, SButton, SInput, SRadio, SRadioGroup, SOverlay, SPopup, SDialog] as Plugin[];
+export default [SButton, SCell, SDialog, SForm, SGrid, SInput, SOverlay, SPopup, SRadio, SRadioGroup] as Plugin[];
