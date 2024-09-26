@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { useTheme } from '@sets-ui/config';
 import { genBEMClass } from '@packages/utils';
+import { useTheme } from '@sets-ui/config';
+import { useFormItem } from '@sets-ui/components/FormItem';
 
 defineOptions({
   name: 'Input',
@@ -18,6 +19,10 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const { name: themeName } = useTheme();
+const { validate } = useFormItem();
+
+console.log('validate', validate);
+
 
 const extendsClass = genBEMClass('s-input', [...themeName].filter((p) => Boolean(p)) as Array<string>);
 const atomicClass = computed(() => ({
@@ -32,6 +37,8 @@ function handleFocus() {
 };
 function handleBlur() {
   focused.value = false;
+  validate?.('blur');
+
 };
 function handleClearable() {
   model.value = '';

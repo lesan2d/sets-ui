@@ -9,14 +9,15 @@ const rules = {
     { required: true, message: 'Please input Activity name', trigger: 'blur' },
     { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
     {
-      validator: (rule: any, value: any, callback: any) => {
+      validator: (value: any) => {
+        console.log('自定义校验-value', value);
         if (value === '') {
-          callback(new Error('Please input the name'))
+          return Promise.reject('Please input the name');
         } else {
           if (value !== 'laowang') {
-            callback(new Error('你必须叫laowang'))
+            return Promise.reject('你必须叫laowang');
           } else {
-            callback()
+            return Promise.resolve();
           }
         }
       },

@@ -2,6 +2,7 @@ export interface RuleItem {
 	require?: boolean;
 	message: string;
 	trigger: string; // 触发方式(事件)
+	validator?: (value: any) => void;
 }
 
 export interface Rules {

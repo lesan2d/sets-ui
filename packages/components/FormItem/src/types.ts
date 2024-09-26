@@ -3,4 +3,6 @@ export interface FormItemProps {
 	name?: string;
 }
 
-export interface FormItemContext {}
+export interface FormItemContext {
+	validate: (trigger: string) => Promise<boolean>;
+}

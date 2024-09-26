@@ -26,9 +26,10 @@ const validate = async (trigger: string) => {
   const filterRules = rules.value?.filter((rule) => rule.trigger === trigger);
   if (filterRules) {
     for (const rule of filterRules) {
-      const { validator } = rule;
-      if (validator) {
-        const valid = await validator(props.name);
+      console.log('rule', rule);
+
+      if (rule.validator) {
+        const valid = await rule.validator('laowang');
         console.log(valid);
       }
     }
@@ -42,7 +43,7 @@ console.log(rules);
 console.log(fromContext);
 console.log(props);
 
-provide(FORM_ITEM_KEY, { rules, validate })
+provide(FORM_ITEM_KEY, { validate })
 </script>
 
 <template>
