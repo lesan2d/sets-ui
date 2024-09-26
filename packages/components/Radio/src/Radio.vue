@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, inject, computed, watch } from 'vue';
-import { CONST_COMPONENT } from '@sets-ui/constants';
+import type { RadioProps, RadioEmits } from './types';
+import { inject, computed, watch } from 'vue';
+import { RADIO_GROUP_KEY } from '@sets-ui/components/RadioGroup';
 import { genBEMClass } from '@packages/utils';
 import { useTheme } from '@sets-ui/config';
 
@@ -8,17 +9,14 @@ defineOptions({
   name: 'Radio',
 });
 
-interface SRadioProps {
-  value?: string | number | boolean
-}
-const props = withDefaults(defineProps<SRadioProps>(), {
+const props = withDefaults(defineProps<RadioProps>(), {
   value: 'on',
 });
 
 const { name: themeName } = useTheme();
 
 // 当 model 与 props.value 相等时,Radio为选中状态
-const model = defineModel<string | number | boolean>({ required: true });
+const model = defineModel<string | number | boolean>({ default: '' });
 
 // 选中状态
 const picked = computed(() => {
@@ -28,25 +26,21 @@ const picked = computed(() => {
 const extendsClass = genBEMClass('s-radio', [...themeName].filter((p) => Boolean(p)) as Array<string>);
 
 
-const radioGroup = inject(CONST_COMPONENT.RADIO_GROUP_KEY, () => ({
-  modelValue: ref<string | number | boolean>(''),
-  changeModel: (value: string | number | boolean) => value,
-}), true);
+const radioGroup = inject(RADIO_GROUP_KEY, undefined);
 
-watch(() => radioGroup.modelValue, (val) => {
-  model.value = val.value;
+watch(() => radioGroup, (val) => {
+  if (!val) return;
+  model.value = val?.modelValue.value;
 }, {
   deep: true,
   immediate: true,
 });
 
 
-const emit = defineEmits<{
-  (e: 'change', value: typeof model.value): void
-}>();
+const emit = defineEmits<RadioEmits>();
 
 function handleChange() {
-  radioGroup.changeModel(model.value);
+  if (radioGroup?.changeModelValue) radioGroup.changeModelValue(model.value);
   emit('change', model.value);
 }
 </script>

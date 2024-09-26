@@ -39,7 +39,7 @@ function handleClearable() {
 </script>
 
 <template>
-  <label class="s-input" :class="[extendsClass, atomicClass]">
+  <div class="s-input" :class="[extendsClass, atomicClass]">
     <div class="s-input--wrapper">
       <input v-model="model" :placeholder="props.placeholder" class="s-input--inner" @focus="handleFocus"
         @blur="handleBlur" />
@@ -47,7 +47,7 @@ function handleClearable() {
         <i v-show="model" class="s-icon s-icon--close circle" @click.stop="handleClearable"></i>
       </div>
     </div>
-  </label>
+  </div>
 </template>
 
 <style scoped lang='scss'>

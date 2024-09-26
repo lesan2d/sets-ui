@@ -1,30 +1,17 @@
 <script setup lang="ts">
+import type { FormProps } from './types';
+
 import { provide } from 'vue';
-import { CONST_COMPONENT } from '@sets-ui/constants';
+import { FORM_KEY } from './constants';
 
 defineOptions({
   name: 'Form',
 });
 
-interface RuleItem {
-  require?: boolean;
-  message: string;
-  trigger: string; // 触发方式(事件)
-};
+const props = withDefaults(defineProps<FormProps>(), {});
 
-interface SFormProps {
-  rules?: {
-    [key: string]: Array<RuleItem>,
-  },
-}
-const props = withDefaults(defineProps<SFormProps>(), {
-});
-
-console.log(props.rules);
-
-
-provide(CONST_COMPONENT.FORM_KEY, {
-  rules: props.rules,
+provide(FORM_KEY, {
+  rules: props?.rules,
 });
 </script>
 

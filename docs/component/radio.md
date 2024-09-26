@@ -25,7 +25,15 @@ Radio 选中值为其绑定的 `value` 属性，当 Radio `v-model` 的值与其
 <<< @/demos/Radio/RadioGroup.vue
 :::
 
-## API
+## Radio API
+
+### Radio Attributes
+
+| 名称    |     说明     |                     类型 | 默认值 |
+| ------- | :----------: | -----------------------: | ------ |
+| v-model | 选中项绑定值 | string\|\number\|boolean | ''     |
+| value   |  单选框的值  | string\|\number\|boolean | 'on'   |
+
 
 ### Radio CSS
 
@@ -33,3 +41,17 @@ Radio 选中值为其绑定的 `value` 属性，当 Radio `v-model` 的值与其
 | -------------------- | :----------------: | ---------------------------------: |
 | --s-radio-size       | 单选框框大小基准值 | calc(var(--base-font-size) * 1.25) |
 | --s-radio-series-gap |  单选框之间的间距  |                               10px |
+
+## RadioGroup API
+
+### RadioGroup Attributes
+
+| 名称    |  说明  |                     类型 | 默认值 |
+| ------- | :----: | -----------------------: | ------ |
+| v-model | 绑定值 | string\|\number\|boolean | ''     |
+
+### RadioGroup Events
+
+| 名称   |          说明          |     类型 |                                       返回值 |
+| ------ | :--------------------: | -------: | -------------------------------------------: |
+| change | 绑定值变化时触发的事件 | Function | (value: string \| number \| boolean) => void |

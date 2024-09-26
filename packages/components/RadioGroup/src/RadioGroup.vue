@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import type { RadioGroupEmits } from './types';
 import { provide, watch } from 'vue';
-import { CONST_COMPONENT } from '@sets-ui/constants';
+import { RADIO_GROUP_KEY } from './constants';
 
 defineOptions({
   name: 'RadioGroup',
@@ -8,18 +9,16 @@ defineOptions({
 
 const model = defineModel<string | number | boolean>({ default: '' });
 
-const changeModel = (value: string | number | boolean) => {
+const changeModelValue = (value: string | number | boolean) => {
   model.value = value;
 }
 
-provide(CONST_COMPONENT.RADIO_GROUP_KEY, {
+provide(RADIO_GROUP_KEY, {
   modelValue: model,
-  changeModel,
+  changeModelValue,
 });
 
-const emit = defineEmits<{
-  (e: 'change', value: typeof model.value): void
-}>();
+const emit = defineEmits<RadioGroupEmits>();
 
 watch(model, (val) => {
   emit('change', val);
