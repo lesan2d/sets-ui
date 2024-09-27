@@ -28,7 +28,7 @@ const rules = {
 </script>
 
 <template>
-  <s-form :rules="rules">
+  <s-form :model="form" :rules="rules">
     <s-form-item label="名称" name="name">
       <s-input v-model="form.name" placeholder="请输入内容" style="width: 200px;" />
     </s-form-item>

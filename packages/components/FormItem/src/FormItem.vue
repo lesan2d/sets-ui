@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FormItemProps } from './types';
+import type { Rules } from '@sets-ui/components/Form';
 
 import { provide, inject, computed, } from 'vue';
 import { FORM_KEY } from '@sets-ui/components/Form/index';
@@ -16,32 +17,34 @@ const props = withDefaults(defineProps<FormItemProps>(), {
 });
 
 
-const fromContext = inject(FORM_KEY, undefined);
+const formContext = inject(FORM_KEY, undefined);
+
+const fieldValue = computed(() => {
+  const model = formContext?.model
+  if (!model || !props.name) return undefined;
+  return model[props.name];
+});
 
 const rules = computed(() => {
-  return fromContext?.rules?.[props.name];
+  return formContext?.rules?.[props.name];
 });
+
+
+// todo 使用 form name key 校验 表单，不传入key时校验全部
+const validator = async (rules: Array<Rules>) => {
+  for (const rule of rules) {
+    if (rule.validator) {
+      const valid = await rule.validator(fieldValue.value);
+      console.log(valid);
+    }
+  }
+};
 
 const validate = async (trigger: string) => {
   const filterRules = rules.value?.filter((rule) => rule.trigger === trigger);
-  if (filterRules) {
-    for (const rule of filterRules) {
-      console.log('rule', rule);
-
-      if (rule.validator) {
-        const valid = await rule.validator('laowang');
-        console.log(valid);
-      }
-    }
-  }
+  if (filterRules) await validator(filterRules);
   return true;
 };
-
-console.log(rules);
-
-
-console.log(fromContext);
-console.log(props);
 
 provide(FORM_ITEM_KEY, { validate })
 </script>

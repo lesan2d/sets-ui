@@ -10,9 +10,15 @@ export interface Rules {
 }
 
 export interface FormProps {
+	model: {
+		[key: string]: any;
+	};
 	rules?: Rules;
 }
 
 export interface FormContext {
+	model: {
+		[key: string]: any;
+	};
 	rules: Rules | undefined;
 }

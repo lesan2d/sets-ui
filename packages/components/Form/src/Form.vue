@@ -11,6 +11,7 @@ defineOptions({
 const props = withDefaults(defineProps<FormProps>(), {});
 
 provide(FORM_KEY, {
+  model: props?.model,
   rules: props?.rules,
 });
 </script>

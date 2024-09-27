@@ -21,9 +21,6 @@ const props = withDefaults(defineProps<Props>(), {
 const { name: themeName } = useTheme();
 const { validate } = useFormItem();
 
-console.log('validate', validate);
-
-
 const extendsClass = genBEMClass('s-input', [...themeName].filter((p) => Boolean(p)) as Array<string>);
 const atomicClass = computed(() => ({
   'is-focus': focused.value,
