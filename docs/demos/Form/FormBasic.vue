@@ -11,14 +11,10 @@ const rules = {
     {
       validator: (value: any) => {
         console.log('自定义校验-value', value);
-        if (value === '') {
-          return Promise.reject('Please input the name');
+        if (value !== 'laowang') {
+          return Promise.reject('你必须叫laowang');
         } else {
-          if (value !== 'laowang') {
-            return Promise.reject('你必须叫laowang');
-          } else {
-            return Promise.resolve();
-          }
+          return Promise.resolve();
         }
       },
       trigger: 'blur',

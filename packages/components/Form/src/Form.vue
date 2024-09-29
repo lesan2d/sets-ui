@@ -10,6 +10,12 @@ defineOptions({
 
 const props = withDefaults(defineProps<FormProps>(), {});
 
+const validator = () => { };
+
+const validate = () => { };
+
+const validateField = (name: string) => { };
+
 provide(FORM_KEY, {
   model: props?.model,
   rules: props?.rules,
