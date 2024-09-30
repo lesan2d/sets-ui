@@ -7,10 +7,10 @@ const form = reactive({
 const rules = {
   name: [
     { required: true, message: 'Please input Activity name', trigger: 'blur' },
-    { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+    { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'focus' },
     {
       validator: (value: any) => {
-        console.log('自定义校验-value', value);
+        console.log(value);
         if (value !== 'laowang') {
           return Promise.reject('你必须叫laowang');
         } else {

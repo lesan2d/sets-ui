@@ -7,20 +7,29 @@ export interface RuleItem {
 
 export type Rules = Array<RuleItem>;
 
+export interface FormModel {
+	[key: string]: any;
+}
+
 export interface FormRules {
 	[key: string]: Rules;
 }
 
 export interface FormProps {
-	model: {
-		[key: string]: any;
-	};
+	model: FormModel;
 	rules?: FormRules;
 }
 
+export type FormValidatorErrorMsgItem = Array<Error>;
+
+export interface FormValidatorErrorMsg {
+	[key: string]: FormValidatorErrorMsgItem;
+}
+
+export type FormValidator = (formModel: FormModel, formRules: FormRules) => Promise<FormValidatorErrorMsg>;
+
 export interface FormContext {
-	model: {
-		[key: string]: any;
-	};
-	rules: FormRules | undefined;
+	model: FormModel;
+	rules?: FormRules;
+	validator: FormValidator;
 }

@@ -18,6 +18,8 @@ const props = withDefaults(defineProps<Props>(), {
   clearable: false,
 });
 
+const emit = defineEmits(['focus', 'blur']);
+
 const { name: themeName } = useTheme();
 const { validate } = useFormItem();
 
@@ -29,13 +31,16 @@ const atomicClass = computed(() => ({
 const model = defineModel<string | number>({ required: true });
 const focused = ref(false);
 
-function handleFocus() {
+function handleFocus(e: FocusEvent) {
   focused.value = true;
+  validate?.('focus');
+  emit('focus', e);
 };
-function handleBlur() {
+
+function handleBlur(e: FocusEvent) {
   focused.value = false;
   validate?.('blur');
-
+  emit('blur', e);
 };
 function handleClearable() {
   model.value = '';
