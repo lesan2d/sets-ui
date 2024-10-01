@@ -18,10 +18,20 @@ const validator: FormValidator = async (formModel, formRules) => {
     const fieldValue = formModel[fieldName];
     const ruleErrorMsg = [];
     for (const rule of formRules[fieldName]) {
-      const { required } = rule;
+      const { required, min, max, } = rule;
 
       // 必需
       if (required && !Boolean(fieldValue.value)) {
+        ruleErrorMsg.push(new Error(rule.message));
+      }
+
+      // 最小长度
+      if (min && ['string', 'number'].includes(typeof fieldValue.value) && fieldValue.value.length < min) {
+        ruleErrorMsg.push(new Error(rule.message));
+      }
+
+      // 最大长度
+      if (max && ['string', 'number'].includes(typeof fieldValue.value) && fieldValue.value.length > max) {
         ruleErrorMsg.push(new Error(rule.message));
       }
 
@@ -32,9 +42,13 @@ const validator: FormValidator = async (formModel, formRules) => {
         });
       }
     }
-    formRulesMsg[fieldName] = ruleErrorMsg;
+    if (ruleErrorMsg.length) formRulesMsg[fieldName] = ruleErrorMsg;
   }
-  return Promise.resolve(formRulesMsg);
+
+  // 校验失败
+  if (Object.keys(formRulesMsg).length > 0) return Promise.reject(formRulesMsg);
+  // 校验成功
+  return Promise.resolve(undefined);
 };
 
 const validate = () => { };
@@ -49,7 +63,7 @@ provide(FORM_KEY, {
 </script>
 
 <template>
-  <form action="" method="get" class="form-example">
+  <form class="s-form">
     <slot></slot>
   </form>
 </template>

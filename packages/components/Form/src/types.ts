@@ -1,5 +1,7 @@
 export interface RuleItem {
 	required?: boolean;
+	min?: number;
+	max?: number;
 	message: string;
 	trigger: string; // 触发方式(事件)
 	validator?: (value: any) => Promise<string | undefined>;
@@ -20,13 +22,13 @@ export interface FormProps {
 	rules?: FormRules;
 }
 
-export type FormValidatorErrorMsgItem = Array<Error>;
+export type FormValidatorErrorMsg = Array<Error>;
 
-export interface FormValidatorErrorMsg {
-	[key: string]: FormValidatorErrorMsgItem;
+export interface FormValidatorErrorInfo {
+	[key: string]: FormValidatorErrorMsg;
 }
 
-export type FormValidator = (formModel: FormModel, formRules: FormRules) => Promise<FormValidatorErrorMsg>;
+export type FormValidator = (formModel: FormModel, formRules: FormRules) => Promise<FormValidatorErrorInfo | undefined>;
 
 export interface FormContext {
 	model: FormModel;
