@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { RadioProps, RadioEmits } from './types';
+
 import { inject, computed, watch } from 'vue';
 import { RADIO_GROUP_KEY } from '@sets-ui/components/RadioGroup';
 import { genBEMClass } from '@packages/utils';
+
 import { useTheme } from '@sets-ui/config';
+import { useFormItem } from '@sets-ui/components/FormItem';
 
 defineOptions({
   name: 'Radio',
@@ -14,6 +17,7 @@ const props = withDefaults(defineProps<RadioProps>(), {
 });
 
 const { name: themeName } = useTheme();
+const { validate } = useFormItem();
 
 // 当 model 与 props.value 相等时,Radio为选中状态
 const model = defineModel<string | number | boolean>({ default: '' });
@@ -41,6 +45,7 @@ const emit = defineEmits<RadioEmits>();
 
 function handleChange() {
   if (radioGroup?.changeModelValue) radioGroup.changeModelValue(model.value);
+  validate?.('change');
   emit('change', model.value);
 }
 </script>

@@ -3,21 +3,40 @@ import { reactive } from 'vue'
 
 const form = reactive({
   name: '',
+  salary: '',
 })
 const rules = {
   name: [
     { required: true, message: 'Please input Activity name', trigger: 'blur' },
-    { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'focus' },
+    { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
     {
       validator: (value: any) => {
         console.log(value);
-        if (value !== 'laowang') {
-          return Promise.reject('你必须叫laowang');
+        return new Promise((resolve, reject) => {
+          window.setTimeout(() => {
+            if (value !== '黑奴') {
+              reject('错误，为您查询到名称，黑奴')
+            } else {
+              resolve(true);
+            }
+          }, 2000);
+        })
+      },
+      trigger: 'blur',
+    }
+  ],
+  salary: [
+    { required: true, message: 'Please select type' },
+    {
+      validator: (value: any) => {
+        console.log(value);
+        if (value !== '2100') {
+          return Promise.reject('期望薪资不能高于2100');
         } else {
           return Promise.resolve();
         }
       },
-      trigger: 'blur',
+      trigger: 'change',
     }
   ],
 };
@@ -26,7 +45,14 @@ const rules = {
 <template>
   <s-form :model="form" :rules="rules">
     <s-form-item label="名称" name="name">
-      <s-input v-model="form.name" placeholder="请输入内容" style="width: 200px;" />
+      <s-input v-model="form.name" placeholder="请输入名称" style="width: 200px;" />
+    </s-form-item>
+    <s-form-item label="期望薪资" name="salary">
+      <s-radio-group v-model="form.salary">
+        <s-radio value="2100">2100</s-radio>
+        <s-radio value="5000">5000</s-radio>
+        <s-radio value="10000">10000</s-radio>
+      </s-radio-group>
     </s-form-item>
   </s-form>
 </template>

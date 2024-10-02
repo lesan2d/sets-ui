@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FormItemProps } from './types';
+import type { FormItemProps, FormItemValidateState } from './types';
 import type { FormValidatorErrorInfo } from '@sets-ui/components/Form'
 
 import { provide, ref, computed, } from 'vue';
@@ -19,7 +19,14 @@ const props = withDefaults(defineProps<FormItemProps>(), {
 
 const formContext = useForm();
 
+const validateState = ref<FormItemValidateState>('')
 const validateMessage = ref('');
+
+const atomicClass = computed(() => ({
+  'is-validating': validateState.value === 'validating',
+  'is-success': validateState.value === 'success',
+  'is-error': validateState.value === 'error',
+}));
 
 const fieldValue = computed(() => {
   const model = formContext?.model
@@ -32,6 +39,7 @@ const rules = computed(() => {
 });
 
 const validationSucceeded = () => {
+  validateState.value = 'success';
   validateMessage.value = '';
 }
 
@@ -40,6 +48,7 @@ const validationFailed = (error: FormValidatorErrorInfo) => {
     console.error(error)
   }
 
+  validateState.value = 'error';
   const errors = error[props.name];
 
   validateMessage.value = errors
@@ -51,6 +60,8 @@ const validate = async (trigger: string) => {
   if (!formContext?.validator) return Promise.reject(true);
   const filterRules = rules.value?.filter((rule) => rule.trigger === trigger);
   if (!filterRules?.length) return Promise.resolve(true);
+
+  validateState.value = 'validating';
   return formContext?.validator({
     [props.name]: fieldValue,
   }, {
@@ -68,7 +79,7 @@ provide(FORM_ITEM_KEY, { validate })
 </script>
 
 <template>
-  <div class="s-form--item flex items-center">
+  <div class="s-form--item" :class="[atomicClass]">
     <div class="s-form--item_label">
       <span>{{ props.label }}</span>
     </div>
@@ -84,7 +95,19 @@ provide(FORM_ITEM_KEY, { validate })
 <style scoped lang='scss'>
 .s-form {
   &--item {
-    margin-bottom: 10px;
+    --s-form-item-size-base: var(--base-font-size);
+    --s-form-item-grap-label: 12px;
+    display: flex;
+    margin-bottom: calc(var(--s-form-item-size-base) + 2px);
+
+    &_label {
+      margin-right: var(--s-form-item-grap-label);
+
+      span {
+        font-size: var(--s-form-item-size-base);
+        line-height: calc(var(--s-form-item-size-base)* 2);
+      }
+    }
 
     &_content {
       position: relative;
@@ -92,9 +115,26 @@ provide(FORM_ITEM_KEY, { validate })
 
     &_error {
       position: absolute;
-      bottom: 0;
+      bottom: -2px;
+      line-height: 1;
       transform: translateY(100%);
-      color: red;
+      color: var(--color-danger);
+
+      span {
+        font-size: var(--s-form-item-size-base);
+      }
+    }
+
+    &.is-error {
+      .s-form--item {
+        &_content {
+          ::v-deep {
+            .s-input--wrapper {
+              --s-input-color-border: var(--color-danger);
+            }
+          }
+        }
+      }
     }
   }
 }

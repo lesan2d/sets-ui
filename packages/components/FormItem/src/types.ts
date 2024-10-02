@@ -6,3 +6,5 @@ export interface FormItemProps {
 export interface FormItemContext {
 	validate: (trigger: string) => Promise<boolean>;
 }
+
+export type FormItemValidateState = '' | 'success' | 'error' | 'validating';
