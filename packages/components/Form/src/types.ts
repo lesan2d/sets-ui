@@ -34,4 +34,5 @@ export interface FormContext {
 	model: FormModel;
 	rules?: FormRules;
 	validator: FormValidator;
+  validate: () => Promise<boolean>;
 }

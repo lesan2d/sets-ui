@@ -51,7 +51,18 @@ const validator: FormValidator = async (formModel, formRules) => {
   return Promise.resolve(undefined);
 };
 
-const validate = () => { };
+const validate = () => {
+  console.log(props.rules);
+  if (!props.rules) return Promise.resolve(true);
+
+  return validator(props.model, props.rules).then(() => {
+    console.log('校验成功');
+    return Promise.resolve(true);
+  }).catch((err) => {
+    console.log('校验失败', err);
+    return Promise.reject(false);
+  });
+};
 
 const validateField = (name: string) => { };
 
@@ -59,7 +70,12 @@ provide(FORM_KEY, {
   model: props?.model,
   rules: props?.rules,
   validator,
+  validate,
 });
+
+defineExpose({
+  validate,
+})
 </script>
 
 <template>

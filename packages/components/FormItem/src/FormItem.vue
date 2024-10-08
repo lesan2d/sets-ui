@@ -34,7 +34,7 @@ const fieldValue = computed(() => {
   return model[props.name];
 });
 
-const rules = computed(() => {
+const fieldRules = computed(() => {
   return formContext?.rules?.[props.name];
 });
 
@@ -58,7 +58,7 @@ const validationFailed = (error: FormValidatorErrorInfo) => {
 
 const validate = async (trigger: string) => {
   if (!formContext?.validator) return Promise.reject(true);
-  const filterRules = rules.value?.filter((rule) => rule.trigger === trigger);
+  const filterRules = fieldRules.value?.filter((rule) => rule.trigger === trigger);
   if (!filterRules?.length) return Promise.resolve(true);
 
   validateState.value = 'validating';

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { ref, reactive } from 'vue'
+
+const formRef = ref(null);
 
 const form = reactive({
   name: '',
@@ -40,10 +42,18 @@ const rules = {
     }
   ],
 };
+const hanldeSubmit = () => {
+  if (!formRef.value) return;
+  formRef.value.validate().then((res) => {
+    console.log('校验成功', res);
+  }).catch((res) => {
+    console.log('校验失败', res);
+  });
+};
 </script>
 
 <template>
-  <s-form :model="form" :rules="rules">
+  <s-form ref="formRef" :model="form" :rules="rules">
     <s-form-item label="名称" name="name">
       <s-input v-model="form.name" placeholder="请输入名称" style="width: 200px;" />
     </s-form-item>
@@ -53,6 +63,9 @@ const rules = {
         <s-radio value="5000">5000</s-radio>
         <s-radio value="10000">10000</s-radio>
       </s-radio-group>
+    </s-form-item>
+    <s-form-item>
+      <s-button type="primary" @click="hanldeSubmit">提交</s-button>
     </s-form-item>
   </s-form>
 </template>

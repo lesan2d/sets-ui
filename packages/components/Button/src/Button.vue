@@ -64,7 +64,7 @@ const style = computed(() => {
 </script>
 
 <template>
-  <button class="s-button" :class="[...extendsClass, atomicClass]" :style="style">
+  <button class="s-button" :class="[...extendsClass, atomicClass]" type="button" :style="style">
     <div class="s-button--content">
       <slot></slot>
     </div>
