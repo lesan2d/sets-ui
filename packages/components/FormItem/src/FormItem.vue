@@ -2,7 +2,7 @@
 import type { FormItemProps, FormItemValidateState } from './types';
 import type { FormValidatorErrorInfo } from '@sets-ui/components/Form'
 
-import { provide, ref, computed, } from 'vue';
+import { provide, ref, computed, onMounted, } from 'vue';
 import { FORM_ITEM_KEY } from './constants';
 
 import { useForm } from '@sets-ui/components/Form';
@@ -57,9 +57,10 @@ const validationFailed = (error: FormValidatorErrorInfo) => {
 }
 
 const validate = async (trigger: string) => {
-  if (!formContext?.validator) return Promise.reject(true);
-  const filterRules = fieldRules.value?.filter((rule) => rule.trigger === trigger);
-  if (!filterRules?.length) return Promise.resolve(true);
+  if (!formContext?.validator) return Promise.reject();
+  const filterRules = fieldRules.value?.filter((rule) => trigger ? rule.trigger === trigger : true);
+
+  if (!filterRules?.length) return Promise.resolve();
 
   validateState.value = 'validating';
   return formContext?.validator({
@@ -68,14 +69,20 @@ const validate = async (trigger: string) => {
     [props.name]: filterRules,
   }).then(() => {
     validationSucceeded();
-    return Promise.resolve(true);
+    return Promise.resolve();
   }).catch((err) => {
     validationFailed(err);
-    return Promise.reject(false);
+    return Promise.reject(err);
   });
 };
 
-provide(FORM_ITEM_KEY, { validate })
+const context = { validate };
+
+provide(FORM_ITEM_KEY, context);
+
+onMounted(() => {
+  if (props.name) formContext?.addField(context);
+});
 </script>
 
 <template>

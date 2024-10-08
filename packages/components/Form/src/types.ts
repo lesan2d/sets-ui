@@ -1,3 +1,4 @@
+import type { FormItemContext } from '@sets-ui/components/FormItem';
 export interface RuleItem {
 	required?: boolean;
 	min?: number;
@@ -34,5 +35,6 @@ export interface FormContext {
 	model: FormModel;
 	rules?: FormRules;
 	validator: FormValidator;
-  validate: () => Promise<boolean>;
+	validate: () => Promise<boolean>;
+	addField: (field: FormItemContext) => void;
 }

@@ -10,7 +10,7 @@ const form = reactive({
 const rules = {
   name: [
     { required: true, message: 'Please input Activity name', trigger: 'blur' },
-    { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+    { min: 2, max: 3, message: 'Length should be 2 to 3', trigger: 'blur' },
     {
       validator: (value: any) => {
         console.log(value);
