@@ -2,6 +2,8 @@
 import type { FormInstance } from '@sets-ui/main';
 import { ref, reactive } from 'vue'
 
+const salary = ref('salary');
+
 const formRef = ref<FormInstance>();
 
 const form = reactive({
@@ -49,6 +51,20 @@ const hanldeSubmit = () => {
     console.log('校验失败', res);
   });
 };
+
+const hanldeSubmitField = () => {
+  if (!formRef.value) return;
+  formRef.value.validateField(['salary']).then((res) => {
+    console.log('校验成功', res);
+  }).catch((res) => {
+    console.log('校验失败', res);
+  });
+};
+
+const hanldeReset = () => {
+  if (!formRef.value) return;
+  formRef.value.resetFields();
+}
 </script>
 
 <template>
@@ -56,7 +72,7 @@ const hanldeSubmit = () => {
     <s-form-item label="名称" name="name">
       <s-input v-model="form.name" placeholder="请输入名称" style="width: 200px;" />
     </s-form-item>
-    <s-form-item label="期望薪资" name="salary">
+    <s-form-item label="期望薪资" :name="salary">
       <s-radio-group v-model="form.salary">
         <s-radio value="2100">2100</s-radio>
         <s-radio value="5000">5000</s-radio>
@@ -65,6 +81,8 @@ const hanldeSubmit = () => {
     </s-form-item>
     <s-form-item>
       <s-button type="primary" @click="hanldeSubmit">提交</s-button>
+      <s-button type="primary" @click="hanldeSubmitField">校验</s-button>
+      <s-button @click="hanldeReset">重置</s-button>
     </s-form-item>
   </s-form>
 </template>

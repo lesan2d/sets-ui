@@ -18,6 +18,10 @@ const addField = (field: FormItemContext) => {
   console.log(fields);
 }
 
+const filterFields = (names: Array<string>) => {
+  return names.length > 0 ? fields.filter((field) => names.includes(field?.name?.value || '')) : fields;
+};
+
 const validator: FormValidator = async (formModel, formRules) => {
   const validateErrorInfo: {
     [key: string]: any;
@@ -59,9 +63,9 @@ const validator: FormValidator = async (formModel, formRules) => {
   return Promise.resolve(null);
 };
 
-const validate = async () => {
+const validateField = async (names: Array<string>) => {
   let validationErrors: ValidateErrorInfo = {};
-  for (const field of fields) {
+  for (const field of filterFields(names)) {
     try {
       await field.validate('');
     } catch (fieldError) {
@@ -73,7 +77,15 @@ const validate = async () => {
   return Promise.reject(validationErrors);
 };
 
-const validateField = (name: string) => { };
+const validate = () => validateField([]);
+
+const clearValidate = () => {
+  fields.forEach((field) => field.clearValidate())
+};
+
+const resetFields = () => {
+  fields.forEach((field) => field.resetField())
+};
 
 provide(FORM_KEY, {
   model: props?.model,
@@ -83,7 +95,10 @@ provide(FORM_KEY, {
 });
 
 defineExpose({
+  validateField,
   validate,
+  clearValidate,
+  resetFields,
 })
 </script>
 

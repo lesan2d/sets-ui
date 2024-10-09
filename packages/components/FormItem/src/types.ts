@@ -1,3 +1,4 @@
+import type { ToRefs } from 'vue';
 import type { ValidateErrorInfo } from '@sets-ui/components/Form';
 
 export interface FormItemProps {
@@ -5,8 +6,10 @@ export interface FormItemProps {
 	name?: string;
 }
 
-export interface FormItemContext {
+export interface FormItemContext extends ToRefs<FormItemProps> {
 	validate: (trigger: string) => Promise<ValidateErrorInfo>;
+	clearValidate(): void;
+	resetField(): void;
 }
 
 export type FormItemValidateState = '' | 'success' | 'error' | 'validating';

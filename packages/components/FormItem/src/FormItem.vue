@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type { FormItemProps, FormItemValidateState } from './types';
+import type { FormItemProps, FormItemValidateState, FormItemContext } from './types';
 import type { ValidateErrorInfo } from '@sets-ui/components/Form'
 
-import { provide, ref, computed, onMounted, } from 'vue';
+import { provide, ref, computed, onMounted, nextTick, toRefs, } from 'vue';
+import { clone } from 'lodash-unified';
 import { FORM_ITEM_KEY } from './constants';
 
 import { useForm } from '@sets-ui/components/Form';
@@ -19,6 +20,7 @@ const props = withDefaults(defineProps<FormItemProps>(), {
 
 const formContext = useForm();
 
+let initialValue: any = undefined;
 const validateState = ref<FormItemValidateState>('')
 const validateMessage = ref('');
 
@@ -76,12 +78,35 @@ const validate = async (trigger: string) => {
   });
 };
 
-const context = { validate };
+const clearValidate = () => {
+  validateState.value = '';
+  validateMessage.value = '';
+}
+
+const resetField = () => {
+  const model = formContext?.model;
+  if (!model || !props.name) return;
+  console.log(model[props.name]);
+  model[props.name] = clone(initialValue);
+  nextTick(() => {
+    clearValidate();
+  });
+};
+
+const context: FormItemContext = {
+  ...toRefs(props),
+  validate,
+  clearValidate,
+  resetField,
+};
 
 provide(FORM_ITEM_KEY, context);
 
 onMounted(() => {
-  if (props.name) formContext?.addField(context);
+  if (props.name) {
+    formContext?.addField(context);
+    initialValue = clone(fieldValue.value)
+  }
 });
 </script>
 

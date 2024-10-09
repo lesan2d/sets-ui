@@ -31,6 +31,7 @@
 		"@vitejs/plugin-vue": "^4.5.1",
 		"css-loader": "^6.10.0",
 		"css-minimizer-webpack-plugin": "^6.0.0",
+		"lodash-unified": "^1.0.3",
 		"markdown-it-container": "^4.0.0",
 		"mini-css-extract-plugin": "^2.8.0",
 		"sass": "^1.69.5",
@@ -44,14 +45,14 @@
 		"webpack": "^5.90.1"
 	},
 	"dependencies": {
+		"@packages/composables": "workspace:*",
 		"@packages/styles": "workspace:*",
 		"@packages/utils": "workspace:*",
-		"@packages/composables": "workspace:*",
 		"@sets-ui/components": "workspace:*",
 		"@sets-ui/config": "workspace:*",
 		"@sets-ui/constants": "workspace:*",
-		"@sets-ui/theme-default": "workspace:*",
 		"@sets-ui/main": "workspace:*",
+		"@sets-ui/theme-default": "workspace:*",
 		"color": "^4.2.3",
 		"vue": "^3.4.8"
 	}
