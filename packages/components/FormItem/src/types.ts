@@ -1,4 +1,4 @@
-import type { FormValidatorErrorInfo } from '@sets-ui/components/Form';
+import type { ValidateErrorInfo } from '@sets-ui/components/Form';
 
 export interface FormItemProps {
 	label?: string;
@@ -6,7 +6,7 @@ export interface FormItemProps {
 }
 
 export interface FormItemContext {
-	validate: (trigger: string) => Promise<FormValidatorErrorInfo | undefined>;
+	validate: (trigger: string) => Promise<ValidateErrorInfo>;
 }
 
 export type FormItemValidateState = '' | 'success' | 'error' | 'validating';

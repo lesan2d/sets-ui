@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FormItemProps, FormItemValidateState } from './types';
-import type { FormValidatorErrorInfo } from '@sets-ui/components/Form'
+import type { ValidateErrorInfo } from '@sets-ui/components/Form'
 
 import { provide, ref, computed, onMounted, } from 'vue';
 import { FORM_ITEM_KEY } from './constants';
@@ -43,13 +43,13 @@ const validationSucceeded = () => {
   validateMessage.value = '';
 }
 
-const validationFailed = (error: FormValidatorErrorInfo) => {
+const validationFailed = (error: ValidateErrorInfo) => {
   if (!error) {
     console.error(error)
   }
 
   validateState.value = 'error';
-  const errors = error[props.name];
+  const errors = error?.[props.name];
 
   validateMessage.value = errors
     ? errors?.[0]?.message ?? `${props.name} is required`
@@ -57,10 +57,10 @@ const validationFailed = (error: FormValidatorErrorInfo) => {
 }
 
 const validate = async (trigger: string) => {
-  if (!formContext?.validator) return Promise.reject();
+  if (!formContext?.validator) return Promise.reject(null);
   const filterRules = fieldRules.value?.filter((rule) => trigger ? rule.trigger === trigger : true);
 
-  if (!filterRules?.length) return Promise.resolve();
+  if (!filterRules?.length) return Promise.resolve(null);
 
   validateState.value = 'validating';
   return formContext?.validator({
@@ -69,10 +69,10 @@ const validate = async (trigger: string) => {
     [props.name]: filterRules,
   }).then(() => {
     validationSucceeded();
-    return Promise.resolve();
-  }).catch((err) => {
-    validationFailed(err);
-    return Promise.reject(err);
+    return Promise.resolve(null);
+  }).catch((fieldError) => {
+    validationFailed(fieldError);
+    return Promise.reject(fieldError);
   });
 };
 

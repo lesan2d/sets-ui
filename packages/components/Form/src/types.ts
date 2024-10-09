@@ -23,18 +23,17 @@ export interface FormProps {
 	rules?: FormRules;
 }
 
-export type FormValidatorErrorMsg = Array<Error>;
+export type ValidateErrorInfoItem = Array<Error>;
 
-export interface FormValidatorErrorInfo {
-	[key: string]: FormValidatorErrorMsg;
-}
+export type ValidateErrorInfo = {
+	[key: string]: ValidateErrorInfoItem;
+} | null;
 
-export type FormValidator = (formModel: FormModel, formRules: FormRules) => Promise<FormValidatorErrorInfo | undefined>;
+export type FormValidator = (formModel: FormModel, formRules: FormRules) => Promise<ValidateErrorInfo>;
 
 export interface FormContext {
 	model: FormModel;
 	rules?: FormRules;
 	validator: FormValidator;
-	validate: () => Promise<boolean>;
 	addField: (field: FormItemContext) => void;
 }

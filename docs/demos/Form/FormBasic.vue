@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { FormInstance } from '@sets-ui/main';
 import { ref, reactive } from 'vue'
 
-const formRef = ref(null);
+const formRef = ref<FormInstance>();
 
 const form = reactive({
   name: '',
@@ -13,7 +14,6 @@ const rules = {
     { min: 2, max: 3, message: 'Length should be 2 to 3', trigger: 'blur' },
     {
       validator: (value: any) => {
-        console.log(value);
         return new Promise((resolve, reject) => {
           window.setTimeout(() => {
             if (value !== '黑奴') {
@@ -31,7 +31,6 @@ const rules = {
     { required: true, message: 'Please select type' },
     {
       validator: (value: any) => {
-        console.log(value);
         if (value !== '2100') {
           return Promise.reject('期望薪资不能高于2100');
         } else {
