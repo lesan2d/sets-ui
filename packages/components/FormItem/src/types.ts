@@ -1,5 +1,5 @@
 import type { ToRefs } from 'vue';
-import type { ValidateErrorInfo } from '@sets-ui/components/Form';
+import type { ValidateErrorInfo } from '@packages/composables/useValidator';
 
 export interface FormItemProps {
 	label?: string;

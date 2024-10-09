@@ -1,14 +1,5 @@
+import type { Rules } from '@packages/composables/useValidator';
 import type { FormItemContext } from '@sets-ui/components/FormItem';
-export interface RuleItem {
-	required?: boolean;
-	min?: number;
-	max?: number;
-	message: string;
-	trigger: string; // 触发方式(事件)
-	validator?: (value: any) => Promise<string | undefined>;
-}
-
-export type Rules = Array<RuleItem>;
 
 export interface FormModel {
 	[key: string]: any;
@@ -23,17 +14,8 @@ export interface FormProps {
 	rules?: FormRules;
 }
 
-export type ValidateErrorInfoItem = Array<Error>;
-
-export type ValidateErrorInfo = {
-	[key: string]: ValidateErrorInfoItem;
-} | null;
-
-export type FormValidator = (formModel: FormModel, formRules: FormRules) => Promise<ValidateErrorInfo>;
-
 export interface FormContext {
 	model: FormModel;
 	rules?: FormRules;
-	validator: FormValidator;
 	addField: (field: FormItemContext) => void;
 }

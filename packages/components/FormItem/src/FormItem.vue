@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { FormItemProps, FormItemValidateState, FormItemContext } from './types';
-import type { ValidateErrorInfo } from '@sets-ui/components/Form'
+import type { ValidateErrorInfo } from '@packages/composables/useValidator'
 
 import { provide, ref, computed, onMounted, nextTick, toRefs, } from 'vue';
 import { clone } from 'lodash-unified';
 import { FORM_ITEM_KEY } from './constants';
 
+import { useValidator } from '@packages/composables';
 import { useForm } from '@sets-ui/components/Form';
 
 defineOptions({
@@ -19,6 +20,7 @@ const props = withDefaults(defineProps<FormItemProps>(), {
 });
 
 const formContext = useForm();
+const { validator } = useValidator();
 
 let initialValue: any = undefined;
 const validateState = ref<FormItemValidateState>('')
@@ -59,13 +61,15 @@ const validationFailed = (error: ValidateErrorInfo) => {
 }
 
 const validate = async (trigger: string) => {
-  if (!formContext?.validator) return Promise.reject(null);
-  const filterRules = fieldRules.value?.filter((rule) => trigger ? rule.trigger === trigger : true);
+  if (!props.name) {
+    return Promise.reject([]); // todo 错误
+  }
 
+  const filterRules = fieldRules.value?.filter((rule) => trigger ? rule.trigger === trigger : true);
   if (!filterRules?.length) return Promise.resolve(null);
 
   validateState.value = 'validating';
-  return formContext?.validator({
+  return validator({
     [props.name]: fieldValue,
   }, {
     [props.name]: filterRules,
@@ -86,7 +90,7 @@ const clearValidate = () => {
 const resetField = () => {
   const model = formContext?.model;
   if (!model || !props.name) return;
-  console.log(model[props.name]);
+
   model[props.name] = clone(initialValue);
   nextTick(() => {
     clearValidate();
@@ -130,7 +134,7 @@ onMounted(() => {
     --s-form-item-size-base: var(--base-font-size);
     --s-form-item-grap-label: 12px;
     display: flex;
-    margin-bottom: calc(var(--s-form-item-size-base) + 2px);
+    margin-bottom: calc(var(--s-form-item-size-base) + 4px);
 
     &_label {
       margin-right: var(--s-form-item-grap-label);
@@ -147,13 +151,13 @@ onMounted(() => {
 
     &_error {
       position: absolute;
-      bottom: -2px;
+      bottom: 0;
       line-height: 1;
       transform: translateY(100%);
       color: var(--color-danger);
 
       span {
-        font-size: var(--s-form-item-size-base);
+        font-size: calc(var(--s-form-item-size-base) - 2px);
       }
     }
 

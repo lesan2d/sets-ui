@@ -2,47 +2,55 @@
 import type { FormInstance } from '@sets-ui/main';
 import { ref, reactive } from 'vue'
 
-const salary = ref('salary');
-
 const formRef = ref<FormInstance>();
 
 const form = reactive({
   name: '',
-  salary: '',
+  salary: '1000',
+  type: '',
 })
+
 const rules = {
   name: [
-    { required: true, message: 'Please input Activity name', trigger: 'blur' },
-    { min: 2, max: 3, message: 'Length should be 2 to 3', trigger: 'blur' },
+    { required: true, message: '请输入名称', trigger: 'blur' },
+    { min: 2, message: '名称最少为两位', trigger: 'blur' },
     {
       validator: (value: any) => {
         return new Promise((resolve, reject) => {
-          window.setTimeout(() => {
-            if (value !== '黑奴') {
-              reject('错误，为您查询到名称，黑奴')
-            } else {
-              resolve(true);
-            }
-          }, 2000);
+          if (value !== '黑奴') {
+            reject('名称错误，为您查询到名称: 黑奴')
+          } else {
+            resolve(true);
+          }
         })
       },
       trigger: 'blur',
     }
   ],
   salary: [
-    { required: true, message: 'Please select type' },
+    { required: true, message: '请输入期望薪资', trigger: 'blur' },
     {
       validator: (value: any) => {
-        if (value !== '2100') {
-          return Promise.reject('期望薪资不能高于2100');
-        } else {
-          return Promise.resolve();
-        }
+        return new Promise((resolve, reject) => {
+          console.log('薪资', value);
+          if (isNaN(parseFloat(value))) return reject('请输入数字！');
+          window.setTimeout(() => {
+            if (Number.parseInt(value, 10) > 2100) {
+              reject('期望薪资不能高于2100！')
+            } else {
+              resolve(true);
+            }
+          }, 3000);
+        })
       },
-      trigger: 'change',
+      trigger: 'blur',
     }
   ],
+  type: [
+    { required: true, message: '请选择类型' },
+  ],
 };
+
 const hanldeSubmit = () => {
   if (!formRef.value) return;
   formRef.value.validate().then((res) => {
@@ -72,11 +80,13 @@ const hanldeReset = () => {
     <s-form-item label="名称" name="name">
       <s-input v-model="form.name" placeholder="请输入名称" style="width: 200px;" />
     </s-form-item>
-    <s-form-item label="期望薪资" :name="salary">
-      <s-radio-group v-model="form.salary">
-        <s-radio value="2100">2100</s-radio>
-        <s-radio value="5000">5000</s-radio>
-        <s-radio value="10000">10000</s-radio>
+    <s-form-item label="期望薪资" name="salary">
+      <s-input v-model="form.salary" placeholder="请输入期望薪资" style="width: 200px;" />
+    </s-form-item>
+    <s-form-item label="工作类型" name="type">
+      <s-radio-group v-model="form.type">
+        <s-radio value="A">前端开发</s-radio>
+        <s-radio value="B">后端开发</s-radio>
       </s-radio-group>
     </s-form-item>
     <s-form-item>
