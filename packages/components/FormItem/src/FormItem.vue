@@ -22,6 +22,7 @@ const props = withDefaults(defineProps<FormItemProps>(), {
 const formContext = useForm();
 const { validator } = useValidator();
 
+const formItemLabelRef = ref<HTMLElement>();
 let initialValue: any = undefined;
 const validateState = ref<FormItemValidateState>('')
 const validateMessage = ref('');
@@ -31,6 +32,17 @@ const atomicClass = computed(() => ({
   'is-success': validateState.value === 'success',
   'is-error': validateState.value === 'error',
 }));
+
+const labelOffsetWidth = computed(() => {
+  const value = props?.labelWidth || formItemLabelRef?.value?.offsetWidth;
+  return value;
+});
+
+const computedLabelWidth = computed(() => {
+  console.log('formItem', formContext?.labelWidth?.value);
+  const value = props?.labelWidth || formContext?.labelWidth?.value || labelOffsetWidth.value;
+  return value;
+});
 
 const fieldValue = computed(() => {
   const model = formContext?.model
@@ -100,6 +112,7 @@ const resetField = () => {
 
 const context: FormItemContext = {
   ...toRefs(props),
+  labelOffsetWidth,
   validate,
   clearValidate,
   resetField,
@@ -117,8 +130,10 @@ onMounted(() => {
 
 <template>
   <div class="s-form--item" :class="[atomicClass]">
-    <div class="s-form--item_label">
-      <span>{{ props.label }}</span>
+    <div class="s-form--item_label_wrap" :style="{ width: `${computedLabelWidth}px` }">
+      <div ref="formItemLabelRef" class="s-form--item_label">
+        <span>{{ props.label }}</span>
+      </div>
     </div>
     <div class="s-form--item_content">
       <slot></slot>
@@ -138,7 +153,12 @@ onMounted(() => {
     margin-bottom: calc(var(--s-form-item-size-base) + 4px);
 
     &_label {
-      margin-right: var(--s-form-item-grap-label);
+      &_wrap {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      padding-right: var(--s-form-item-grap-label);
 
       span {
         font-size: var(--s-form-item-size-base);

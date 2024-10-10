@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { FormProps } from './types';
+import type { FormProps, FormContext } from './types';
 import type { ValidateErrorInfo } from '@packages/composables/useValidator';
 import type { FormItemContext } from '@sets-ui/components/FormItem';
 
-import { provide } from 'vue';
+import { ref, computed, provide } from 'vue';
 import { FORM_KEY } from './constants';
 
 defineOptions({
@@ -13,9 +13,17 @@ defineOptions({
 const props = withDefaults(defineProps<FormProps>(), {});
 
 const fields: FormItemContext[] = [];
+const fieldsLableWidth = ref<Array<number>>([]);
+
+const labelWidth = computed(() => {
+  const fieldsMaxLabelWidth = fieldsLableWidth.value.length ? Math.max(...fieldsLableWidth.value) : undefined;
+  const value = props.labelWidth || fieldsMaxLabelWidth;
+  return value;
+});
 
 const addField = (field: FormItemContext) => {
   fields.push(field);
+  if (field?.labelOffsetWidth?.value) fieldsLableWidth.value.push(field.labelOffsetWidth.value);
 }
 
 const filterFields = (names: Array<string>) => {
@@ -46,11 +54,14 @@ const resetFields = () => {
   fields.forEach((field) => field.resetField())
 };
 
-provide(FORM_KEY, {
+const context: FormContext = {
   model: props?.model,
   rules: props?.rules,
   addField,
-});
+  labelWidth,
+};
+
+provide(FORM_KEY, context);
 
 defineExpose({
   validateField,
