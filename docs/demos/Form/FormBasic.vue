@@ -6,7 +6,7 @@ const formRef = ref<FormInstance>();
 
 const form = reactive({
   name: '',
-  salary: '1000',
+  salary: 10000,
   type: '',
 })
 
@@ -30,7 +30,7 @@ const rules = {
     }
   ],
   salary: [
-    { required: true, message: '请输入期望薪资', trigger: 'blur' },
+    { required: true, message: '请输入期望薪资' },
     {
       validator: (value: any) => {
         return new Promise((resolve, reject) => {
@@ -38,7 +38,7 @@ const rules = {
           salaryValidating.value = true;
           window.setTimeout(() => {
             if (Number.parseInt(value, 10) > 2100) {
-              reject('期望薪资不能高于2100！')
+              reject('薪资最高不得超过2100！')
             } else {
               resolve(true);
             }
@@ -46,7 +46,6 @@ const rules = {
           }, 3000);
         })
       },
-      trigger: 'blur',
     }
   ],
   type: [

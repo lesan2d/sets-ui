@@ -3,7 +3,7 @@ export interface RuleItem {
 	min?: number;
 	max?: number;
 	message: string;
-	trigger: string; // 触发方式(事件)
+	trigger?: string; // 触发方式(事件)
 	validator?: (value: any) => Promise<string | undefined>;
 }
 

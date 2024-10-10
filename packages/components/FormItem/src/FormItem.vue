@@ -66,7 +66,7 @@ const validate = async (trigger: string) => {
   }
 
   // 可能需要注意在后代组件中，trigger触发校验时与 resetField 方法的状态冲突
-  const filterRules = fieldRules.value?.filter((rule) => trigger ? rule.trigger === trigger : true);
+  const filterRules = fieldRules.value?.filter((rule) => trigger ? rule?.trigger === trigger : true);
   if (!filterRules?.length) return null;
 
   validateState.value = 'validating';
