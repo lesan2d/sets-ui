@@ -24,13 +24,17 @@ const filterFields = (names: Array<string>) => {
 
 const validateField = async (names: Array<string>) => {
   let validationErrors: ValidateErrorInfo = {};
+  const validateTasks = [];
+
   for (const field of filterFields(names)) {
-    try {
-      await field.validate('');
-    } catch (fieldError) {
+    const validateTask = field.validate('').then(() => true).catch((fieldError) => {
       validationErrors = { ...validationErrors, ...(fieldError as ValidateErrorInfo) };
-    }
+      return true;
+    });
+    validateTasks.push(validateTask);
   }
+
+  await Promise.all(validateTasks);
 
   if (Object.keys(validationErrors).length === 0) return null;
   return Promise.reject(validationErrors);

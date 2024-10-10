@@ -29,6 +29,7 @@ export function useValidator() {
 		const validateErrorInfo: {
 			[key: string]: any;
 		} = {};
+
 		for (const fieldName in fieldsRules) {
 			const fieldValue = fieldsValue[fieldName];
 			const validateFieldErrorInfo = [];

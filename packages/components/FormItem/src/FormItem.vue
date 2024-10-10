@@ -62,11 +62,12 @@ const validationFailed = (error: ValidateErrorInfo) => {
 
 const validate = async (trigger: string) => {
   if (!props.name) {
-    return Promise.reject([]); // todo 错误
+    return null; // 没有 name 即没有 rules，默认为校验通过
   }
 
+  // 可能需要注意在后代组件中，trigger触发校验时与 resetField 方法的状态冲突
   const filterRules = fieldRules.value?.filter((rule) => trigger ? rule.trigger === trigger : true);
-  if (!filterRules?.length) return Promise.resolve(null);
+  if (!filterRules?.length) return null;
 
   validateState.value = 'validating';
   return validator({
@@ -75,7 +76,7 @@ const validate = async (trigger: string) => {
     [props.name]: filterRules,
   }).then(() => {
     validationSucceeded();
-    return Promise.resolve(null);
+    return null;
   }).catch((fieldError) => {
     validationFailed(fieldError);
     return Promise.reject(fieldError);
