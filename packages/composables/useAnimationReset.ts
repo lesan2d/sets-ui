@@ -2,6 +2,7 @@ import type { Ref } from 'vue';
 
 import { ref, watch } from 'vue';
 
+// 重置动画
 export function useAnimationReset(on: Ref<boolean>) {
 	const style = ref<{ [key: string]: any }>({});
 

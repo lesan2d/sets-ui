@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { DirectionType } from '#/component';
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, nextTick } from 'vue';
 import { genBEMClass } from '@packages/utils';
 import { useAnimationReset, useAnimationReverse } from '@packages/composables';
 import { useTheme } from '@sets-ui/config';
@@ -40,7 +40,7 @@ const shouldVisible = ref(props.modelValue); // 不确定的弹窗状态(判断�
 const animationReset = ref(false); // 重置动画
 const closed = ref(false); // 弹窗关闭中
 const animationPlaying = ref(false); // 过渡动画播放中
-const timer = ref<NodeJS.Timer | null>(null);
+const timer = ref<NodeJS.Timer>();
 
 const { style: animationReverseStyle } = useAnimationReverse(closed);
 const { style: animationResetStyle } = useAnimationReset(animationReset);
@@ -75,12 +75,26 @@ watch(visible, (val) => {
   changeShouldVisible(val);
 });
 
+const clearTimer = () => {
+  clearInterval(timer.value);
+  timer.value = undefined;
+};
+
 // 异步控制弹窗显示
 const changeShouldVisible = (val: boolean) => {
-  if (timer.value) clearInterval(timer.value);
+  console.log(timer.value);
+  if (timer.value) {
+    clearTimer();
+  }
 
-  animationReset.value = val; // 快速开启/关闭时，重启弹窗需要清除关闭动画
+  animationReset.value = true; // 快速开启/关闭时，重启弹窗需要清除关闭动画
+  console.log('动画重置', animationReset.value);
+
   closed.value = !val;
+
+  console.log('开始切换显示', val,);
+  console.log('是否为关闭中状态', closed.value);
+  console.log('当前动画样式', animationStyle.value);
 
   if (!val) emit('close'); // 弹窗关闭回调
 
@@ -89,8 +103,11 @@ const changeShouldVisible = (val: boolean) => {
     animationReset.value = false; // 重置重置状态
     closed.value = false; // 重置关闭中状态
     shouldVisible.value = val; // 更新弹窗显示
+    if (timer.value) clearTimer();
+    nextTick(() => {
+      console.log('动画播放完毕，更新显示状态', val, animationStyle.value);
+    });
     if (!val) emit('closed'); // 关闭动画结束回调
-    if (timer.value) clearInterval(timer.value);
   }, 100);
 };
 const handleClose = () => {
