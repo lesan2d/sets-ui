@@ -20,6 +20,15 @@ Dialog 基于 Popup 开发，通过 [透传 Attributes](https://cn.vuejs.org/gui
 <<< @/demos/Dialog/DialogSlot.vue
 :::
 
+## 弹出方向
+
+通过 `Popup` 透传属性 `direction` 属性的 `ttb` `rtl` `btt` `ltr` 设定弹出方向，当值为 `''` 空时默认居中
+
+:::demo
+<<< @/demos/Dialog/DialogDirection.vue
+:::
+
+
 ## API
 
 ### Dialog Attributes

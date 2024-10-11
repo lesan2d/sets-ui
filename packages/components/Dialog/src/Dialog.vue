@@ -72,8 +72,6 @@ function handleConfirm() {
   --s-dialog-border-style: solid;
   --s-dialog-border-color: var(--color-border);
   width: var(--s-dialog-width, 50%);
-  display: grid;
-  grid-template-rows: auto 1fr auto;
   color: var(--color-text);
 
   &--header {

@@ -1,15 +1,21 @@
 import { withInstall } from '@packages/utils';
-import DialogBasicInstace from './DialogBasic.vue';
-import DialogSlotInstace from './DialogSlot.vue';
+import BasicInstace from './DialogBasic.vue';
+import SlotInstace from './DialogSlot.vue';
+import DirectionInstace from './DialogDirection.vue';
 
-export const DialogBasic = withInstall({
-  ...DialogBasicInstace,
+export const Basic = withInstall({
+  ...BasicInstace,
 	name: 'DialogBasic',
 });
 
-export const DialogSlot = withInstall({
-  ...DialogSlotInstace,
+export const Slot = withInstall({
+  ...SlotInstace,
 	name: 'DialogSlot',
 });
 
-export default [DialogBasic, DialogSlot];
+export const Direction = withInstall({
+  ...DirectionInstace,
+	name: 'DialogDirection',
+});
+
+export default [Basic, Slot, Direction];

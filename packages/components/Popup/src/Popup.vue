@@ -131,6 +131,7 @@ const handleAnimationend = () => {
 
   &--wrapper {
     display: grid;
+    grid-template-rows: auto 1fr auto;
     width: 100%;
     height: 100%;
     padding: var(--s-popup-padding);
