@@ -6,7 +6,7 @@ import { ref, watch } from 'vue';
 export function useAnimationReverse(on: Ref<boolean>) {
 	const style = ref<{ [key: string]: any }>({});
 	let reversing = false; // 倒放中
-	let timer: number = 0;
+	let timer: NodeJS.Timeout | number = 0;
 	const clearTimer = () => {
 		if (timer) clearTimeout(timer);
 		timer = 0;

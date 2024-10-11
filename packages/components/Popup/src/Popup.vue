@@ -38,8 +38,8 @@ const extendsClass = genBEMClass('s-popup', [...themeName].filter((p) => Boolean
 
 const shouldVisible = ref(props.modelValue); // 不确定的弹窗状态(判断动画过渡后才能确定显示状态)
 const closed = ref(false); // 弹窗关闭中
-const animationPlaying = ref(false); // 过渡动画播放中
-const timer = ref<number>();
+let animationPlaying = false; // 过渡动画播放中
+let timer: NodeJS.Timeout | number = 0;
 
 const { style: animationReverseStyle } = useAnimationReverse(closed);
 
@@ -73,22 +73,22 @@ watch(visible, (val) => {
 });
 
 const clearTimer = () => {
-  clearInterval(timer.value);
-  timer.value = 0;
+  clearInterval(timer);
+  timer = 0;
 };
 
 // 异步控制弹窗显示
 const changeShouldVisible = (val: boolean) => {
-  if (timer.value) clearTimer();
+  if (timer) clearTimer();
 
   closed.value = !val;
   if (!val) emit('close'); // 弹窗关闭回调
 
-  timer.value = setInterval(() => {
-    if (animationPlaying.value) return; // 动画播放中时继续轮询
+  timer = setInterval(() => {
+    if (animationPlaying) return; // 动画播放中时继续轮询
     closed.value = false; // 重置关闭中状态
     shouldVisible.value = val; // 更新弹窗显示
-    if (timer.value) clearTimer();
+    if (timer) clearTimer();
     if (!val) emit('closed'); // 关闭动画结束回调
   }, 100);
 };
@@ -96,10 +96,10 @@ const handleClose = () => {
   visible.value = false;
 };
 const handleAnimationstart = () => {
-  animationPlaying.value = true;
+  animationPlaying = true;
 };
 const handleAnimationend = () => {
-  animationPlaying.value = false;
+  animationPlaying = false;
 }
 </script>
 
