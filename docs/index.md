@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "sets-ui"
   text: "主题UI库"
-  tagline: 以自定义为核心的Vue3组件库
+  tagline: 可自开发切换主题的轻量UI组件库
   actions:
     - theme: brand
       text: 快速开始

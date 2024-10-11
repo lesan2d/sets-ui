@@ -39,7 +39,6 @@ const labelOffsetWidth = computed(() => {
 });
 
 const computedLabelWidth = computed(() => {
-  console.log('formItem', formContext?.labelWidth?.value);
   const value = props?.labelWidth || formContext?.labelWidth?.value || labelOffsetWidth.value;
   return value;
 });

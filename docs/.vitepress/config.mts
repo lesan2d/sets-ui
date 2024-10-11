@@ -39,14 +39,14 @@ export default defineConfig({
 					items: [
 						{ text: 'Button 按钮', link: '/component/button' },
 						{ text: 'Grid 布局网格', link: '/component/grid' },
-						{ text: 'Input 输入框', link: '/component/input' },
-						{ text: 'Radio 单选框', link: '/component/radio' },
 					],
 				},
-        {
+				{
 					text: '表单',
 					items: [
 						{ text: 'Form 表单', link: '/component/form' },
+						{ text: 'Input 输入框', link: '/component/input' },
+						{ text: 'Radio 单选框', link: '/component/radio' },
 					],
 				},
 				{
