@@ -99,6 +99,8 @@ function handleClearable() {
     outline: none;
     font-size: var(--s-input-size-base);
     line-height: calc(var(--s-input-size-base) * 2);
+    background-color: transparent;
+    color: inherit;
   }
 
   &--clearable {

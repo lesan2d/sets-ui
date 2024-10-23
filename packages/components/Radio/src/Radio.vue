@@ -124,6 +124,7 @@ function handleChange() {
 
   &--label {
     font-size: var(--base-font-size);
+    line-height: 1;
   }
 
   +.s-radio {
