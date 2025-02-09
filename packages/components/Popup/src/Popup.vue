@@ -131,6 +131,7 @@ const handleAnimationend = () => {
 
 <style lang="scss">
 .s-popup {
+  --s-popup-width: 30%;
   --s-popup-padding: 20px;
   --s-popup-z-index: 1;
   position: fixed;
@@ -141,6 +142,7 @@ const handleAnimationend = () => {
   height: 100%;
 
   &--wrapper {
+    width: var(--s-popup-width, 30%);
     display: inline-grid;
     grid-template-rows: auto 1fr auto;
     padding: var(--s-popup-padding);
@@ -162,9 +164,7 @@ const handleAnimationend = () => {
   }
 
   &.ttb {
-    .s-popup--wrapper {
-      width: 100%;
-    }
+    --s-popup-width: 100%;
   }
 
   &.rtl {
@@ -177,12 +177,9 @@ const handleAnimationend = () => {
   }
 
   &.btt {
+    --s-popup-width: 100%;
     display: flex;
     align-items: flex-end;
-
-    .s-popup--wrapper {
-      width: 100%;
-    }
   }
 
   &.ltr {

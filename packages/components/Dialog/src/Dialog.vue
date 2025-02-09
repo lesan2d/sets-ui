@@ -71,7 +71,7 @@ function handleConfirm() {
   --s-dialog-border-width: 1px;
   --s-dialog-border-style: solid;
   --s-dialog-border-color: var(--color-border);
-  width: var(--s-dialog-width, 50%);
+  --s-popup-width: var(--s-dialog-width, 50%);
   color: var(--color-text);
 
   &--header {
