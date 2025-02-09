@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,R as t}from"./chunks/framework.gkZ4d2Vc.js";const g=JSON.parse('{"title":"全局配置","description":"","frontmatter":{},"headers":[],"relativePath":"guide/config.md","filePath":"guide/config.md"}'),n={name:"guide/config.md"},p=t("",6),h=[p];function e(l,k,E,r,d,o){return a(),i("div",null,h)}const y=s(n,[["render",e]]);export{g as __pageData,y as default};
