@@ -96,10 +96,6 @@ const changeShouldVisible = (val: boolean) => {
   }, 100);
 };
 
-const handleClickOverlay = () => {
-  if (props.closeOnClickOverlay) overlayVisible.value = false;
-}
-
 const handleClose = () => {
   visible.value = false;
 };
@@ -114,11 +110,12 @@ const handleAnimationend = () => {
 </script>
 
 <template>
-  <s-overlay v-if="props.overlay" v-model="overlayVisible" :destroy-on-close="props.destroyOnClose" />
+  <s-overlay v-if="props.overlay" v-model="overlayVisible" :destroy-on-close="props.destroyOnClose"
+    :close-on-click-overlay="props.closeOnClickOverlay" />
   <div v-if="props.destroyOnClose ? shouldVisible : true" v-show="shouldVisible" class="s-popup" :class="[extendsClass, props.direction, {
     'opened': opened,
     'closed': closed,
-  }]" v-bind="$attrs" @click="handleClickOverlay">
+  }]" v-bind="$attrs">
     <div class="s-popup--wrapper" :style="animationStyle" @animationstart.self="handleAnimationstart"
       @animationend.self="handleAnimationend">
       <SButton v-if="props.showClose" text circle class="btn-close" @click="handleClose">
@@ -134,6 +131,7 @@ const handleAnimationend = () => {
   --s-popup-width: 30%;
   --s-popup-padding: 20px;
   --s-popup-z-index: 1;
+  pointer-events: none;
   position: fixed;
   z-index: calc(var(--z-index-top) + var(--s-popup-z-index));
   top: 0;
@@ -142,6 +140,7 @@ const handleAnimationend = () => {
   height: 100%;
 
   &--wrapper {
+    pointer-events: auto;
     width: var(--s-popup-width, 30%);
     display: inline-grid;
     grid-template-rows: auto 1fr auto;
