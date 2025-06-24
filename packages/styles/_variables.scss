@@ -1,56 +1,20 @@
-$global-theme-color: #6e64c8;
-$global-theme-color-light: #ede6ff;
-$global-base-color: #dddddd;
-$global-base-color-light: #eeeeee;
-$global-base-color-lighter: #ffffff;
-$global-base-color-inverse: #000000;
-$global-base-color-light-inverse: #333333;
-$global-base-color-lighter-inverse: #777777;
-$global-color-danger: #ff7b7b;
+// 颜色
+$theme-color-50: #ede6ff;
+$theme-color-500: #6e64c8;
 
-$global-base-font-size: 14px;
-$global-base-font-size-small: 12px;
-$global-font-size-h1: 32px;
-$global-font-size-h2: 24px;
-$global-font-size-h3: 18px;
-$global-font-size-h4: 16px;
-$global-font-size-h5: 14px;
-$global-font-size-h6: 12px;
-$global-z-index-top: 1000;
+$base-color-50: #ffffff;
+$base-color-250: #eeeeee;
+$base-color-500: #dddddd;
 
-:root {
-	--theme-color: #{$global-theme-color};
-	--theme-color-light: #{$global-theme-color-light};
-	--base-color: #{$global-base-color};
-	--base-color-light: #{$global-base-color-light};
-	--base-color-lighter: #{$global-base-color-lighter};
-	--base-color-inverse: #{$global-base-color-inverse};
-	--base-color-light-inverse: #{$global-base-color-light-inverse};
-	--base-color-lighter-inverse: #{$global-base-color-lighter-inverse};
-	--base-font-size: #{$global-base-font-size};
-	--base-font-size-small: #{$global-base-font-size-small};
+$base-color-inverse-50: #777777;
+$base-color-inverse-250: #333333;
+$base-color-inverse-500: #000000;
 
-	--color-danger: #{$global-color-danger};
-	--color-text: var(--base-color-inverse);
-	--color-text-inverse: var(--base-color-lighter);
-	--color-icon: var(--base-color-light-inverse);
-	--color-border: var(--base-color);
-	--color-bg: var(--base-color-light);
+$base-color-danger-500: #ff7b7b;
 
-	--font-size-h1: calc(var(--base-font-size) * 2.5);
-	--font-size-h2: calc(var(--base-font-size) * 2);
-	--font-size-h3: calc(var(--base-font-size) * 1.75);
-	--font-size-h4: calc(var(--base-font-size) * 1.5);
-	--font-size-h5: calc(var(--base-font-size) * 1.25);
-	--font-size-h6: calc(var(--base-font-size) * 1);
-	--z-index-top: #{$global-z-index-top};
+// 字体大小
+$base-font-size-50: 12px; // 小字体大小
+$base-font-size-500: 14px; // 基础字体大小
 
-	&.dark {
-		--base-color: #{$global-base-color-lighter-inverse};
-		--base-color-light: #{$global-base-color-light-inverse};
-		--base-color-lighter: #{$global-base-color-inverse};
-		--base-color-inverse: #{$global-base-color-lighter};
-		--base-color-light-inverse: #{$global-base-color-light};
-		--base-color-lighter-inverse: #{$global-base-color};
-	}
-}
+// 层级
+$z-index-500: 1000;

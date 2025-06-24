@@ -1,0 +1,21 @@
+@use './_variables' as var;
+
+// 计算每一级字体大小倍数
+@function font-size-multiplier($level) {
+	@if $level <= 0 {
+		@error "Invalid parameters combination";
+	}
+
+	@if $level == 1 {
+		@return 2.5;
+	} @else if $level <= 6 {
+		@return 2 - ($level - 2) * 0.25;
+	} @else {
+		@return 1;
+	}
+}
+
+// 计算字体大小
+@function font-size-calc($level) {
+	@return var.$base-font-size-500 * font-size-multiplier($level);
+}

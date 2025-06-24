@@ -74,15 +74,15 @@ const style = computed(() => {
 <style lang="scss">
 .s-button {
   // 按钮颜色
-  --s-button-theme-color: var(--theme-color); // 原子变量
-  --s-button-theme-color-light: var(--theme-color-light); // 原子变量
-  --s-button-color-text: var(--color-text);
+  --s-button-theme-color: var(--theme-color-500); // 原子变量
+  --s-button-theme-color-light: var(--theme-color-50); // 原子变量
+  --s-button-color-text: var(--color-text-500);
   --s-button-color-text-hover: var(--s-button-theme-color);
-  --s-button-color-bg: var(--base-color-light);
+  --s-button-color-bg: var(--base-color-250);
   --s-button-color-bg-hover: var(--s-button-theme-color-light);
   // 按钮尺寸
-  --s-button-size: calc(var(--base-font-size) * 2);
-  --s-button-font-size: var(--base-font-size);
+  --s-button-size: calc(var(--base-font-size-500) * 2);
+  --s-button-font-size: var(--base-font-size-500);
   --s-button-padding: 8px 14px;
   --s-button-series-gap: 10px;
   --s-button-round: 20px;
@@ -120,12 +120,12 @@ const style = computed(() => {
 
   // 类型
   &--primary {
-    --s-button-color-text: var(--color-text-inverse);
+    --s-button-color-text: var(--color-text-inverse-500);
     --s-button-color-bg: var(--s-button-theme-color);
 
     &:active,
     &:focus {
-      --s-button-color-text-hover: var(--color-text-inverse);
+      --s-button-color-text-hover: var(--color-text-inverse-500);
       --s-button-color-bg-hover: var(--s-button-theme-color)
     }
   }
@@ -145,13 +145,13 @@ const style = computed(() => {
 
   // 大小
   &--small {
-    --s-button-size: calc(var(--base-font-size-small) * 2);
-    --s-button-font-size: var(--base-font-size-small);
+    --s-button-size: calc(var(--base-font-size-50) * 2);
+    --s-button-font-size: var(--base-font-size-50);
     --s-button-padding: 5px 10px;
   }
 
   &--large {
-    --s-button-size: calc(var(--base-font-size) * 2.5);
+    --s-button-size: calc(var(--base-font-size-500) * 2.5);
     --s-button-padding: 12px 18px;
   }
 

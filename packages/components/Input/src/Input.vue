@@ -62,10 +62,10 @@ function handleClearable() {
 <style scoped lang='scss'>
 .s-input {
   --s-input-border-radius: 4px;
-  --s-input-size-base: var(--base-font-size);
+  --s-input-size-base: var(--base-font-size-500);
   --s-input-size-D: 0px;
   --s-input-padding: 1px 10px;
-  --s-input-color-border: var(--color-border);
+  --s-input-color-border: var(--color-border-500);
   position: relative;
   display: inline-flex;
   width: 100%;
@@ -81,7 +81,7 @@ function handleClearable() {
     border-color: var(--s-input-color-border);
     border-radius: var(--s-input-border-radius);
     padding: var(--s-input-padding);
-    background-color: var(--base-color-lighter);
+    background-color: var(--base-color-250);
     overflow: hidden;
 
     &:hover {
@@ -109,8 +109,8 @@ function handleClearable() {
     align-items: center;
     height: calc(var(--s-input-size-base) * 2);
     padding-left: 2px;
-    color: var(--color-border);
-    background-color: var(--base-color-lighter);
+    color: var(--color-border-500);
+    background-color: var(--base-color-250);
     transition: opacity 0.2s ease-in-out;
 
     >i {

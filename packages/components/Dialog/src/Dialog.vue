@@ -70,9 +70,9 @@ function handleConfirm() {
   --s-dialog-padding-footer: 10px;
   --s-dialog-border-width: 1px;
   --s-dialog-border-style: solid;
-  --s-dialog-border-color: var(--color-border);
+  --s-dialog-border-color: var(--color-border-500);
   --s-popup-width: var(--s-dialog-width, 50%);
-  color: var(--color-text);
+  color: var(--color-text-500);
 
   &--header {
     padding: var(--s-dialog-padding-header);

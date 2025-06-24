@@ -62,10 +62,10 @@ title: Button
 | 名称                         |           说明           |                            默认值 |
 | ---------------------------- | :----------------------: | --------------------------------: |
 | --s-button-theme-color       |        按钮主题色        |                var(--theme-color) |
-| --s-button-theme-color-light |        按钮辅助色        |          var(--theme-color-light) |
+| --s-button-theme-color-light |        按钮辅助色        |          var(--theme-color-50) |
 | --s-button-color-text        |        按钮字体色        |                 var(--color-text) |
 | --s-button-color-text-hover  |      按钮字体移入色      |       var(--s-button-theme-color) |
-| --s-button-color-bg          |       按钮默认背景       |           var(--base-color-light) |
+| --s-button-color-bg          |       按钮默认背景       |           var(--base-color-250) |
 | --s-button-color-bg-hover    |    按钮默认背景移入色    | var(--s-button-theme-color-light) |
 | --s-button-size              | 按钮大小(仅形状按钮适用) |   calc(var(--base-font-size) * 2) |
 | --s-button-font-size         |         字体大小         |             var(--base-font-size) |

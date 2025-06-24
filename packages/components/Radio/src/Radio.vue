@@ -62,7 +62,7 @@ function handleChange() {
 
 <style lang="scss">
 .s-radio {
-  --s-radio-size: calc(var(--base-font-size) + 2px);
+  --s-radio-size: calc(var(--base-font-size-500) + 2px);
   --s-radio-series-gap: 10px;
   cursor: pointer;
   display: inline-grid;
@@ -75,7 +75,7 @@ function handleChange() {
 
     &:checked {
       &+.s-radio--case {
-        border-color: var(--theme-color);
+        border-color: var(--theme-color-500);
 
         &::after {
           transform: translateY(-50%) scale(0.75);
@@ -89,7 +89,7 @@ function handleChange() {
     width: var(--s-radio-size);
     height: var(--s-radio-size);
     border-radius: 50%;
-    border: 1px solid var(--color-icon);
+    border: 1px solid var(--color-icon-500);
 
     &::after {
       display: block;
@@ -101,7 +101,7 @@ function handleChange() {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background-color: var(--theme-color);
+      background-color: var(--theme-color-500);
       transform-origin: 50% center;
       transform: translateY(-50%) scale(0);
     }
@@ -116,14 +116,14 @@ function handleChange() {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background-color: var(--base-color-lighter);
+      background-color: var(--base-color-250);
       transform-origin: 50% center;
       transform: translateY(-50%) scale(1);
     }
   }
 
   &--label {
-    font-size: var(--base-font-size);
+    font-size: var(--base-font-size-500);
     line-height: 1;
   }
 

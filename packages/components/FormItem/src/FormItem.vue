@@ -146,7 +146,7 @@ onMounted(() => {
 <style scoped lang='scss'>
 .s-form {
   &--item {
-    --s-form-item-size-base: var(--base-font-size);
+    --s-form-item-size-base: var(--base-font-size-500);
     --s-form-item-grap-label: 12px;
     display: flex;
     margin-bottom: calc(var(--s-form-item-size-base) + 4px);
@@ -174,7 +174,7 @@ onMounted(() => {
       bottom: 0;
       line-height: 1;
       transform: translateY(100%);
-      color: var(--color-danger);
+      color: var(--base-color-danger-500);
 
       span {
         font-size: calc(var(--s-form-item-size-base) - 2px);
@@ -186,7 +186,7 @@ onMounted(() => {
         &_content {
           ::v-deep {
             .s-input--wrapper {
-              --s-input-color-border: var(--color-danger);
+              --s-input-color-border: var(--base-color-danger-500);
             }
           }
         }

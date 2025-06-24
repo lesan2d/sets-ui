@@ -133,7 +133,7 @@ const handleAnimationend = () => {
   --s-popup-z-index: 1;
   pointer-events: none;
   position: fixed;
-  z-index: calc(var(--z-index-top) + var(--s-popup-z-index));
+  z-index: calc(var(--z-index-500) + var(--s-popup-z-index));
   top: 0;
   left: 0;
   width: 100%;
@@ -145,7 +145,7 @@ const handleAnimationend = () => {
     display: inline-grid;
     grid-template-rows: auto 1fr auto;
     padding: var(--s-popup-padding);
-    background-color: var(--base-color-lighter);
+    background-color: var(--base-color-250);
 
     .btn-close {
       position: absolute;

@@ -15,13 +15,13 @@
 
 	&:hover {
 		.s-radio--case {
-			border-color: var(--theme-color);
+			border-color: var(--theme-color-500);
 		}
 	}
 
 	&:active {
 		.s-radio--case {
-			background-color: var(--base-color-light);
+			background-color: var(--base-color-250);
 
 			&::after {
 				transform: translateY(-50%) scale(0.25);
