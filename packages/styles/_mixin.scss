@@ -1,0 +1,54 @@
+@use './_variables' as var;
+@use './function' as func;
+
+// 注册主题变量
+@mixin theme-vars {
+	// 主题色
+	--theme-color-50: #{var.$theme-color-50};
+	--theme-color-500: #{var.$theme-color-500};
+
+	// 基础色(背景/字体)
+	--color-base-50: #{var.$color-base-50};
+	--color-base-250: #{var.$color-base-250};
+	--color-base-500: #{var.$color-base-500};
+	--color-base-inverse-50: #{var.$color-base-inverse-50};
+	--color-base-inverse-250: #{var.$color-base-inverse-250};
+	--color-base-inverse-500: #{var.$color-base-inverse-500};
+	--color-danger-500: #{var.$color-danger-500};
+
+	// 字体大小
+	--text-xs: calc(var(--text-base) * #{func.text-get-ratio(small, 1)});
+	--text-sm: calc(var(--text-base) * #{func.text-get-ratio(small, 0)});
+	--text-base: #{var.$text-medium};
+	--text-lg: calc(var(--text-base) * #{func.text-get-ratio(large, 0)});
+	--text-xl: calc(var(--text-base) * #{func.text-get-ratio(large, 1)});
+	--text-2xl: calc(var(--text-base) * #{func.text-get-ratio(large, 2)});
+	--text-3xl: calc(var(--text-base) * #{func.text-get-ratio(large, 3)});
+	--text-4xl: calc(var(--text-base) * #{func.text-get-ratio(large, 4)});
+	--text-5xl: calc(var(--text-base) * #{func.text-get-ratio(large, 5)});
+	--text-6xl: calc(var(--text-base) * #{func.text-get-ratio(large, 6)});
+	--text-7xl: calc(var(--text-base) * #{func.text-get-ratio(large, 7)});
+	--text-8xl: calc(var(--text-base) * #{func.text-get-ratio(large, 8)});
+	--text-9xl: calc(var(--text-base) * #{func.text-get-ratio(large, 9)});
+
+	// 层级
+	--z-index-base: #{var.$z-index-base};
+
+	// 扩展颜色(基于基础色)
+	--color-text-500: var(--color-base-inverse-500);
+	--color-text-inverse-500: var(--color-base-50);
+	--color-icon-500: var(--color-base-inverse-500);
+	--color-border-500: var(--color-base-500);
+	--color-bg-500: var(--color-base-250);
+
+	// 黑色主题
+	&.dark {
+		--color-base-inverse-50: #{var.$color-base-50};
+		--color-base-inverse-250: #{var.$color-base-250};
+		--color-base-inverse-500: #{var.$color-base-500};
+
+		--color-base-50: #{var.$color-base-inverse-500};
+		--color-base-250: #{var.$color-base-inverse-250};
+		--color-base-500: #{var.$color-base-inverse-50};
+	}
+}

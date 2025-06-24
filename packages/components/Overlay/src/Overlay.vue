@@ -49,7 +49,7 @@ function handleClick() {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: calc(var(--z-index-500) - 1);
+  z-index: calc(var(--z-index-base) - 1);
   width: 100%;
   height: 100%;
   transition: opacity 0.5s;

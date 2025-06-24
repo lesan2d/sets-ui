@@ -10,8 +10,31 @@
 	.s-h#{$i} {
 		margin: 0;
 		line-height: 1;
-		font-size: var(--font-size-h#{$i});
 	}
+}
+
+.s-h1 {
+	font-size: var(--text-3xl);
+}
+
+.s-h2 {
+	font-size: var(--text-2xl);
+}
+
+.s-h3 {
+	font-size: var(--text-xl);
+}
+
+.s-h4 {
+	font-size: var(--text-lg);
+}
+
+.s-h5 {
+	font-size: var(--text-base);
+}
+
+.s-h6 {
+	font-size: var(--text-sm);
 }
 
 // icon

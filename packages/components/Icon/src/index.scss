@@ -4,8 +4,8 @@ i.s-icon {
 	--width-border: 1px;
 	&--close {
 		position: relative;
-		height: var(--font-size-h6);
-		width: var(--font-size-h6);
+		height: var(--text-sm);
+		width: var(--text-sm);
 		&::before {
 			position: absolute;
 			height: 0;

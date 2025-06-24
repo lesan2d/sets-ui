@@ -1,20 +1,59 @@
-// 颜色
+// -----------------------------
+// 🎨 颜色设计变量命名规范
+// -----------------------------
+// 设计参考: https://tailwindcss.com/docs/colors
+// 采用设计系统分级（Design Token）风格，使用结构化命名，方便主题维护与自动生成 CSS 变量。
+// 命名格式: $<color-name>-<scale>
+//
+// - color-name: 颜色语义标识或色调（如 primary、success、gray）
+// - scale: 数值越小表示颜色越浅（如 50 接近白色，900 接近黑色）
+//
+// 🌟 建议使用分级: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+// - 500 为主色基准值（推荐 UI 主色）
+// - 其他等级用于 hover、disabled、背景、边框等场景
+//
+// 🔄 可统一生成 CSS Variables，用于 :root 或主题切换
+// e.g. $primary-500 → --primary-500
+
+// 主题色
 $theme-color-50: #ede6ff;
 $theme-color-500: #6e64c8;
 
-$base-color-50: #ffffff;
-$base-color-250: #eeeeee;
-$base-color-500: #dddddd;
+// 基础色(背景/字体)
+$color-base-50: #ffffff;
+$color-base-250: #eeeeee;
+$color-base-500: #dddddd;
+$color-base-inverse-50: #777777;
+$color-base-inverse-250: #333333;
+$color-base-inverse-500: #000000;
 
-$base-color-inverse-50: #777777;
-$base-color-inverse-250: #333333;
-$base-color-inverse-500: #000000;
+// -----------------------------
+// 🎨 字体大小设计变量命名规范
+// -----------------------------
+// 设计参考: https://tailwindcss.com/docs/font-size
+// 参考标准: https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#values
+// xx-small、x-small、small、medium、large、x-large、xx-large、xxx-large(基于用户默认字体大小（medium）的绝对大小关键字)
 
-$base-color-danger-500: #ff7b7b;
-
-// 字体大小
-$base-font-size-50: 12px; // 小字体大小
-$base-font-size-500: 14px; // 基础字体大小
+$text-medium: 1rem;
+$text-small-map: (
+	0: 0.875,
+	1: 0.75,
+);
+$text-large-map: (
+	0: 1.125,
+	1: 1.25,
+	2: 1.5,
+	3: 1.875,
+	4: 2.25,
+	5: 3,
+	6: 3.75,
+	7: 4.5,
+	8: 6,
+	9: 8,
+);
 
 // 层级
-$z-index-500: 1000;
+$z-index-base: 1000;
+
+// 警告色
+$color-danger-500: #ff7b7b;

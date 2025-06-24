@@ -1,21 +1,23 @@
+@use 'sass:map';
 @use './_variables' as var;
 
-// 计算每一级字体大小倍数
-@function font-size-multiplier($level) {
-	@if $level <= 0 {
-		@error "Invalid parameters combination";
+// 获取字体大小比例
+@function text-get-ratio($scale, $step) {
+	$ratio: 1; // 默认值
+
+	@if $scale == small and map.has-key(var.$text-small-map, $step) {
+		$ratio: map.get(var.$text-small-map, $step);
+	} @else if $scale == large and map.has-key(var.$text-large-map, $step) {
+		$ratio: map.get(var.$text-large-map, $step);
+	} @else {
+		@warn "text-scale(): 无效的 scale 或 step，返回基础值";
 	}
 
-	@if $level == 1 {
-		@return 2.5;
-	} @else if $level <= 6 {
-		@return 2 - ($level - 2) * 0.25;
-	} @else {
-		@return 1;
-	}
+	@return $ratio;
 }
 
-// 计算字体大小
-@function font-size-calc($level) {
-	@return var.$base-font-size-500 * font-size-multiplier($level);
+// 计算字体大小(以 $text-medium 为基准)
+@function text-scale($scale, $step) {
+	// 计算 rem 值并返回
+	@return var.$text-medium * text-get-ratio($scale, $step);
 }

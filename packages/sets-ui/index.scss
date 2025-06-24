@@ -1,2 +1,7 @@
 @use '@packages/styles';
-@use '@packages/styles/theme.scss';
+@use '@packages/styles/_mixin' as mixin;
+
+:root {
+	font-size: 16px;
+	@include mixin.theme-vars;
+}
