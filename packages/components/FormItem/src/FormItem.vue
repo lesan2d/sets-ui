@@ -147,17 +147,17 @@ onMounted(() => {
 .s-form {
   &--item {
     --s-form-item-size-base: var(--text-sm);
-    --s-form-item-grap-label: 12px;
+    --s-form-item-grap-label: var(--text-sm);
     display: flex;
     margin-bottom: calc(var(--s-form-item-size-base) + 4px);
 
     &_label {
+      padding-right: var(--s-form-item-grap-label);
+
       &_wrap {
         display: flex;
         flex-wrap: nowrap;
       }
-
-      padding-right: var(--s-form-item-grap-label);
 
       span {
         font-size: var(--s-form-item-size-base);
@@ -184,10 +184,8 @@ onMounted(() => {
     &.is-error {
       .s-form--item {
         &_content {
-          ::v-deep {
-            .s-input--wrapper {
-              --s-input-color-border: var(--color-danger-500);
-            }
+          :deep(.s-input--wrapper) {
+            --s-input-color-border: var(--color-danger-500);
           }
         }
       }
