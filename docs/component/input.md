@@ -37,7 +37,7 @@ title: Input
 
 | 名称                    |       说明       |                默认值 |
 | ----------------------- | :--------------: | --------------------: |
-| --s-input-size-base     | 输入框大小基准值 | var(--base-font-size) |
+| --s-input-size-base     | 输入框大小基准值 | var(--text-sm) |
 | --s-input-size-D        |  输入框大小差值  |                   0px |
 | --s-input-padding       |   输入框内边距   |              1px 10px |
 | --s-input-border-radius |    输入框圆角    |                   4px |

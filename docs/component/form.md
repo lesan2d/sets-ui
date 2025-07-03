@@ -61,5 +61,5 @@ title: Form
 
 | 名称                     |           说明           |                默认值 |
 | ------------------------ | :----------------------: | --------------------: |
-| --s-form-item-size-base  | 基准规格(字体、行高)大小 | var(--base-font-size) |
+| --s-form-item-size-base  | 基准规格(字体、行高)大小 | var(--text-sm) |
 | --s-form-item-grap-label |   label与content的检举   |                  12px |

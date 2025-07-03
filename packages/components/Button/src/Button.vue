@@ -55,7 +55,7 @@ const style = computed(() => {
     }
     Object.assign(styles, {
       '--s-button-theme-color': color.string(),
-      '--s-button-theme-color-light': color.fade(0.5).string(),
+      '--s-button-theme-color-50': color.fade(0.5).string(),
     });
   }
 
@@ -75,22 +75,22 @@ const style = computed(() => {
 .s-button {
   // 按钮颜色
   --s-button-theme-color: var(--theme-color-500); // 原子变量
-  --s-button-theme-color-light: var(--theme-color-50); // 原子变量
+  --s-button-theme-color-50: var(--theme-color-50); // 原子变量
   --s-button-color-text: var(--color-text-500);
   --s-button-color-text-hover: var(--s-button-theme-color);
   --s-button-color-bg: var(--color-base-250);
-  --s-button-color-bg-hover: var(--s-button-theme-color-light);
+  --s-button-color-bg-hover: var(--s-button-theme-color-50);
   // 按钮尺寸
-  --s-button-size: var(--text-3xl);
-  --s-button-font-size: var(--text-sm);
-  --s-button-padding: 8px 14px;
-  --s-button-series-gap: 10px;
-  --s-button-round: 20px;
+  --s-button-size: calc(30 * var(--size-unit));
+  --s-button-size-text: var(--text-sm);
+  --s-button-padding: calc(12 * var(--size-unit)) calc(14 * var(--size-unit));
+  --s-button-gap: calc(10 * var(--size-unit));
+  --s-button-round: calc(20 * var(--size-unit));
   position: relative;
   padding: var(--s-button-padding);
   border: none;
   line-height: 1;
-  font-size: var(--s-button-font-size);
+  font-size: var(--s-button-size-text);
   box-sizing: border-box;
   cursor: pointer;
   color: var(--s-button-color-text);
@@ -98,7 +98,7 @@ const style = computed(() => {
   overflow: hidden;
 
   +.s-button {
-    margin-left: var(--s-button-series-gap, 10px);
+    margin-left: var(--s-button-gap);
   }
 
   &--content {
@@ -146,13 +146,13 @@ const style = computed(() => {
   // 大小
   &--small {
     --s-button-size: var(--text-2xl);
-    --s-button-font-size: var(--text-xs);
-    --s-button-padding: 5px 10px;
+    --s-button-size-text: var(--text-xs);
+    --s-button-padding: var(--text-4xs) var(--text-xs);
   }
 
   &--large {
     --s-button-size: var(--text-4xl);
-    --s-button-padding: 12px 18px;
+    --s-button-padding: var(--text-sm) var(--text-lg);
   }
 
   // 文本

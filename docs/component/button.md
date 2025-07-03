@@ -16,7 +16,7 @@ title: Button
 
 通过 `round` `circle` 属性定义不同的按钮形状
 
-:::demo 
+:::demo
 <<< @/demos/Button/ButtonShape.vue
 :::
 
@@ -44,7 +44,6 @@ title: Button
 <<< @/demos/Button/ButtonText.vue
 :::
 
-
 ## API
 
 ### Button Attributes
@@ -59,15 +58,16 @@ title: Button
 
 ### Button CSS
 
-| 名称                         |           说明           |                            默认值 |
-| ---------------------------- | :----------------------: | --------------------------------: |
-| --s-button-theme-color       |        按钮主题色        |                var(--theme-color) |
-| --s-button-theme-color-light |        按钮辅助色        |          var(--theme-color-50) |
-| --s-button-color-text        |        按钮字体色        |                 var(--color-text) |
-| --s-button-color-text-hover  |      按钮字体移入色      |       var(--s-button-theme-color) |
-| --s-button-color-bg          |       按钮默认背景       |           var(--base-color-250) |
-| --s-button-color-bg-hover    |    按钮默认背景移入色    | var(--s-button-theme-color-light) |
-| --s-button-size              | 按钮大小(仅形状按钮适用) |   calc(var(--base-font-size) * 2) |
-| --s-button-font-size         |         字体大小         |             var(--base-font-size) |
-| --s-button-padding           |          内边距          |                          8px 14px |
-| --s-button-series-gap        |        按钮间边距        |                              10px |
+| 名称                        |           说明           |                         默认值 |
+| --------------------------- | :----------------------: | -----------------------------: |
+| --s-button-theme-color      |        按钮主题色        |         var(--theme-color-500) |
+| --s-button-theme-color-50   |        按钮辅助色        |          var(--theme-color-50) |
+| --s-button-color-text       |        按钮字体色        |              var(--color-text) |
+| --s-button-color-text-hover |      按钮字体移入色      |    var(--s-button-theme-color) |
+| --s-button-color-bg         |       按钮默认背景       |          var(--color-base-250) |
+| --s-button-color-bg-hover   |    按钮默认背景移入色    | var(--s-button-theme-color-50) |
+| --s-button-size             | 按钮大小(仅形状按钮适用) |                         30unit |
+| --s-button-size-text        |         字体大小         |                 var(--text-sm) |
+| --s-button-padding          |          内边距          |                  12unit 14unit |
+| --s-button-gap              |        按钮间边距        |                         10unit |
+| --s-button-round            |      椭圆形按钮圆角      |                         20unit |

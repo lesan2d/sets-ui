@@ -2,6 +2,5 @@
 @use '@packages/styles/_mixin' as mixin;
 
 :root {
-	font-size: 16px;
 	@include mixin.theme-vars;
 }

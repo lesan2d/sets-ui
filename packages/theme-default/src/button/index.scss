@@ -1,6 +1,6 @@
 .s-button--theme_default {
 	display: inline-block;
-	border-radius: 4px;
+	border-radius: calc(4 * var(--size-unit));
 	transition: 0.1s;
 
 	&::after {

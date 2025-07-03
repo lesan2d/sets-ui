@@ -39,8 +39,8 @@ Radio 选中值为其绑定的 `value` 属性，当 Radio `v-model` 的值与其
 
 | 名称                 |        说明        |                             默认值 |
 | -------------------- | :----------------: | ---------------------------------: |
-| --s-radio-size       | 单选框框大小基准值 | calc(var(--base-font-size) * 1.25) |
-| --s-radio-series-gap |  单选框之间的间距  |                               10px |
+| --s-radio-size       | 单选框框大小基准值 | calc(var(--text-sm) * 1.25) |
+| --s-radio-gap |  单选框之间的间距  |                               10px |
 
 ## RadioGroup API
 

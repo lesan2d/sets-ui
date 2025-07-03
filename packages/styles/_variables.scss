@@ -20,12 +20,15 @@ $theme-color-50: #ede6ff;
 $theme-color-500: #6e64c8;
 
 // 基础色(背景/字体)
-$color-base-50: #ffffff;
-$color-base-250: #eeeeee;
-$color-base-500: #dddddd;
+$color-base-50: #fff;
+$color-base-250: #f5f6f7;
+$color-base-500: #eee;
 $color-base-inverse-50: #777777;
 $color-base-inverse-250: #333333;
 $color-base-inverse-500: #000000;
+
+// 🔤 尺寸基准值，控制设计稿与真实页面的缩放比例
+$size-root: 16;
 
 // -----------------------------
 // 🎨 字体大小设计变量命名规范
@@ -33,23 +36,37 @@ $color-base-inverse-500: #000000;
 // 设计参考: https://tailwindcss.com/docs/font-size
 // 参考标准: https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#values
 // xx-small、x-small、small、medium、large、x-large、xx-large、xxx-large(基于用户默认字体大小（medium）的绝对大小关键字)
-
-$text-medium: 1rem;
 $text-small-map: (
+	// 14px
 	0: 0.875,
+	// 12px
 	1: 0.75,
+	// 10px
+	2: 0.625,
+	// 8px
+	3: 0.5,
+	// 6px
+	4: 0.375,
+	// 4px
+	5: 0.25,
+	// 2px
+	6: 0.125
 );
 $text-large-map: (
+	// 18px
 	0: 1.125,
+	// 20px
 	1: 1.25,
+	// 24px
 	2: 1.5,
+	// 30px
 	3: 1.875,
 	4: 2.25,
 	5: 3,
 	6: 3.75,
 	7: 4.5,
 	8: 6,
-	9: 8,
+	9: 8
 );
 
 // 层级

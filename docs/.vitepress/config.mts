@@ -30,6 +30,7 @@ export default defineConfig({
           items: [
             { text: '全局配置', link: '/guide/config' },
             { text: '样式配置', link: '/guide/config-style' },
+            { text: '主题配置', link: '/guide/config-theme' },
           ],
         },
       ],

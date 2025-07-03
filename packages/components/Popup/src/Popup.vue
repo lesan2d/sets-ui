@@ -145,7 +145,7 @@ const handleAnimationend = () => {
     display: inline-grid;
     grid-template-rows: auto 1fr auto;
     padding: var(--s-popup-padding);
-    background-color: var(--color-base-250);
+    background-color: var(--color-base-50);
 
     .btn-close {
       position: absolute;

@@ -10,14 +10,8 @@
 	} @else if $scale == large and map.has-key(var.$text-large-map, $step) {
 		$ratio: map.get(var.$text-large-map, $step);
 	} @else {
-		@warn "text-scale(): 无效的 scale 或 step，返回基础值";
+		@warn "text-get-ratio(): 无效的 scale 或 step，返回基础值";
 	}
 
 	@return $ratio;
-}
-
-// 计算字体大小(以 $text-medium 为基准)
-@function text-scale($scale, $step) {
-	// 计算 rem 值并返回
-	@return var.$text-medium * text-get-ratio($scale, $step);
 }
