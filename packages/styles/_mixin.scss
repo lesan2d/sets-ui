@@ -1,69 +1,44 @@
 @use './_variables' as var;
-@use './function' as func;
+@use './_function' as func;
 
-// 注册主题变量
-@mixin theme-vars {
-	// 🌈 主题色
-	--theme-color-50: #{var.$theme-color-50};
-	--theme-color-500: #{var.$theme-color-500};
+@mixin absolute-center($x: true, $y: true) {
+	position: absolute;
 
-	// 🎨 基础颜色
-	--color-base-50: #{var.$color-base-50};
-	--color-base-250: #{var.$color-base-250};
-	--color-base-500: #{var.$color-base-500};
-	--color-base-inverse-50: #{var.$color-base-inverse-50};
-	--color-base-inverse-250: #{var.$color-base-inverse-250};
-	--color-base-inverse-500: #{var.$color-base-inverse-500};
-	--color-danger-500: #{var.$color-danger-500};
-
-	// 🔤 尺寸基准值，控制设计稿与真实页面的缩放比例
-	--size-root: #{var.$size-root};
-
-	// 🔤 最小单位：等效于 1px：
-	// - 当使用 rem 方案：1px = calc(1 / var(--size-root) * 1rem)
-	// - 当使用 vw 方案：1px = calc(1 / var(--size-root) * 100vw)
-	--size-unit: calc(1 / var(--size-root) * 1rem);
-
-	// 🔠 字体尺寸（根据 --size-root 等比缩放）
-	--text-6xs: calc(var(--text-base) * #{func.text-get-ratio(small, 6)});
-	--text-5xs: calc(var(--text-base) * #{func.text-get-ratio(small, 5)});
-	--text-4xs: calc(var(--text-base) * #{func.text-get-ratio(small, 4)});
-	--text-3xs: calc(var(--text-base) * #{func.text-get-ratio(small, 3)});
-	--text-2xs: calc(var(--text-base) * #{func.text-get-ratio(small, 2)});
-	--text-xs: calc(var(--text-base) * #{func.text-get-ratio(small, 1)});
-	--text-sm: calc(var(--text-base) * #{func.text-get-ratio(small, 0)});
-	--text-base: calc(16 * var(--size-unit));
-	--text-lg: calc(var(--text-base) * #{func.text-get-ratio(large, 0)});
-	--text-xl: calc(var(--text-base) * #{func.text-get-ratio(large, 1)});
-	--text-2xl: calc(var(--text-base) * #{func.text-get-ratio(large, 2)});
-	--text-3xl: calc(var(--text-base) * #{func.text-get-ratio(large, 3)});
-	--text-4xl: calc(var(--text-base) * #{func.text-get-ratio(large, 4)});
-	--text-5xl: calc(var(--text-base) * #{func.text-get-ratio(large, 5)});
-	--text-6xl: calc(var(--text-base) * #{func.text-get-ratio(large, 6)});
-	--text-7xl: calc(var(--text-base) * #{func.text-get-ratio(large, 7)});
-	--text-8xl: calc(var(--text-base) * #{func.text-get-ratio(large, 8)});
-	--text-9xl: calc(var(--text-base) * #{func.text-get-ratio(large, 9)});
-
-	// 🧱 层级控制
-	--z-index-base: #{var.$z-index-base};
-
-	// 🎯 语义色扩展（从基础色继承）
-	--color-text-500: var(--color-base-inverse-500);
-	--color-text-inverse-500: var(--color-base-50);
-	--color-icon-500: var(--color-base-inverse-500);
-	--color-border-500: var(--color-base-500);
-	--color-bg-500: var(--color-base-250);
-
-	// 🌙 暗色模式变量切换（通过类名控制）
-	&.dark {
-		--color-base-inverse-50: #{var.$color-base-50};
-		--color-base-inverse-250: #{var.$color-base-250};
-		--color-base-inverse-500: #{var.$color-base-500};
-
-		--color-base-50: #{var.$color-base-inverse-500};
-		--color-base-250: #{var.$color-base-inverse-250};
-		--color-base-500: #{var.$color-base-inverse-50};
+	@if $y {
+		top: 50%;
 	}
 
-	font-size: calc(var(--size-root) * 1px);
+	@if $x {
+		left: 50%;
+	}
+
+	transform: translate(#{if($x, '-50%', '0')}, #{if($y, '-50%', '0')});
+}
+
+@mixin set-z-index($number) {
+	z-index: calc(var(--z-index-base, var.$z-index-base) + $number);
+}
+
+// 背景
+@mixin bg($w, $h, $image) {
+	width: $w;
+	height: $h;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: func.get-image($image);
+}
+
+@mixin bg-border($width, $height, $image) {
+	min-width: $width;
+	height: $height;
+	border-image-source: func.get-image($image);
+}
+
+@mixin bg-text($image) {
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+	background-image: func.get-image($image);
 }

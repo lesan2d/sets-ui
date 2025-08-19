@@ -1,6 +1,6 @@
 @use '@packages/styles';
-@use '@packages/styles/_mixin' as mixin;
+@use '@packages/styles/theme' as theme;
 
 :root {
-	@include mixin.theme-vars;
+	@include theme.vars;
 }

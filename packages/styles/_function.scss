@@ -1,17 +1,21 @@
-@use 'sass:map';
+@use 'sass:string';
 @use './_variables' as var;
 
-// 获取字体大小比例
-@function text-get-ratio($scale, $step) {
-	$ratio: 1; // 默认值
-
-	@if $scale == small and map.has-key(var.$text-small-map, $step) {
-		$ratio: map.get(var.$text-small-map, $step);
-	} @else if $scale == large and map.has-key(var.$text-large-map, $step) {
-		$ratio: map.get(var.$text-large-map, $step);
-	} @else {
-		@warn "text-get-ratio(): 无效的 scale 或 step，返回基础值";
+@function get-image($image) {
+	// 已经是合法CSS值的情况
+	@if string.index($image, 'url(') or
+		string.index($image, 'gradient(') or
+		string.index($image, 'var(') or
+		string.index($image, 'data:')
+	{
+		@return $image;
 	}
 
-	@return $ratio;
+	// 空值或none
+	@if $image == none or $image == null {
+		@return none;
+	}
+
+	// 默认处理为路径
+	@return url($image);
 }
