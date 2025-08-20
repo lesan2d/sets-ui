@@ -46,8 +46,8 @@
 		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
+		"@packages/styles": "file:../packages/styles",
 		"@packages/composables": "workspace:*",
-		"@packages/styles": "workspace:*",
 		"@packages/utils": "workspace:*",
 		"@sets-ui/components": "workspace:*",
 		"@sets-ui/config": "workspace:*",

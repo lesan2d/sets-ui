@@ -12,8 +12,8 @@ importers:
         specifier: workspace:*
         version: link:packages/composables
       '@packages/styles':
-        specifier: workspace:*
-        version: link:packages/styles
+        specifier: file:../packages/styles
+        version: file:../packages/styles
       '@packages/utils':
         specifier: workspace:*
         version: link:packages/utils
@@ -579,6 +579,9 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@packages/styles@file:../packages/styles':
+    resolution: {directory: ../packages/styles, type: directory}
 
   '@parcel/watcher-android-arm64@2.5.1':
     resolution: {integrity: sha512-KF8+j9nNbUN8vzOFDpRMsaKBHZ/mcjEjMToVMJOhTozkDonQFFrRcfdLWn6yWKCmJKmdVxSgHiYvTCef4/qcBA==}
@@ -3065,6 +3068,8 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
+
+  '@packages/styles@file:../packages/styles': {}
 
   '@parcel/watcher-android-arm64@2.5.1':
     optional: true
