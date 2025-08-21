@@ -48,7 +48,7 @@ export default defineConfig({
 		},
 	},
 	build: {
-		outDir: 'dist/src',
+		outDir: 'dist/dist',
 		sourcemap: true,
 		lib: {
 			// 库编译入口文件

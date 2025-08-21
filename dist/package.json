@@ -1,14 +1,14 @@
 {
 	"name": "sets-ui",
-	"version": "0.0.27",
+	"version": "0.0.29",
 	"description": "sets-ui demo",
-	"main": "src/index.js",
-	"types": "./src/sets-ui/index.d.ts",
+	"main": "dist/index.js",
+	"types": "./dist/sets-ui/index.d.ts",
 	"exports": {
-		".": "./src/index.js",
-		"./style": "./src/style.css",
-		"./theme-default": "./src/theme-default/index.css",
-		"./theme-default/*": "./src/theme-default/*"
+		".": "./dist/index.js",
+		"./theme-default": "./dist/theme-default/index.css",
+		"./theme-default/*": "./dist/theme-default/*",
+    "./*": "./*"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
