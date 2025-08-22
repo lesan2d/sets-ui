@@ -42,6 +42,10 @@ jobs:
           cache: pnpm
       - name: Setup Pages
         uses: actions/configure-pages@v4
+      - name: Override @packages/styles
+        run: |
+          pnpm remove @packages/styles
+          pnpm add @setx/styles
       - name: Install dependencies
         run: pnpm install
       - name: Build with VitePress
