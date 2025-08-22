@@ -12,8 +12,8 @@ importers:
         specifier: workspace:*
         version: link:packages/composables
       '@packages/styles':
-        specifier: file:../packages/styles
-        version: file:../packages/styles
+        specifier: file:..\packages\styles
+        version: '@setx/styles@file:../packages/styles'
       '@packages/utils':
         specifier: workspace:*
         version: link:packages/utils
@@ -36,20 +36,20 @@ importers:
         specifier: ^4.2.3
         version: 4.2.3
       vue:
-        specifier: ^3.4.8
+        specifier: ^3.5.19
         version: 3.5.19(typescript@5.9.2)
     devDependencies:
       '@types/color':
         specifier: ^3.0.6
         version: 3.0.6
       '@types/node':
-        specifier: ^22.7.5
+        specifier: ^22.17.2
         version: 22.17.2
       '@vitejs/plugin-vue':
-        specifier: ^4.5.1
+        specifier: ^4.6.2
         version: 4.6.2(vite@7.1.3(@types/node@22.17.2)(sass@1.90.0)(terser@5.43.1))(vue@3.5.19(typescript@5.9.2))
       css-loader:
-        specifier: ^6.10.0
+        specifier: ^6.11.0
         version: 6.11.0(webpack@5.101.3)
       css-minimizer-webpack-plugin:
         specifier: ^6.0.0
@@ -61,34 +61,34 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       mini-css-extract-plugin:
-        specifier: ^2.8.0
+        specifier: ^2.9.4
         version: 2.9.4(webpack@5.101.3)
       sass:
-        specifier: ^1.89.2
+        specifier: ^1.90.0
         version: 1.90.0
       sass-loader:
         specifier: ^16.0.5
         version: 16.0.5(sass@1.90.0)(webpack@5.101.3)
       ts-loader:
-        specifier: ^9.5.1
+        specifier: ^9.5.2
         version: 9.5.2(typescript@5.9.2)(webpack@5.101.3)
       typescript:
-        specifier: ^5.2.2
+        specifier: ^5.9.2
         version: 5.9.2
       vite:
-        specifier: ^7.0.0
+        specifier: ^7.1.3
         version: 7.1.3(@types/node@22.17.2)(sass@1.90.0)(terser@5.43.1)
       vite-plugin-checker:
-        specifier: ^0.6.2
+        specifier: ^0.6.4
         version: 0.6.4(typescript@5.9.2)(vite@7.1.3(@types/node@22.17.2)(sass@1.90.0)(terser@5.43.1))(vue-tsc@1.8.27(typescript@5.9.2))
       vite-plugin-dts:
-        specifier: ^3.6.4
+        specifier: ^3.9.1
         version: 3.9.1(@types/node@22.17.2)(rollup@4.47.1)(typescript@5.9.2)(vite@7.1.3(@types/node@22.17.2)(sass@1.90.0)(terser@5.43.1))
       vitepress:
         specifier: 1.6.3
         version: 1.6.3(@algolia/client-search@5.35.0)(@types/node@22.17.2)(postcss@8.5.6)(sass@1.90.0)(search-insights@2.17.3)(terser@5.43.1)(typescript@5.9.2)
       webpack:
-        specifier: ^5.90.1
+        specifier: ^5.101.3
         version: 5.101.3(webpack-cli@5.1.4)
       webpack-cli:
         specifier: ^5.1.4
@@ -583,9 +583,6 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@packages/styles@file:../packages/styles':
-    resolution: {directory: ../packages/styles, type: directory}
-
   '@parcel/watcher-android-arm64@2.5.1':
     resolution: {integrity: sha512-KF8+j9nNbUN8vzOFDpRMsaKBHZ/mcjEjMToVMJOhTozkDonQFFrRcfdLWn6yWKCmJKmdVxSgHiYvTCef4/qcBA==}
     engines: {node: '>= 10.0.0'}
@@ -798,6 +795,9 @@ packages:
 
   '@rushstack/ts-command-line@4.19.1':
     resolution: {integrity: sha512-J7H768dgcpG60d7skZ5uSSwyCZs/S2HrWP1Ds8d1qYAyaaeJmpmmLr9BVw97RjFzmQPOYnoXcKA4GkqDCkduQg==}
+
+  '@setx/styles@file:../packages/styles':
+    resolution: {directory: ../packages/styles, type: directory}
 
   '@shikijs/core@2.5.0':
     resolution: {integrity: sha512-uu/8RExTKtavlpH7XqnVYBrfBkUc20ngXiX9NSrBhOVZYv/7XQRKUyhtkeflY5QsxC0GbJThCerruZfsUaSldg==}
@@ -2981,8 +2981,6 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
 
-  '@packages/styles@file:../packages/styles': {}
-
   '@parcel/watcher-android-arm64@2.5.1':
     optional: true
 
@@ -3143,6 +3141,8 @@ snapshots:
       string-argv: 0.3.2
     transitivePeerDependencies:
       - '@types/node'
+
+  '@setx/styles@file:../packages/styles': {}
 
   '@shikijs/core@2.5.0':
     dependencies:
