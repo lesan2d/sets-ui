@@ -42,9 +42,9 @@ jobs:
           cache: pnpm
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      - name: Override @packages/styles
+      - name: Override @setx/styles
         run: |
-          pnpm remove @packages/styles
+          pnpm remove @setx/styles
           pnpm add @setx/styles
       - name: Install dependencies
         run: pnpm install

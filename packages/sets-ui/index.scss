@@ -1,5 +1,5 @@
-@use '@packages/styles';
-@use '@packages/styles/theme' as theme;
+@use '@setx/styles';
+@use '@setx/styles/theme' as theme;
 
 :root {
 	@include theme.vars;
