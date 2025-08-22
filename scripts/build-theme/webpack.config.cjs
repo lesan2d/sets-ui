@@ -10,7 +10,6 @@ module.exports = () => {
 			const entry = {
 				index: path.resolve(__dirname, '../../packages/theme-default'),
 				animation: path.resolve(__dirname, '../../packages/theme-default/animation.scss'),
-				atomic: path.resolve(__dirname, '../../packages/theme-default/atomic.scss'),
 			};
 			const componentsDir = path.resolve(__dirname, '../../packages/theme-default/src');
 			const componentsName = fs.readdirSync(componentsDir);

@@ -7,7 +7,6 @@ import GlobalComponents from './components';
 import Demos from '../../demos';
 
 import '@sets-ui/theme-default';
-import '@sets-ui/theme-default/atomic.scss';
 import './style.css';
 
 export default {

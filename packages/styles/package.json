@@ -1,6 +1,0 @@
-{
-  "name": "@packages/styles",
-  "private": true,
-  "license": "MIT",
-  "main": "index.scss"
-}
