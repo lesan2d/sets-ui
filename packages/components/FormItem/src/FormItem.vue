@@ -2,7 +2,7 @@
 import type { FormItemProps, FormItemValidateState, FormItemContext } from './types';
 import type { ValidateErrorInfo } from '@packages/composables/useValidator'
 
-import { provide, ref, computed, onMounted, nextTick, toRefs, } from 'vue';
+import { provide, ref, computed, watch, onMounted, nextTick, toRefs, } from 'vue';
 import { clone } from 'lodash-unified';
 import { FORM_ITEM_KEY } from './constants';
 
@@ -23,6 +23,7 @@ const formContext = useForm();
 const { validator } = useValidator();
 
 const formItemLabelRef = ref<HTMLElement>();
+const labelOffsetWidth = ref(0);
 let initialValue: any = undefined;
 const validateState = ref<FormItemValidateState>('')
 const validateMessage = ref('');
@@ -33,9 +34,9 @@ const atomicClass = computed(() => ({
   'is-error': validateState.value === 'error',
 }));
 
-const labelOffsetWidth = computed(() => {
-  const value = props?.labelWidth || formItemLabelRef?.value?.offsetWidth;
-  return value;
+// 监听 label 宽度变化
+watch(labelOffsetWidth, (val) => {
+  console.log('val', val);
 });
 
 const computedLabelWidth = computed(() => {
@@ -120,6 +121,21 @@ const context: FormItemContext = {
 provide(FORM_ITEM_KEY, context);
 
 onMounted(() => {
+  // 初始化 form-item label 宽度
+  if (formItemLabelRef.value) {
+    labelOffsetWidth.value = formItemLabelRef?.value.offsetWidth
+
+    // 创建 ResizeObserver
+    const resizeObserver = new ResizeObserver(entries => {
+      for (const entry of entries) {
+        console.log('宽度变更', entry.contentRect.width);
+        labelOffsetWidth.value = entry.contentRect.width
+      }
+    })
+    resizeObserver.observe(formItemLabelRef.value)
+  }
+
+  // 初始化 form 字段
   if (props.name) {
     formContext?.addField(context);
     initialValue = clone(fieldValue.value)
@@ -128,8 +144,9 @@ onMounted(() => {
 </script>
 
 <template>
+  {{ labelOffsetWidth }} / {{ computedLabelWidth }}
   <div class="s-form--item" :class="[atomicClass]">
-    <div class="s-form--item_label_wrap" :style="{ width: `${computedLabelWidth}px` }">
+    <div class="s-form--item_label_wrap">
       <div ref="formItemLabelRef" class="s-form--item_label">
         <span>{{ props.label }}</span>
       </div>

@@ -17,6 +17,7 @@ const fieldsLableWidth = ref<Array<number>>([]);
 
 const labelWidth = computed(() => {
   const fieldsMaxLabelWidth = fieldsLableWidth.value.length ? Math.max(...fieldsLableWidth.value) : undefined;
+  console.log('变化', fieldsMaxLabelWidth);
   const value = props.labelWidth || fieldsMaxLabelWidth;
   return value;
 });

@@ -16,7 +16,7 @@ const hanldeSubmit = () => {
 
 <template>
   <s-form ref="formRef" :model="form">
-    <s-form-item label="名称">
+    <s-form-item label="名称A">
       <s-input v-model="form.name" placeholder="请输入名称" style="width: 200px;" />
     </s-form-item>
     <s-form-item label="工作类型">
