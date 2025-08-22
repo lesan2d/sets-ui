@@ -44,8 +44,8 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Override @setx/styles
         run: |
-          pnpm remove @setx/styles
-          pnpm add @setx/styles
+          pnpm remove @setx/styles -w
+          pnpm add @setx/styles -w
       - name: Install dependencies
         run: pnpm install
       - name: Build with VitePress
