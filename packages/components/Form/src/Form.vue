@@ -3,8 +3,10 @@ import type { FormProps, FormContext } from './types';
 import type { ValidateErrorInfo } from '@packages/composables/useValidator';
 import type { FormItemContext } from '@sets-ui/components/FormItem';
 
-import { ref, computed, provide } from 'vue';
+import { reactive, computed, provide } from 'vue';
 import { FORM_KEY } from './constants';
+
+import { useFormLabelWidth } from './composables/use-form-label-width';
 
 defineOptions({
   name: 'Form',
@@ -12,23 +14,27 @@ defineOptions({
 
 const props = withDefaults(defineProps<FormProps>(), {});
 
-const fields: FormItemContext[] = [];
-const fieldsLableWidth = ref<Array<number>>([]);
+const fields = reactive<FormItemContext[]>([]);
 
-const labelWidth = computed(() => {
-  const fieldsMaxLabelWidth = fieldsLableWidth.value.length ? Math.max(...fieldsLableWidth.value) : undefined;
-  console.log('变化', fieldsMaxLabelWidth);
-  const value = props.labelWidth || fieldsMaxLabelWidth;
+const formLabelWidth = useFormLabelWidth();
+
+const lableWidthMax = computed(() => {
+  const fieldsLableWidths = formLabelWidth.lableWidths.value.map(f => f);
+  const value = fieldsLableWidths.length ? Math.max(...fieldsLableWidths) : 0;
+  return value;
+});
+
+const computedLabelWidth = computed(() => {
+  const value = props.labelWidth || lableWidthMax.value;
   return value;
 });
 
 const addField = (field: FormItemContext) => {
   fields.push(field);
-  if (field?.labelOffsetWidth?.value) fieldsLableWidth.value.push(field.labelOffsetWidth.value);
 }
 
 const filterFields = (names: Array<string>) => {
-  return names.length > 0 ? fields.filter((field) => names.includes(field?.name?.value || '')) : fields;
+  return names.length > 0 ? fields.filter((field) => names.includes(field?.name || '')) : fields;
 };
 
 const validateField = async (names: Array<string>) => {
@@ -55,13 +61,15 @@ const resetFields = () => {
   fields.forEach((field) => field.resetField())
 };
 
-const context: FormContext = {
+const context: FormContext = reactive({
   model: props?.model,
   rules: props?.rules,
   addField,
-  labelWidth,
-};
+  computedLabelWidth,
+  ...formLabelWidth,
+});
 
+// 为 form-item 注入上下文
 provide(FORM_KEY, context);
 
 defineExpose({

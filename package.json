@@ -46,7 +46,6 @@
 		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
-		"@setx/styles": "file:..\\packages\\styles",
 		"@packages/composables": "workspace:*",
 		"@packages/utils": "workspace:*",
 		"@sets-ui/components": "workspace:*",
@@ -54,6 +53,8 @@
 		"@sets-ui/constants": "workspace:*",
 		"@sets-ui/main": "workspace:*",
 		"@sets-ui/theme-default": "workspace:*",
+		"@setx/styles": "file:..\\packages\\styles",
+		"@vueuse/core": "^13.7.0",
 		"color": "^4.2.3",
 		"vue": "^3.5.19"
 	}

@@ -2,10 +2,11 @@
 import type { FormItemProps, FormItemValidateState, FormItemContext } from './types';
 import type { ValidateErrorInfo } from '@packages/composables/useValidator'
 
-import { provide, ref, computed, watch, onMounted, nextTick, toRefs, } from 'vue';
+import { provide, ref, reactive, computed, watch, useTemplateRef, onMounted, nextTick, toRefs, } from 'vue';
 import { clone } from 'lodash-unified';
 import { FORM_ITEM_KEY } from './constants';
 
+import { useResizeObserver } from '@vueuse/core'
 import { useValidator } from '@packages/composables';
 import { useForm } from '@sets-ui/components/Form';
 
@@ -22,8 +23,11 @@ const props = withDefaults(defineProps<FormItemProps>(), {
 const formContext = useForm();
 const { validator } = useValidator();
 
-const formItemLabelRef = ref<HTMLElement>();
+// label
+const labelEl = useTemplateRef('label');
 const labelOffsetWidth = ref(0);
+
+// field
 let initialValue: any = undefined;
 const validateState = ref<FormItemValidateState>('')
 const validateMessage = ref('');
@@ -34,13 +38,8 @@ const atomicClass = computed(() => ({
   'is-error': validateState.value === 'error',
 }));
 
-// 监听 label 宽度变化
-watch(labelOffsetWidth, (val) => {
-  console.log('val', val);
-});
-
 const computedLabelWidth = computed(() => {
-  const value = props?.labelWidth || formContext?.labelWidth?.value || labelOffsetWidth.value;
+  const value = props?.labelWidth || formContext?.computedLabelWidth;
   return value;
 });
 
@@ -52,6 +51,10 @@ const fieldValue = computed(() => {
 
 const fieldRules = computed(() => {
   return formContext?.rules?.[props.name];
+});
+
+watch(labelOffsetWidth, (val, oldVal) => {
+  formContext?.registerLabelWidth(val, oldVal)
 });
 
 const validationSucceeded = () => {
@@ -110,32 +113,30 @@ const resetField = () => {
   });
 };
 
-const context: FormItemContext = {
-  ...toRefs(props),
+const context: FormItemContext = reactive({
+  // todo 需要考虑非原始值时使用 toRefs 的类型提供问题
+  ...toRefs(props), // 解构 props 对象时使用 toRefs 保持响应性
   labelOffsetWidth,
   validate,
   clearValidate,
   resetField,
-};
+});
 
 provide(FORM_ITEM_KEY, context);
 
 onMounted(() => {
-  // 初始化 form-item label 宽度
-  if (formItemLabelRef.value) {
-    labelOffsetWidth.value = formItemLabelRef?.value.offsetWidth
-
-    // 创建 ResizeObserver
-    const resizeObserver = new ResizeObserver(entries => {
-      for (const entry of entries) {
-        console.log('宽度变更', entry.contentRect.width);
-        labelOffsetWidth.value = entry.contentRect.width
-      }
-    })
-    resizeObserver.observe(formItemLabelRef.value)
+  if (labelEl.value) {
+    // 监听 label 宽度变化
+    useResizeObserver(labelEl.value, (entries) => {
+      const entry = entries[0];
+      // const { width } = entry.contentRect;
+      const target = entry.target as HTMLElement;
+      const width = target.offsetWidth;
+      labelOffsetWidth.value = width;
+    });
   }
 
-  // 初始化 form 字段
+  // init form field
   if (props.name) {
     formContext?.addField(context);
     initialValue = clone(fieldValue.value)
@@ -144,10 +145,9 @@ onMounted(() => {
 </script>
 
 <template>
-  {{ labelOffsetWidth }} / {{ computedLabelWidth }}
   <div class="s-form--item" :class="[atomicClass]">
-    <div class="s-form--item_label_wrap">
-      <div ref="formItemLabelRef" class="s-form--item_label">
+    <div class="s-form--item_label_wrap" :style="{ width: `${computedLabelWidth}px` }">
+      <div ref="label" class="s-form--item_label">
         <span>{{ props.label }}</span>
       </div>
     </div>
@@ -168,13 +168,16 @@ onMounted(() => {
     display: flex;
     margin-bottom: calc(var(--s-form-item-size-base) + 4px);
 
+    &_label_wrap {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+    }
+
     &_label {
       padding-right: var(--s-form-item-grap-label);
-
-      &_wrap {
-        display: flex;
-        flex-wrap: nowrap;
-      }
+      box-sizing: content-box;
+      white-space: nowrap;
 
       span {
         font-size: var(--s-form-item-size-base);
