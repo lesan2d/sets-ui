@@ -69,6 +69,7 @@ function handleChange() {
   grid-template-columns: var(--s-radio-size) auto;
   column-gap: 5px;
   align-items: center;
+  line-height: inherit;
 
   &--input {
     display: none;
@@ -124,11 +125,10 @@ function handleChange() {
 
   &--label {
     font-size: var(--text-sm);
-    line-height: 1;
   }
 
-  +.s-radio {
-    margin-left: var(--s-radio-gap);
+  &:has(+ .s-radio) {
+    margin-right: var(--s-radio-gap);
   }
 }
 </style>

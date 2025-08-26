@@ -153,19 +153,24 @@ onMounted(() => {
     </div>
     <div class="s-form--item_content">
       <slot></slot>
-      <div v-if="validateMessage" class="s-form--item_error">
-        <span>{{ validateMessage }}</span>
-      </div>
+      <div v-if="validateMessage" class="s-form--item_error">{{ validateMessage }}</div>
     </div>
   </div>
 </template>
 
 <style scoped lang='scss'>
+@mixin form-item-content-center {
+  line-height: calc(var(--s-form-item-size-base) * 2 + calc(var(--size-unit) * 4));
+  display: flex;
+  align-items: center;
+}
+
 .s-form {
   &--item {
     --s-form-item-size-base: var(--text-sm);
     --s-form-item-grap-label: var(--text-sm);
     display: flex;
+    align-items: flex-start;
     margin-bottom: calc(var(--s-form-item-size-base) + 4px);
 
     &_label_wrap {
@@ -175,30 +180,30 @@ onMounted(() => {
     }
 
     &_label {
+      @include form-item-content-center;
       padding-right: var(--s-form-item-grap-label);
       box-sizing: content-box;
       white-space: nowrap;
 
       span {
+        display: block;
         font-size: var(--s-form-item-size-base);
-        line-height: calc(var(--s-form-item-size-base)* 2);
       }
     }
 
     &_content {
+      @include form-item-content-center;
       position: relative;
     }
 
     &_error {
       position: absolute;
       bottom: 0;
+      padding-top: calc(var(--size-unit) * 2);
       line-height: 1;
+      font-size: calc(var(--s-form-item-size-base) - 2px);
       transform: translateY(100%);
       color: var(--color-danger-500);
-
-      span {
-        font-size: calc(var(--s-form-item-size-base) - 2px);
-      }
     }
 
     &.is-error {
