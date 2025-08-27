@@ -42,10 +42,10 @@ jobs:
           cache: pnpm
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      - name: Override @setx/styles
+      - name: Override @nopon-web/styles
         run: |
-          pnpm remove @setx/styles -w
-          pnpm add @setx/styles -w
+          pnpm remove @nopon-web/styles -w
+          pnpm add @nopon-web/styles -w
       - name: Install dependencies
         run: pnpm install
       - name: Build with VitePress

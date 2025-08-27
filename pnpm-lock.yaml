@@ -29,7 +29,7 @@ importers:
       '@sets-ui/theme-default':
         specifier: workspace:*
         version: link:packages/theme-default
-      '@setx/styles':
+      '@nopon-web/styles':
         specifier: file:..\packages\styles
         version: file:../packages/styles
       '@vueuse/core':
@@ -799,7 +799,7 @@ packages:
   '@rushstack/ts-command-line@4.19.1':
     resolution: {integrity: sha512-J7H768dgcpG60d7skZ5uSSwyCZs/S2HrWP1Ds8d1qYAyaaeJmpmmLr9BVw97RjFzmQPOYnoXcKA4GkqDCkduQg==}
 
-  '@setx/styles@file:../packages/styles':
+  '@nopon-web/styles@file:../packages/styles':
     resolution: {directory: ../packages/styles, type: directory}
 
   '@shikijs/core@2.5.0':
@@ -3158,7 +3158,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@setx/styles@file:../packages/styles': {}
+  '@nopon-web/styles@file:../packages/styles': {}
 
   '@shikijs/core@2.5.0':
     dependencies:

@@ -1,5 +1,5 @@
-@use '@setx/styles';
-@use '@setx/styles/theme' as theme;
+@use '@nopon-web/styles';
+@use '@nopon-web/styles/theme' as theme;
 
 :root {
 	@include theme.vars;
