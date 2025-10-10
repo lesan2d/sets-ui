@@ -31,49 +31,51 @@ import dts from 'unplugin-dts/vite';
 // }
 
 export default defineConfig({
-	envDir: './',
-	// publicDir: './packages/sets-ui/public',
-	plugins: [
-		// buildPlugin(),
-		vue(),
-		checker({
-			typescript: true,
-		}),
+  envDir: './',
+  // publicDir: './packages/sets-ui/public',
+  plugins: [
+    // buildPlugin(),
+    vue(),
+    checker({
+      typescript: true,
+    }),
     dts()
-	],
-	resolve: {
-		alias: {
-			'@sets-ui': path.resolve(__dirname, './packages'),
-		},
-	},
-	build: {
-		outDir: 'dist/dist',
-		sourcemap: true,
-		lib: {
-			// 库编译入口文件
-			entry: path.resolve(__dirname, './packages/sets-ui/index.ts'),
-			name: 'sets-ui',
-			fileName: 'index',
-			formats: ['es'],
-		},
-		rollupOptions: {
-			external: ['vue'],
-			output: {
-				globals: {
-					vue: 'Vue',
-				},
+  ],
+  resolve: {
+    alias: {
+      '@sets-ui': path.resolve(__dirname, './packages'),
+    },
+  },
+  build: {
+    outDir: 'dist/dist',
+    sourcemap: true,
+    lib: {
+      // 库编译入口文件
+      entry: path.resolve(__dirname, './packages/main/index.ts'),
+      name: 'sets-ui',
+      fileName: 'index',
+      formats: ['es'],
+    },
+    rollupOptions: {
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue',
+        },
 				inlineDynamicImports: false,
-				manualChunks(id: string) {
-					if (id.includes('node_modules')) {
-						return 'vendor';
-					}
-					if (id.includes('.vue')) {
-						const regex = /\/([^/]+)\.vue$/;
-						const match = id.match(regex);
-						if (match) return `components/${match[1]}/index`;
-					}
-				},
-			},
-		},
-	},
+        manualChunks(id: string) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+          if (id.includes('.vue')) {
+            const regex = /\/([^/]+)\.vue$/;
+            const match = id.match(regex);
+            if (match) return `components/${match[1]}/index`;
+          }
+        },
+        entryFileNames: 'main/[name].js',
+        assetFileNames: 'main/[name].[ext]'
+      },
+    },
+  },
 });
