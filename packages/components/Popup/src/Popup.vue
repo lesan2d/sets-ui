@@ -139,7 +139,8 @@ const handleAnimationend = () => {
   width: 100%;
   height: 100%;
 
-  &--wrapper {
+  .s-popup--wrapper {
+    position: relative;
     pointer-events: auto;
     width: var(--s-popup-width, 30%);
     display: inline-grid;

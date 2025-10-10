@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "lib": [
       "esnext",
       "dom",
       "dom.iterable"
     ],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "target": "esnext",
     "useDefineForClassFields": true,
     "skipLibCheck": true,
@@ -33,6 +32,9 @@
     "paths": {
       "#/*": [
         "./types/*"
+      ],
+      "@packages/*": [
+        "./packages/*"
       ],
     },
   },

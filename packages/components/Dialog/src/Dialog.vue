@@ -44,7 +44,7 @@ function handleConfirm() {
   <s-popup v-model="visible" class="s-dialog">
     <div v-if="title || $slots.header" class="s-dialog--header">
       <slot name="header">
-        <h4 class="s-h4">{{ title }}</h4>
+        <span class="s-h4">{{ title }}</span>
       </slot>
     </div>
     <div class="s-dialog--body">
