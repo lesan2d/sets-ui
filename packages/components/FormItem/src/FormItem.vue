@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { FormItemProps, FormItemValidateState, FormItemContext } from './types';
-import type { ValidateErrorInfo } from '@packages/composables/useValidator'
+import type { ValidateErrorInfo } from '@sets-ui/composables/useValidator'
 
 import { provide, ref, reactive, computed, watch, useTemplateRef, onMounted, nextTick, toRefs, } from 'vue';
 import { clone } from 'lodash-unified';
 import { FORM_ITEM_KEY } from './constants';
 
 import { useResizeObserver } from '@vueuse/core'
-import { useValidator } from '@packages/composables';
+import { useValidator } from '@sets-ui/composables';
 import { useForm } from '@sets-ui/components/Form';
 
 defineOptions({

@@ -3,7 +3,7 @@ import Color from 'color';
 import { inject, computed } from 'vue';
 import { CONST_CONFIG } from '@sets-ui/constants';
 import { useTheme } from '@sets-ui/config';
-import { genBEMClass } from '@packages/utils';
+import { genBEMClass } from '@nopon-web/utils/css';
 
 defineOptions({
   name: 'Button',

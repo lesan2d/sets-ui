@@ -1,4 +1,4 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import BasicInstace from './DialogBasic.vue';
 import SlotInstace from './DialogSlot.vue';
 import DirectionInstace from './DialogDirection.vue';

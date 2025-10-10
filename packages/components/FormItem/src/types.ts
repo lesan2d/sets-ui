@@ -1,4 +1,4 @@
-import type { ValidateErrorInfo } from '@packages/composables/useValidator';
+import type { ValidateErrorInfo } from '@sets-ui/composables/useValidator';
 
 export interface FormItemProps {
 	label?: string;

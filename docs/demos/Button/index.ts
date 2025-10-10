@@ -1,4 +1,4 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import ButtonBasicInstace from './ButtonBasic.vue';
 import ButtonSizeInstace from './ButtonSize.vue';
 import ButtonColorInstace from './ButtonColor.vue';

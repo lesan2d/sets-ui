@@ -1,4 +1,4 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import PopupBasicInstace from './OverlayBasic.vue';
 
 export const OverlayBasic = withInstall({

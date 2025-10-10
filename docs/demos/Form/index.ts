@@ -1,4 +1,4 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import BasicInstace from './FormBasic.vue';
 import RulesInstace from './FormRules.vue';
 import ValidatorInstace from './FormValidator.vue';

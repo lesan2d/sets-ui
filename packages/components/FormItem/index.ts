@@ -1,7 +1,7 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import FormItem from './src/FormItem.vue';
 
-export const SFormItem = withInstall(FormItem);
+export const SFormItem = withInstall(FormItem as any);
 
 export default SFormItem;
 

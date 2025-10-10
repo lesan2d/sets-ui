@@ -1,4 +1,4 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import PopupBasicInstace from './PopupBasic.vue';
 import PopupOverlayInstace from './PopupOverlay.vue';
 import PopupDirectionInstace from './PopupDirection.vue';

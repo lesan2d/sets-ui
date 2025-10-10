@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { genBEMClass } from '@packages/utils';
+import { genBEMClass } from '@nopon-web/utils/css';
 import { useTheme } from '@sets-ui/config';
 import { useFormItem } from '@sets-ui/components/FormItem';
 

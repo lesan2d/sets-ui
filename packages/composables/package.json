@@ -1,5 +1,5 @@
 {
-  "name": "@packages/composables",
+  "name": "@sets-ui/composables",
   "private": true,
   "license": "MIT",
   "main": "index.ts"

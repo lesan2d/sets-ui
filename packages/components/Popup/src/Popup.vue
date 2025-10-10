@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { DirectionType } from '#/component';
 import { ref, computed, watch, } from 'vue';
-import { genBEMClass } from '@packages/utils';
-import { useAnimationReverse } from '@packages/composables';
+import { genBEMClass } from '@nopon-web/utils/css';
+import { useAnimationReverse } from '@sets-ui/composables';
 import { useTheme } from '@sets-ui/config';
 import { SOverlay } from '@sets-ui/components/Overlay';
 import { SButton } from '@sets-ui/components/Button';

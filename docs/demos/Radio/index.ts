@@ -1,4 +1,4 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import RadioBasicInstace from './RadioBasic.vue';
 import RadioGroupInstace from './RadioGroup.vue';
 

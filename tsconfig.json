@@ -33,16 +33,13 @@
       "#/*": [
         "./types/*"
       ],
-      "@packages/*": [
+      "@sets-ui/*": [
         "./packages/*"
       ],
     },
   },
   "include": [
     "./index.d.ts",
-    "packages/**/*.ts",
-    "packages/**/*.d.ts",
-    "packages/**/*.tsx",
-    "packages/**/*.vue",
+    "packages/**/*",
   ],
 }

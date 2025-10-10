@@ -1,6 +1,6 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import Overlay from './src/Overlay.vue';
 
-export const SOverlay = withInstall(Overlay);
+export const SOverlay = withInstall(Overlay as any);
 
 export default SOverlay;

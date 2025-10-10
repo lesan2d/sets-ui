@@ -1,7 +1,7 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import RadioGroup from './src/RadioGroup.vue';
 
-export const SRadioGroup = withInstall(RadioGroup);
+export const SRadioGroup = withInstall(RadioGroup as any);
 
 export default SRadioGroup;
 

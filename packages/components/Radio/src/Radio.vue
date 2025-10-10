@@ -3,7 +3,7 @@ import type { RadioProps, RadioEmits } from './types';
 
 import { inject, computed, watch } from 'vue';
 import { RADIO_GROUP_KEY } from '@sets-ui/components/RadioGroup';
-import { genBEMClass } from '@packages/utils';
+import { genBEMClass } from '@nopon-web/utils/css';
 
 import { useTheme } from '@sets-ui/config';
 import { useFormItem } from '@sets-ui/components/FormItem';

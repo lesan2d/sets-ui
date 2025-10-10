@@ -1,6 +1,6 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import Button from './src/Button.vue';
 
-export const SButton = withInstall(Button);
+export const SButton = withInstall(Button as any);
 
 export default SButton;

@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import checker from 'vite-plugin-checker';
-import dts from 'vite-plugin-dts';
+import dts from 'unplugin-dts/vite';
 
 // function buildPlugin(): Plugin {
 // 	return {
@@ -39,11 +39,10 @@ export default defineConfig({
 		checker({
 			typescript: true,
 		}),
-		dts(),
+    dts()
 	],
 	resolve: {
 		alias: {
-			'@packages': path.resolve(__dirname, './packages'),
 			'@sets-ui': path.resolve(__dirname, './packages'),
 		},
 	},

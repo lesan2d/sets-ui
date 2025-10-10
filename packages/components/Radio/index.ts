@@ -1,7 +1,7 @@
-import { withInstall } from '@packages/utils';
+import { withInstall } from '@nopon-web/utils/vue';
 import Radio from './src/Radio.vue';
 
-export const SRadio = withInstall(Radio);
+export const SRadio = withInstall(Radio as any);
 
 export default SRadio;
 
