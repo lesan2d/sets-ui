@@ -44,8 +44,8 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Replace workspace deps with npm registry versions
         run: |
-          pnpm remove @nopon-web/utils @nopon-web/styles
-          pnpm add @nopon-web/utils@latest @nopon-web/styles@latest
+          pnpm remove @nopon-web/utils @nopon-web/styles -w
+          pnpm add @nopon-web/utils@latest @nopon-web/styles@latest -w
       - name: Install dependencies
         run: pnpm install
       - name: Build with VitePress
