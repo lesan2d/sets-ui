@@ -43,13 +43,9 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Override @nopon-web/styles
-        run: |
-          pnpm remove @nopon-web/styles
-          pnpm add @nopon-web/styles
+        run: pnpm add @nopon-web/styles@latest
       - name: Override @nopon-web/utils
-        run: |
-          pnpm remove @nopon-web/utils
-          pnpm add @nopon-web/utils
+        run: pnpm add @nopon-web/utils@latest
       - name: Install dependencies
         run: pnpm install
       - name: Build with VitePress
