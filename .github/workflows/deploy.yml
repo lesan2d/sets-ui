@@ -42,10 +42,10 @@ jobs:
           cache: pnpm
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      - name: Override @nopon-web/styles
-        run: pnpm add @nopon-web/styles@latest -w
-      - name: Override @nopon-web/utils
-        run: pnpm add @nopon-web/utils@latest -w
+      - name: Replace workspace deps with npm registry versions
+        run: |
+          pnpm remove @nopon-web/utils @nopon-web/styles
+          pnpm add @nopon-web/utils@latest @nopon-web/styles@latest
       - name: Install dependencies
         run: pnpm install
       - name: Build with VitePress

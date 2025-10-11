@@ -23,7 +23,8 @@
 		"docs:preview": "vitepress preview docs"
 	},
 	"workspaces": [
-		"packages/*"
+		"packages/*",
+    "../packages/*"
 	],
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.53.1",
@@ -48,8 +49,8 @@
 		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
-		"@nopon-web/styles": "file:..\\packages\\styles",
-		"@nopon-web/utils": "file:..\\packages\\utils",
+		"@nopon-web/styles": "workspace:*",
+		"@nopon-web/utils": "workspace:*",
 		"@sets-ui/components": "workspace:*",
 		"@sets-ui/composables": "workspace:*",
 		"@sets-ui/config": "workspace:*",
