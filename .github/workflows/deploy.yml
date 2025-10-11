@@ -44,12 +44,12 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Override @nopon-web/styles
         run: |
-          pnpm remove @nopon-web/styles -w
-          pnpm add @nopon-web/styles -w
+          pnpm remove @nopon-web/styles
+          pnpm add @nopon-web/styles
       - name: Override @nopon-web/utils
         run: |
-          pnpm remove @nopon-web/utils -w
-          pnpm add @nopon-web/utils -w
+          pnpm remove @nopon-web/utils
+          pnpm add @nopon-web/utils
       - name: Install dependencies
         run: pnpm install
       - name: Build with VitePress
