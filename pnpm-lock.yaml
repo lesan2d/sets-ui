@@ -13,7 +13,7 @@ importers:
         version: file:../packages/styles
       '@nopon-web/utils':
         specifier: file:..\packages\utils
-        version: file:../packages/utils(typescript@5.9.3)
+        version: file:../packages/utils
       '@sets-ui/components':
         specifier: workspace:*
         version: link:packages/components
@@ -3067,11 +3067,7 @@ snapshots:
 
   '@nopon-web/styles@file:../packages/styles': {}
 
-  '@nopon-web/utils@file:../packages/utils(typescript@5.9.3)':
-    dependencies:
-      vue: 3.5.22(typescript@5.9.3)
-    transitivePeerDependencies:
-      - typescript
+  '@nopon-web/utils@file:../packages/utils': {}
 
   '@parcel/watcher-android-arm64@2.5.1':
     optional: true
