@@ -29,6 +29,9 @@ importers:
       '@sets-ui/main':
         specifier: workspace:*
         version: link:packages/main
+      '@sets-ui/styles':
+        specifier: workspace:*
+        version: link:packages/styles
       '@sets-ui/theme-default':
         specifier: workspace:*
         version: link:packages/theme-default
@@ -122,6 +125,8 @@ importers:
   packages/constants: {}
 
   packages/main: {}
+
+  packages/styles: {}
 
   packages/theme-default: {}
 

@@ -1,6 +1,7 @@
 @use '@nopon-web/styles';
 @use '@nopon-web/styles/theme' as theme;
+@use '@nopon-web/styles/_function' as func;
 
 :root {
-	@include theme.vars;
+  @include theme.vars;
 }

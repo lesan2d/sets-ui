@@ -56,6 +56,7 @@
 		"@sets-ui/config": "workspace:*",
 		"@sets-ui/constants": "workspace:*",
 		"@sets-ui/main": "workspace:*",
+		"@sets-ui/styles": "workspace:*",
 		"@sets-ui/theme-default": "workspace:*",
 		"@vueuse/core": "^13.7.0",
 		"color": "^4.2.3",
