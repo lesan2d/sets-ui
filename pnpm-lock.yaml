@@ -66,6 +66,9 @@ importers:
       css-minimizer-webpack-plugin:
         specifier: ^6.0.0
         version: 6.0.0(esbuild@0.25.10)(webpack@5.102.1)
+      fs-extra:
+        specifier: ^11.3.2
+        version: 11.3.2
       lodash-unified:
         specifier: ^1.0.3
         version: 1.0.3(@types/lodash-es@4.17.12)(lodash-es@4.17.21)(lodash@4.17.21)
