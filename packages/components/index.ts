@@ -6,6 +6,7 @@ export * from './FormItem';
 export * from './Grid';
 export * from './Input';
 export * from './Overlay';
+export * from './image';
 export * from './Popup';
 export * from './Radio';
 export * from './RadioGroup';
@@ -18,6 +19,7 @@ import { SFormItem } from './FormItem';
 import { SGrid } from './Grid';
 import { SInput } from './Input';
 import { SOverlay } from './Overlay';
+import { SImage } from './image';
 import { SPopup } from './Popup';
 import { SRadio } from './Radio';
 import { SRadioGroup } from './RadioGroup';
@@ -35,6 +37,7 @@ export default [
 	SGrid,
 	SInput,
 	SOverlay,
+	SImage,
 	SPopup,
 	SRadio,
 	SRadioGroup,

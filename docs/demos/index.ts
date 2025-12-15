@@ -2,6 +2,7 @@ import ButtonDemos from './Button';
 import DialogDemos from './Dialog';
 import FormtDemos from './Form';
 import GridDemos from './Grid';
+import ImageDemos from './image';
 import InputDemos from './Input';
 import OverlayDemos from './Overlay';
 import PopupDemos from './Popup';
@@ -12,6 +13,7 @@ const demos = [
 	...DialogDemos,
 	...FormtDemos,
 	...GridDemos,
+  ...ImageDemos,
 	...InputDemos,
 	...OverlayDemos,
 	...PopupDemos,
