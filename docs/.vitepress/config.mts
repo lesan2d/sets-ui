@@ -39,6 +39,7 @@ export default defineConfig({
           items: [
             { text: 'Button 按钮', link: '/component/button' },
             { text: 'Grid 布局网格', link: '/component/grid' },
+            { text: 'Image 图片', link: '/component/image' },
           ],
         },
         {
@@ -104,7 +105,7 @@ export default defineConfig({
 
               // 读取文件名作为组件名
               if (!vueComponentName) {
-                const m2 = sourceSrc.match(/[\\\/]([a-zA-Z]+).vue/);
+                const m2 = sourceSrc.match(/[\\\/]([a-zA-Z][a-zA-Z0-9\-]*)\.vue$/);
                 const vueDefineOptionsName = m2 ? m2[1] : '';
                 vueComponentName = vueDefineOptionsName;
               }
