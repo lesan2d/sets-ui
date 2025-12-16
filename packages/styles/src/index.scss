@@ -1,6 +1,5 @@
-@use '@nopon-web/styles';
 @use '@nopon-web/styles/theme' as theme;
-@use '@nopon-web/styles/_function' as func;
+@use './image.scss';
 
 :root {
   @include theme.vars;

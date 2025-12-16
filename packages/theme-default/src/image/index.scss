@@ -1,6 +1,3 @@
 @use '@nopon-web/styles/_function' as func;
 
-.#{func.bem('image')} {
-  font-size: 67px;
-  color: red;
-}
+.#{func.bem('image')} {}

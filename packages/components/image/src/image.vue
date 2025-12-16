@@ -14,10 +14,11 @@ console.log(namespace);
 
 const { name: themeName } = useTheme();
 
-const extendsClass = computed(() => genBEMClass('s-image', [...themeName].filter((p) => Boolean(p)) as Array<string>));
+const extendsClass = computed(() => genBEMClass('s_image', [...themeName].filter((p) => Boolean(p)) as Array<string>));
 </script>
 
 <template>
-  <div class="s-image" :class="[...extendsClass]">
+  <div class="s_image" :class="[...extendsClass]">
+    <img src="https://global.bing.com/th?id=OHR.FrostySquirrel_ZH-CN4613360783_1920x1080.jpg" alt="">
   </div>
 </template>
