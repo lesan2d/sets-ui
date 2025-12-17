@@ -1,6 +1,7 @@
 import type { App, Plugin } from 'vue';
 import Components from '@sets-ui/components';
-import { configNamespace, configTheme } from '@sets-ui/config';
+import { configTheme } from '@sets-ui/config';
+import { configNamespace } from '@sets-ui/hooks';
 
 type InstallOptions = {
 	namespace?: string;
@@ -12,7 +13,7 @@ type InstallOptions = {
 const installer = (plugin: Plugin[]) => {
 	return {
 		install: (app: App, options: InstallOptions = {}) => {
-			const { namespace = 'S', theme } = options;
+			const { namespace = 's', theme } = options;
 			if (namespace) configNamespace(namespace, app);
 			if (theme) configTheme(theme, app);
 			plugin.forEach((comp) => {
