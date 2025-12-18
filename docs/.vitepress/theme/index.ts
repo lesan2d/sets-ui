@@ -17,7 +17,9 @@ export default {
 		});
 	},
 	enhanceApp({ app, router, siteData }) {
-		app.use(SetsUi);
+		app.use(SetsUi, {
+      namespace: 's',
+    });
 		app.use(GlobalComponents);
 		app.use(Demos);
 	},

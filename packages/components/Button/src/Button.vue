@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import Color from 'color';
-import { inject, computed } from 'vue';
-import { CONST_CONFIG } from '@sets-ui/constants';
+import { computed } from 'vue';
 import { useTheme } from '@sets-ui/config';
 import { genBEMClass } from '@nopon-web/utils/css';
 
@@ -18,9 +17,6 @@ interface Props {
   round?: boolean;
   circle?: boolean;
 };
-
-// TODO 应用namespace
-// const namespace = inject(CONST_CONFIG.NAMESPACE);
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'default',
