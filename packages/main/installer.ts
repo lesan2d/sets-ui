@@ -1,20 +1,22 @@
 import type { App, Plugin } from 'vue';
 import type { InstallOptions } from '@sets-ui/hooks';
 import { configTheme } from '@sets-ui/config';
-import { provideGlobalConfig } from '@sets-ui/hooks';
+import { mergeGlobalConfig, provideGlobalConfig } from '@sets-ui/hooks';
 
 export const installer = (plugin: Plugin[]) => {
 
   const install = (app: App, options: InstallOptions = {}) => {
-    provideGlobalConfig(options, app);
+    const mergeOptions = mergeGlobalConfig(options);
+    provideGlobalConfig(mergeOptions, app);
 
-    const { namespace = 's', theme } = options;
+    const { theme } = options;
 
     if (theme) configTheme(theme, app);
+
     plugin.forEach((comp) => {
       app.use(comp, {
-        namespace,
         ...options,
+        namespace: mergeOptions.componentNamePrefix ?? mergeOptions.namespace,
       });
     });
   }
