@@ -18,7 +18,7 @@ export default {
 	},
 	enhanceApp({ app, router, siteData }) {
 		app.use(SetsUi, {
-      namespace: 'st',
+      namespace: 's',
       componentNamePrefix: 'S'
     });
 		app.use(GlobalComponents);

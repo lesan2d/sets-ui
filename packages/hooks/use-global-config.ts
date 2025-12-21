@@ -10,20 +10,17 @@ export type InstallOptions = {
   };
 };
 
-export const DEFAULT_INSTALL_OPTIONS: Required<
-  Pick<InstallOptions, 'namespace' | 'componentNamePrefix'>
-> = {
-  namespace: 'sddd',
-  componentNamePrefix: 'S',
+const DEFAULT_INSTALL_OPTIONS: InstallOptions = {
+  namespace: 's',
 };
 
-export const mergeGlobalConfig = (options: InstallOptions) => {
-  const value = {
+export const mergeOptions = (options: InstallOptions = {}) => {
+  const merged = {
     ...DEFAULT_INSTALL_OPTIONS,
     ...options,
   };
-  console.log(value);
-  return value;
+
+  return merged;
 }
 
 export const provideGlobalConfig = (options: InstallOptions, app: App | null) => {
@@ -32,7 +29,7 @@ export const provideGlobalConfig = (options: InstallOptions, app: App | null) =>
 }
 
 
-export const useGlobalConfig = (key?: string) => {
-  const config = inject<InstallOptions>(CONST_CONFIG.GLOBAL_CONFIG);
-  return config || {};
+export const useGlobalConfig = () => {
+  const config = inject<InstallOptions>(CONST_CONFIG.GLOBAL_CONFIG, DEFAULT_INSTALL_OPTIONS);
+  return config;
 }
