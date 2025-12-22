@@ -5,16 +5,18 @@ import { inject } from 'vue';
 export type InstallOptions = {
   namespace?: string;
   componentNamePrefix?: string,
-  theme?: {
-    name?: string[];
-  };
+  themes?: string[],
 };
 
-const DEFAULT_INSTALL_OPTIONS: InstallOptions = {
+export type GlobalConfig = Readonly<Required<InstallOptions>>;
+
+const DEFAULT_INSTALL_OPTIONS: GlobalConfig = {
   namespace: 's',
+  componentNamePrefix: '',
+  themes: ['default'],
 };
 
-export const mergeOptions = (options: InstallOptions = {}) => {
+export const mergeOptions = (options: InstallOptions = {}): GlobalConfig => {
   const merged = {
     ...DEFAULT_INSTALL_OPTIONS,
     ...options,
@@ -23,13 +25,13 @@ export const mergeOptions = (options: InstallOptions = {}) => {
   return merged;
 }
 
-export const provideGlobalConfig = (options: InstallOptions, app: App | null) => {
+export const provideGlobalConfig = (options: GlobalConfig, app: App | null) => {
   if (!app) return;
   app.provide(CONST_CONFIG.GLOBAL_CONFIG, options);
 }
 
 
 export const useGlobalConfig = () => {
-  const config = inject<InstallOptions>(CONST_CONFIG.GLOBAL_CONFIG, DEFAULT_INSTALL_OPTIONS);
+  const config = inject<GlobalConfig>(CONST_CONFIG.GLOBAL_CONFIG, DEFAULT_INSTALL_OPTIONS);
   return config;
 }

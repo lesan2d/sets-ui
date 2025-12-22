@@ -12,9 +12,11 @@ export const installer = (plugin: Plugin[]) => {
 
     const { componentNamePrefix, namespace } = mergedOptions;
 
-    const { theme } = mergedOptions;
+    const { themes } = mergedOptions;
 
-    if (theme) configTheme(theme, app);
+    if (themes) configTheme({
+      name: themes,
+    }, app);
 
     plugin.forEach((comp) => {
       app.use(comp, {
