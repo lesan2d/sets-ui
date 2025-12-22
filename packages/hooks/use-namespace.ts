@@ -9,10 +9,12 @@ export const useNamespace = (block: string) => {
 
   const e = (element: string) => `${namespace}_${block}-${element}`;
 
+  const is = (name: string, state: boolean) => name && state ? `is-${name}` : '';
 
   return {
     t,
     b,
     e,
+    is,
   }
 }
