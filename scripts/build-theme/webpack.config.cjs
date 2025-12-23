@@ -22,7 +22,7 @@ module.exports = () => {
 		},
 		output: {
 			clean: true,
-			path: path.resolve(__dirname, '../../dist/dist/theme-default'),
+			path: path.resolve(__dirname, '../../dist/theme-default'),
 			filename: (pathData) => {
 				return pathData.chunk.name === 'index' ? '[name].js' : '[name]/[name].js';
 			},

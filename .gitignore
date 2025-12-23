@@ -9,8 +9,6 @@ lerna-debug.log*
 
 node_modules
 dist-ssr
-*/dist
-dist/src
 docs/.vitepress/cache
 !/docs/.vitepress/dist
 *.local
@@ -25,3 +23,9 @@ docs/.vitepress/cache
 *.njsproj
 *.sln
 *.sw?
+
+# Dist
+*/dist
+dist/lib
+dist/theme-default
+dist/styles

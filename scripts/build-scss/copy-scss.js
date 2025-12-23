@@ -8,7 +8,6 @@ const __dirname = path.dirname(__filename);
 console.log('__filename', __filename);
 console.log('__dirname', __dirname);
 
-
 const SRC = path.resolve(__dirname, '../../packages/styles/src');
 const DEST = path.resolve(__dirname, '../../dist/styles');
 

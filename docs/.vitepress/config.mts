@@ -126,7 +126,12 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern'
+          api: 'modern',
+          additionalData: `
+            @forward '@nopon-web/styles/_config.scss' with (
+              $namespace: 's'
+            );
+          `,
         }
       }
     }

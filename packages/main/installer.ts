@@ -21,7 +21,7 @@ export const installer = (plugin: Plugin[]) => {
     plugin.forEach((comp) => {
       app.use(comp, {
         ...mergedOptions,
-        namespace: componentNamePrefix ?? namespace,
+        namespace: componentNamePrefix || namespace,
       });
     });
   }

@@ -17,7 +17,10 @@
 	},
 	"scripts": {
 		"dev": "vite",
-		"build": "vite build && pnpm webpack --config ./scripts/build-theme/webpack.config.cjs",
+		"build": "pnpm build:lib && pnpm build:theme && pnpm build:scss",
+    "build:lib": "vite build",
+    "build:theme": "pnpm webpack --config ./scripts/build-theme/webpack.config.cjs",
+    "build:scss": "node ./scripts/build-scss/copy-scss.js",
 		"docs:dev": "vitepress dev docs",
 		"docs:build": "vitepress build docs",
 		"docs:preview": "vitepress preview docs"
