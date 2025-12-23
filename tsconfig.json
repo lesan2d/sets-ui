@@ -42,4 +42,8 @@
     "./index.d.ts",
     "packages/**/*",
   ],
+  "exclude": [
+    "packages/styles/**",
+    "packages/theme-default/**"
+  ]
 }
