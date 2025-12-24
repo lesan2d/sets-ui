@@ -15,7 +15,7 @@ export const installer = (plugin: Plugin[]) => {
     const { themes } = mergedOptions;
 
     if (themes) configTheme({
-      name: themes,
+      name: themes.map((theme) => `theme_${theme}`),
     }, app);
 
     plugin.forEach((comp) => {
