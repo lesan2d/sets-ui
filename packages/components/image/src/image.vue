@@ -67,9 +67,5 @@ const ratio = computed(() => parseAspectRatio(aspectRatio));
 <template>
   <div :class="classes" :style="styles">
     <img :src="src">
-    <div :class="ns.e('text')"></div>
-    <div :class="ns.m('success')"></div>
-    <div :class="ns.e('state')"></div>
-    <div :class="ns.em('state', '1')"></div>
   </div>
 </template>
