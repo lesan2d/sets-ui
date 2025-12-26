@@ -33,5 +33,5 @@ app.mount('#app');
 
 ```js
 import { SButton } from 'sets-ui';
-import 'sets-ui/dist/theme-default/button/button.css';
+import 'sets-ui/theme-default/button/button.css';
 ```

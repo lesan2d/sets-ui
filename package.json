@@ -18,9 +18,9 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "pnpm build:lib && pnpm build:theme && pnpm build:scss",
-    "build:lib": "vite build",
-    "build:theme": "pnpm webpack --config ./scripts/build-theme/webpack.config.cjs",
-    "build:scss": "node ./scripts/build-scss/copy-scss.js",
+		"build:lib": "vite build",
+		"build:theme": "pnpm webpack --config ./scripts/build-theme/webpack.config.cjs",
+		"build:scss": "node ./scripts/build-scss/copy-scss.js",
 		"docs:dev": "vitepress dev docs",
 		"docs:build": "vitepress build docs",
 		"docs:preview": "vitepress preview docs"
@@ -53,7 +53,7 @@
 		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
-		"@nopon-web/styles": "workspace:*",
+		"@nopon-web/styles": "^0.0.3",
 		"@nopon-web/utils": "workspace:*",
 		"@sets-ui/components": "workspace:*",
 		"@sets-ui/composables": "workspace:*",

@@ -4,6 +4,10 @@ import { inject } from 'vue';
 
 export type InstallOptions = {
   namespace?: string;
+  commonSeparator?: string;
+  elementSeparator?: string;
+  modifierSeparator?: string;
+  statePrefix?: string;
   componentNamePrefix?: string,
   themes?: string[],
 };
@@ -12,6 +16,10 @@ export type GlobalConfig = Readonly<Required<InstallOptions>>;
 
 const DEFAULT_INSTALL_OPTIONS: GlobalConfig = {
   namespace: 's',
+  commonSeparator: '-',
+  elementSeparator: '__',
+  modifierSeparator: '--',
+  statePrefix: 'is',
   componentNamePrefix: '',
   themes: ['default'],
 };

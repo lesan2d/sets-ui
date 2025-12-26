@@ -5,21 +5,48 @@ interface BEMOptions {
 	block: string;
 	element?: string;
 	modifier?: string;
+	commonSeparator: string;
+	elementSeparator: string;
+	modifierSeparator: string;
 }
 
-const bem = ({ namespace, block, element, modifier }: BEMOptions) => {
-	let cls = `${namespace}-${block}`;
+const bem = ({
+	namespace,
+	block,
+	element,
+	modifier,
+	commonSeparator,
+	elementSeparator,
+	modifierSeparator,
+}: BEMOptions) => {
+	let cls = `${namespace}${commonSeparator}${block}`;
 
-	if (element) cls += `__${element}`;
-	if (modifier) cls += `--${modifier}`;
+	if (element) cls += `${elementSeparator}${element}`;
+	if (modifier) cls += `${modifierSeparator}${modifier}`;
 
 	return cls;
 };
 
 export const useNamespace = (block: string) => {
-	const { namespace, themes = [] } = useGlobalConfig();
+	const {
+		namespace,
+		commonSeparator,
+		elementSeparator,
+		modifierSeparator,
+		statePrefix,
+		themes = [],
+	} = useGlobalConfig();
 
-	const bemClass = (options?: Pick<BEMOptions, 'element' | 'modifier'>) => bem({ namespace, block, ...options });
+	const bemClass = (options?: Pick<BEMOptions, 'element' | 'modifier'>) => {
+		return bem({
+			namespace,
+			block,
+			commonSeparator,
+			elementSeparator,
+			modifierSeparator,
+			...options,
+		});
+	};
 
 	const b = () => bemClass();
 
@@ -31,7 +58,7 @@ export const useNamespace = (block: string) => {
 
 	const t = () => themes.map((theme) => bemClass({ modifier: `theme-${theme}` }));
 
-	const is = (name: string, state: boolean) => (name && state ? `is-${name}` : '');
+	const is = (name: string, state: boolean) => (name && state ? `${statePrefix}${commonSeparator}${name}` : '');
 
 	return {
 		b,
