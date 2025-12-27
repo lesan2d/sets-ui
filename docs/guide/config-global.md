@@ -58,7 +58,7 @@ export default defineConfig({
 
 ```vue
 <!-- 组件前缀变为配置的 componentNamePrefix (或者 namespace) -->
-<c-button>基础按钮</c-button>
+<custom-button>基础按钮</custom-button>
 ```
 
 **渲染结果**
