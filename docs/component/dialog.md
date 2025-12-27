@@ -11,13 +11,13 @@ Dialog 基于 Popup 开发，通过 [透传 Attributes](https://cn.vuejs.org/gui
 ## 基础用法
 
 :::demo
-<<< @/demos/Dialog/DialogBasic.vue
+<<< @/demos/dialog/dialog-basic.vue
 :::
 
 ## 自定义插槽
 
 :::demo
-<<< @/demos/Dialog/DialogSlot.vue
+<<< @/demos/dialog/dialog-slot.vue
 :::
 
 ## 弹出方向
@@ -25,7 +25,7 @@ Dialog 基于 Popup 开发，通过 [透传 Attributes](https://cn.vuejs.org/gui
 通过 `Popup` 透传属性 `direction` 属性的 `ttb` `rtl` `btt` `ltr` 设定弹出方向，当值为 `''` 空时默认居中
 
 :::demo
-<<< @/demos/Dialog/DialogDirection.vue
+<<< @/demos/dialog/dialog-direction.vue
 :::
 
 

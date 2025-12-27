@@ -9,7 +9,7 @@ title: Grid
 代码演示
 
 :::demo
-<<< @/demos/Grid/GridBasic.vue
+<<< @/demos/grid/grid-basic.vue
 :::
 
 ## API

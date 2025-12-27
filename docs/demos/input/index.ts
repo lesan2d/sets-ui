@@ -1,6 +1,6 @@
 import { withInstall } from '@nopon-web/utils/vue';
-import InputBasicInstace from './InputBasic.vue';
-import InputClearableInstace from './InputClearable.vue';
+import InputBasicInstace from './input-basic.vue';
+import InputClearableInstace from './input-clearable.vue';
 
 export const InputBasic = withInstall({
 	...InputBasicInstace,

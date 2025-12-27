@@ -9,7 +9,7 @@ title: Button
 通过 `type` 属性定义不同的按钮样式
 
 :::demo
-<<< @/demos/Button/ButtonBasic.vue
+<<< @/demos/button/button-basic.vue
 :::
 
 ## 按钮形状
@@ -17,7 +17,7 @@ title: Button
 通过 `round` `circle` 属性定义不同的按钮形状
 
 :::demo
-<<< @/demos/Button/ButtonShape.vue
+<<< @/demos/button/button-shape.vue
 :::
 
 ## 按钮大小
@@ -25,7 +25,7 @@ title: Button
 预制了 `large` 和 `small` 两种值配置大小，可使用 CSS 变量自定义尺寸
 
 :::demo
-<<< @/demos/Button/ButtonSize.vue
+<<< @/demos/button/button-size.vue
 :::
 
 ## 按钮颜色
@@ -33,7 +33,7 @@ title: Button
 通过 `color` 属性设置按钮颜色
 
 :::demo
-<<< @/demos/Button/ButtonColor.vue
+<<< @/demos/button/button-color.vue
 :::
 
 ## 文本按钮
@@ -41,7 +41,7 @@ title: Button
 通过 `Text` 属性使按钮呈现文本样式
 
 :::demo
-<<< @/demos/Button/ButtonText.vue
+<<< @/demos/button/button-text.vue
 :::
 
 ## API

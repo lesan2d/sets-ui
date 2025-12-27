@@ -7,7 +7,7 @@ title: Input
 ## 基础用法
 
 :::demo
-<<< @/demos/Input/InputBasic.vue
+<<< @/demos/input/input-basic.vue
 :::
 
 ## 可清空的
@@ -15,7 +15,7 @@ title: Input
 通过 clearable 属性可启用一键清空按钮
 
 :::demo
-<<< @/demos/Input/InputClearable.vue
+<<< @/demos/input/input-clearable.vue
 :::
 
 ## API

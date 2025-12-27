@@ -1,6 +1,6 @@
 import { withInstall } from '@nopon-web/utils/vue';
-import RadioBasicInstace from './RadioBasic.vue';
-import RadioGroupInstace from './RadioGroup.vue';
+import RadioBasicInstace from './radio-basic.vue';
+import RadioGroupInstace from './radio-group.vue';
 
 export const RadioBasic = withInstall({
 	...RadioBasicInstace,

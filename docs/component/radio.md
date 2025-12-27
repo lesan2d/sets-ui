@@ -14,7 +14,7 @@ Radio 选中值为其绑定的 `value` 属性，当 Radio `v-model` 的值与其
 :::
 
 :::demo
-<<< @/demos/Radio/RadioBasic.vue
+<<< @/demos/radio/radio-basic.vue
 :::
 
 ## 单选框组
@@ -22,7 +22,7 @@ Radio 选中值为其绑定的 `value` 属性，当 Radio `v-model` 的值与其
 使用 s-radio-group 来组合互斥选项
 
 :::demo
-<<< @/demos/Radio/RadioGroup.vue
+<<< @/demos/radio/radio-group.vue
 :::
 
 ## Radio API

@@ -1,9 +1,9 @@
 import { withInstall } from '@nopon-web/utils/vue';
-import ButtonBasicInstace from './ButtonBasic.vue';
-import ButtonSizeInstace from './ButtonSize.vue';
-import ButtonColorInstace from './ButtonColor.vue';
-import ButtonTextInstace from './ButtonText.vue';
-import ButtonShapeInstace from './ButtonShape.vue';
+import ButtonBasicInstace from './button-basic.vue';
+import ButtonSizeInstace from './button-size.vue';
+import ButtonColorInstace from './button-color.vue';
+import ButtonTextInstace from './button-text.vue';
+import ButtonShapeInstace from './button-shape.vue';
 
 export const ButtonBasic = withInstall({
 	...ButtonBasicInstace,

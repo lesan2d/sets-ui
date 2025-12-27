@@ -1,5 +1,5 @@
 import { withInstall } from '@nopon-web/utils/vue';
-import GridBasicInstace from './GridBasic.vue';
+import GridBasicInstace from './grid-basic.vue';
 
 export const GridBasic = withInstall({
   ...GridBasicInstace,

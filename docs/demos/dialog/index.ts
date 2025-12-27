@@ -1,7 +1,7 @@
 import { withInstall } from '@nopon-web/utils/vue';
-import BasicInstace from './DialogBasic.vue';
-import SlotInstace from './DialogSlot.vue';
-import DirectionInstace from './DialogDirection.vue';
+import BasicInstace from './dialog-Basic.vue';
+import SlotInstace from './dialog-Slot.vue';
+import DirectionInstace from './dialog-Direction.vue';
 
 export const Basic = withInstall({
   ...BasicInstace,

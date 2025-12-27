@@ -1,7 +1,7 @@
 import { withInstall } from '@nopon-web/utils/vue';
-import PopupBasicInstace from './PopupBasic.vue';
-import PopupOverlayInstace from './PopupOverlay.vue';
-import PopupDirectionInstace from './PopupDirection.vue';
+import PopupBasicInstace from './popup-basic.vue';
+import PopupOverlayInstace from './popup-overlay.vue';
+import PopupDirectionInstace from './popup-direction.vue';
 
 export const PopupBasic = withInstall({
 	...PopupBasicInstace,

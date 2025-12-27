@@ -9,7 +9,7 @@ title: Popup
 代码演示
 
 :::demo test
-<<< @/demos/Popup/PopupBasic.vue
+<<< @/demos/popup/popup-basic.vue
 :::
 
 ## 隐藏遮罩
@@ -17,7 +17,7 @@ title: Popup
 将 `overlay` 设为 `false`
 
 :::demo
-<<< @/demos/Popup/PopupOverlay.vue
+<<< @/demos/popup/popup-overlay.vue
 :::
 
 ## 弹出方向
@@ -25,7 +25,7 @@ title: Popup
 通过 `direction` 属性的 `ttb` `rtl` `btt` `ltr` 设定弹出方向，当值为 `''` 空时默认居中
 
 :::demo
-<<< @/demos/Popup/PopupDirection.vue
+<<< @/demos/popup/popup-direction.vue
 :::
 
 ## API

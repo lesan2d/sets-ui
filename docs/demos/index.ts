@@ -1,12 +1,12 @@
-import ButtonDemos from './Button';
-import DialogDemos from './Dialog';
-import FormtDemos from './Form';
-import GridDemos from './Grid';
+import ButtonDemos from './button';
+import DialogDemos from './dialog';
+import FormtDemos from './form';
+import GridDemos from './grid';
 import ImageDemos from './image';
-import InputDemos from './Input';
-import OverlayDemos from './Overlay';
-import PopupDemos from './Popup';
-import RadioDemos from './Radio';
+import InputDemos from './input';
+import OverlayDemos from './overlay';
+import PopupDemos from './popup';
+import RadioDemos from './radio';
 
 const demos = [
 	...ButtonDemos,

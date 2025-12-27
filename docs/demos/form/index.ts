@@ -1,7 +1,7 @@
 import { withInstall } from '@nopon-web/utils/vue';
-import BasicInstace from './FormBasic.vue';
-import RulesInstace from './FormRules.vue';
-import ValidatorInstace from './FormValidator.vue';
+import BasicInstace from './form-basic.vue';
+import RulesInstace from './form-rules.vue';
+import ValidatorInstace from './form-validator.vue';
 
 const COMPONENT_NAME = 'Form';
 

@@ -9,7 +9,7 @@ title: Form
 最基础的表单功能，使用 `form-item` 组件作为 `form` 输入项的容器
 
 :::demo
-<<< @/demos/Form/FormBasic.vue
+<<< @/demos/form/form-basic.vue
 :::
 
 ## 表单校验
@@ -17,7 +17,7 @@ title: Form
 为 `rules` 属性传入约定的验证规则，并将 `form-Item` 的 `name` 属性设置为需要验证的键值即可
 
 :::demo
-<<< @/demos/Form/FormRules.vue
+<<< @/demos/form/form-rules.vue
 :::
 
 ## 自定义校验
@@ -25,7 +25,7 @@ title: Form
 为 `rules` 属性传入约定的验证规则，可以使用 `validator` 字段返回一个 `Promise` 来确定校验状态
 
 :::demo
-<<< @/demos/Form/FormValidator.vue
+<<< @/demos/form/form-validator.vue
 :::
 
 ## Form API
