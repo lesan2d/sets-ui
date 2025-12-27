@@ -1,18 +1,18 @@
 
-import { SButton } from '@sets-ui/components/Button';
-import { SCell } from '@sets-ui/components/Cell';
-import { SDialog } from '@sets-ui/components/Dialog';
-import { SForm } from '@sets-ui/components/Form';
-import { SFormItem } from '@sets-ui/components/FormItem';
-import { SGrid } from '@sets-ui/components/Grid';
-import { SInput } from '@sets-ui/components/Input';
-import { SOverlay } from '@sets-ui/components/Overlay';
+import { SButton } from '@sets-ui/components/button';
+import { SCell } from '@sets-ui/components/cell';
+import { SDialog } from '@sets-ui/components/dialog';
+import { SForm } from '@sets-ui/components/form';
+import { SFormItem } from '@sets-ui/components/form-item';
+import { SGrid } from '@sets-ui/components/grid';
+import { SInput } from '@sets-ui/components/input';
+import { SOverlay } from '@sets-ui/components/overlay';
 import { SImage } from '@sets-ui/components/image';
-import { SPopup } from '@sets-ui/components/Popup';
-import { SRadio } from '@sets-ui/components/Radio';
-import { SRadioGroup } from '@sets-ui/components/RadioGroup';
+import { SPopup } from '@sets-ui/components/popup';
+import { SRadio } from '@sets-ui/components/radio';
+import { SRadioGroup } from '@sets-ui/components/radio-group';
 
-import '@sets-ui/components/Icon';
+import '@sets-ui/components/icon';
 
 import type { Plugin } from 'vue';
 
