@@ -26,9 +26,6 @@ importers:
       '@sets-ui/constants':
         specifier: workspace:*
         version: link:packages/constants
-      '@sets-ui/hooks':
-        specifier: workspace:*
-        version: link:packages/hooks
       '@sets-ui/main':
         specifier: workspace:*
         version: link:packages/main

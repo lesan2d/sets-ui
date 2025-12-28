@@ -6,7 +6,7 @@ import { RADIO_GROUP_KEY } from '@sets-ui/components/radio-group';
 import { genBEMClass } from '@nopon-web/utils/css';
 
 import { useTheme } from '@sets-ui/config';
-import { useFormItem } from '@sets-ui/components/form-item';
+import { useFormItem } from '@sets-ui/components/form-item/src/composables/use-form-item';
 
 defineOptions({
   name: 'Radio',

@@ -1,4 +1,4 @@
-import { useGlobalConfig } from '@sets-ui/hooks';
+import { useGlobalConfig } from '@sets-ui/composables/use-global-config';
 
 interface BEMOptions {
 	namespace: string;

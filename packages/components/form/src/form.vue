@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FormProps, FormContext } from './types';
-import type { ValidateErrorInfo } from '@sets-ui/composables/useValidator';
+import type { ValidateErrorInfo } from '@sets-ui/composables/use-validator';
 import type { FormItemContext } from '@sets-ui/components/form-item';
 
 import { reactive, computed, provide } from 'vue';

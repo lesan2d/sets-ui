@@ -1,5 +1,5 @@
 import type { UnwrapRef } from 'vue';
-import type { Rules } from '@sets-ui/composables/useValidator';
+import type { Rules } from '@sets-ui/composables/use-validator';
 import type { FormItemContext } from '@sets-ui/components/form-item';
 
 import { useFormLabelWidth } from './composables/use-form-label-width';

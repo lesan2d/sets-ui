@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue';
 import { genBEMClass } from '@nopon-web/utils/css';
 import { useTheme } from '@sets-ui/config';
-import { useFormItem } from '@sets-ui/components/form-item';
+import { useFormItem } from '@sets-ui/components/form-item/src/composables/use-form-item';
 
 defineOptions({
   name: 'Input',

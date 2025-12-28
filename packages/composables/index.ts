@@ -1,3 +1,3 @@
-export * from './useAnimationReset';
-export * from './useAnimationReverse';
-export * from './useValidator';
+export * from './use-animation-reset';
+export * from './use-animation-reverse';
+export * from './use-validator';

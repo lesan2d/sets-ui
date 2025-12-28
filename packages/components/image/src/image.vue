@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { useNamespace } from '@sets-ui/hooks';
+import { useNamespace } from '@sets-ui/composables/use-namespace';
 
 defineOptions({
   name: 'Image',

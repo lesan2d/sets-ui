@@ -1,7 +1,7 @@
 import type { App, Plugin } from 'vue';
-import type { InstallOptions } from '@sets-ui/hooks';
+import type { InstallOptions } from '@sets-ui/composables/use-global-config';
 import { configTheme } from '@sets-ui/config';
-import { mergeOptions, provideGlobalConfig } from '@sets-ui/hooks';
+import { mergeOptions, provideGlobalConfig } from '@sets-ui/composables/use-global-config';
 
 export const installer = (plugin: Plugin[]) => {
 
