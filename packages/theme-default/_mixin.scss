@@ -1,0 +1,5 @@
+@use '@nopon-web/styles/_mixin' as *;
+
+@forward '@nopon-web/styles/_mixin';
+
+$theme-name: 'default';

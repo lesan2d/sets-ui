@@ -1,34 +1,38 @@
-.s-button--theme_default {
-	display: inline-block;
-	border-radius: calc(4 * var(--size-unit));
-	transition: 0.1s;
+@use '../../_mixin' as *;
 
-	&::after {
-		transition: background-color 0.25s ease-in-out;
-	}
-
-	&:hover,
-	&:active,
-	&:focus {
-		color: var(--s-button-color-text-hover);
-		border-color: var(--s-button-color-border-hover);
+@include b(button) {
+	@include t() {
+		display: inline-block;
+		border-radius: calc(4 * var(--size-unit));
+		transition: 0.1s;
 
 		&::after {
-			background-color: var(--s-button-color-bg-hover);
+			transition: background-color 0.25s ease-in-out;
 		}
-	}
 
-	&.s-button {
-		&--primary {
-			&:focus {
-				&::after {
-					filter: saturate(0.6);
-				}
+		&:hover,
+		&:active,
+		&:focus {
+			color: var(--s-button-color-text-hover);
+			border-color: var(--s-button-color-border-hover);
+
+			&::after {
+				background-color: var(--s-button-color-bg-hover);
 			}
+		}
 
-			&:active {
-				&::after {
-					filter: saturate(1);
+		&.s-button {
+			&--primary {
+				&:focus {
+					&::after {
+						filter: saturate(0.6);
+					}
+				}
+
+				&:active {
+					&::after {
+						filter: saturate(1);
+					}
 				}
 			}
 		}
