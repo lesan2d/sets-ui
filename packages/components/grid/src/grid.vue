@@ -22,9 +22,6 @@ const styles = computed(() => {
     'grid-gap': Array.isArray(props.gap) ? props.gap.join(' ') : props.gap,
   };
 });
-
-console.log(styles);
-
 </script>
 
 <template>

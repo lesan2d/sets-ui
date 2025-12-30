@@ -1,0 +1,63 @@
+@use '@nopon-web/styles/_mixin' as *;
+
+@include b(popup) {
+	--s-popup-width: 30%;
+	--s-popup-padding: 20px;
+	--s-popup-z-index: 1;
+	pointer-events: none;
+	position: fixed;
+	z-index: calc(var(--z-index-base) + var(--s-popup-z-index));
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	.s-popup--wrapper {
+		position: relative;
+		pointer-events: auto;
+		width: var(--s-popup-width, 30%);
+		display: inline-grid;
+		grid-template-rows: auto 1fr auto;
+		padding: var(--s-popup-padding);
+		background-color: var(--color-base-50);
+
+		.btn-close {
+			position: absolute;
+			top: 4px;
+			right: 4px;
+			z-index: 1;
+		}
+	}
+
+	// 默认居中
+	&:not(.ttb, .rtl, .btt, .ltr) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&.ttb {
+		--s-popup-width: 100%;
+	}
+
+	&.rtl {
+		display: flex;
+		justify-content: flex-end;
+
+		.s-popup--wrapper {
+			height: 100%;
+		}
+	}
+
+	&.btt {
+		--s-popup-width: 100%;
+		display: flex;
+		align-items: flex-end;
+	}
+
+	&.ltr {
+		.s-popup--wrapper {
+			height: 100%;
+		}
+	}
+}

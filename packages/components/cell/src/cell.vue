@@ -9,5 +9,3 @@ defineOptions({
     <slot></slot>
   </div>
 </template>
-
-<style></style>
