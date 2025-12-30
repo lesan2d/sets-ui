@@ -2,4 +2,5 @@
 
 @forward '@nopon-web/styles/_mixin';
 
+// 定义全局主题名，使用 b() { t() } 直接生成主题 class，生成多个时传入 t(($theme-name, 'coustom'))
 $theme-name: 'default';

@@ -14,25 +14,22 @@
 		&:active,
 		&:focus {
 			color: var(--s-button-color-text-hover);
-			border-color: var(--s-button-color-border-hover);
 
 			&::after {
 				background-color: var(--s-button-color-bg-hover);
 			}
 		}
 
-		&.s-button {
-			&--primary {
-				&:focus {
-					&::after {
-						filter: saturate(0.6);
-					}
+		&.#{bem('button', '', 'primary')} {
+			&:focus {
+				&::after {
+					filter: saturate(0.6);
 				}
+			}
 
-				&:active {
-					&::after {
-						filter: saturate(1);
-					}
+			&:active {
+				&::after {
+					filter: saturate(1);
 				}
 			}
 		}
