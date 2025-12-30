@@ -2,6 +2,7 @@
 
 @use './button.scss';
 @use './image.scss';
+@use './input.scss';
 
 :root {
 	@include theme.vars;

@@ -1,8 +1,7 @@
 @use './animation.scss';
 
-@use './src/button/index.scss' as button;
-@use './src/input/index.scss' as input;
-@use './src/image/index.scss' as image;
+@use './src/button.scss';
+@use './src/input.scss';
 @use './src/radio/index.scss' as radio;
 @use './src/popup/index.scss' as popup;
 
