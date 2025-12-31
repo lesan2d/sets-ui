@@ -33,6 +33,15 @@ const styles = computed(() => {
 
 <template>
   <div :class="classes" :style="styles">
-    <img :src="props.src">
+    <div v-if="$slots.overlay" :class="ns.e('overlay')">
+      <slot name="overlay"></slot>
+    </div>
+    <div v-if="$slots.decoration" :class="ns.e('decoration')">
+      <slot name="decoration"></slot>
+    </div>
+    <img :class="ns.e('content')" :src="props.src">
+    <div v-if="$slots.bg" :class="ns.e('bg')">
+      <slot name="bg"></slot>
+    </div>
   </div>
 </template>
