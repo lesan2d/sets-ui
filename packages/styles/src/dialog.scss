@@ -1,0 +1,40 @@
+@use '@nopon-web/styles/_mixin' as *;
+
+@include b(dialog) {
+	--s-dialog-width: 30%;
+	--s-dialog-padding-header: 10px;
+	--s-dialog-padding-body: 15px;
+	--s-dialog-padding-footer: 10px;
+	--s-dialog-border-width: 1px;
+	--s-dialog-border-style: solid;
+	--s-dialog-border-color: var(--color-border-500);
+	color: var(--color-text-500);
+
+	// 覆盖 popup 变量
+	&.#{bem('popup')} {
+		--s-popup-padding: 0;
+		--s-popup-width: var(--s-dialog-width, 50%);
+	}
+
+	@include e(header) {
+		padding: var(--s-dialog-padding-header);
+		border-bottom: var(--s-dialog-border-width) var(--s-dialog-border-style) var(--s-dialog-border-color);
+
+		h4 {
+			font-weight: 500;
+		}
+	}
+
+	@include e(body) {
+		padding: var(--s-dialog-padding-body);
+		overflow: hidden;
+	}
+
+	@include e(footer) {
+		padding: var(--s-dialog-padding-footer);
+
+		@include m(action) {
+			text-align: right;
+		}
+	}
+}

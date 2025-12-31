@@ -2,48 +2,44 @@
 
 @include b(popup) {
 	@include t() {
-		.s-popup {
-			@at-root {
-				&--wrapper {
-					border-radius: 4px;
-					animation-duration: 0.3s;
-					box-shadow: 0 0 10px 2px rgb(from var(--color-base-inverse-50) r g b / 30%);
-				}
-			}
+		@include e(wrapper) {
+			border-radius: 4px;
+			animation-duration: 0.3s;
+			box-shadow: 0 0 10px 2px rgb(from var(--color-base-inverse-50) r g b / 30%);
 		}
 
 		&.closed {
-			.s-popup--wrapper {
+			@include e(wrapper) {
 				animation-fill-mode: both;
 			}
 		}
 
 		&:not(.ttb, .rtl, .btt, .ltr) {
-			.s-popup--wrapper {
+			@include e(wrapper) {
 				animation-name: fade-in;
 			}
 		}
 
 		&.ttb {
-			.s-popup--wrapper {
+			@include e(wrapper) {
 				animation-name: ttb;
 			}
 		}
 
 		&.rtl {
-			.s-popup--wrapper {
+			@include e(wrapper) {
 				animation-name: rtl;
 			}
 		}
 
 		&.btt {
-			.s-popup--wrapper {
+			@include e(wrapper) {
 				animation-name: btt;
 			}
 		}
 
 		&.ltr {
-			.s-popup--wrapper {
+			@include e(wrapper) {
 				animation-name: ltr;
 			}
 		}
@@ -52,7 +48,7 @@
 		&.rtl,
 		&.btt,
 		&.ltr {
-			.s-popup--wrapper {
+			@include e(wrapper) {
 				animation-duration: 0.5s;
 			}
 		}

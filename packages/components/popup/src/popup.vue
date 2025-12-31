@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { DirectionType } from '#/component';
+import type { PropsPopup } from './types';
 import { ref, computed, watch, } from 'vue';
 import { useNamespace } from '@sets-ui/composables/use-namespace';
 import { useAnimationReverse } from '@sets-ui/composables/use-animation-reverse';
@@ -11,16 +11,7 @@ defineOptions({
   inheritAttrs: false, // 禁用 Attributes 继承
 });
 
-interface Props {
-  modelValue: boolean;
-  overlay?: boolean;
-  showClose?: boolean;
-  destroyOnClose?: boolean;
-  direction?: DirectionType;
-  closeOnClickOverlay?: boolean;
-}
-
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<PropsPopup>(), {
   modelValue: false,
   overlay: true,
   destroyOnClose: false,
@@ -51,7 +42,7 @@ let timer: NodeJS.Timeout | number = 0;
 
 const { style: animationReverseStyle } = useAnimationReverse(closed);
 
-const animationStyle = computed(() => {
+const animationStyles = computed(() => {
   const value = {
     ...animationReverseStyle.value,
   };
@@ -120,7 +111,7 @@ const handleAnimationend = () => {
   <s-overlay v-if="props.overlay" v-model="overlayVisible" :destroy-on-close="props.destroyOnClose"
     :close-on-click-overlay="props.closeOnClickOverlay" />
   <div v-if="props.destroyOnClose ? shouldVisible : true" v-show="shouldVisible" :class="classes" v-bind="$attrs">
-    <div class="s-popup--wrapper" :style="animationStyle" @animationstart.self="handleAnimationstart"
+    <div :class="ns.e('wrapper')" :style="animationStyles" @animationstart.self="handleAnimationstart"
       @animationend.self="handleAnimationend">
       <SButton v-if="props.showClose" text circle class="btn-close" @click="handleClose">
         <i class="s-icon s-icon--close"></i>
