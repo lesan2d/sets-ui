@@ -12,8 +12,8 @@
 
 	// 覆盖 popup 变量
 	&.#{bem('popup')} {
-		--s-popup-padding: 0;
-		--s-popup-width: var(--s-dialog-width, 50%);
+		--popup-padding: 0;
+		--popup-width: var(--s-dialog-width, 50%);
 	}
 
 	@include e(header) {
