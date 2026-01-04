@@ -20,13 +20,13 @@
 		grid-template-rows: auto 1fr auto;
 		padding: var(--s-popup-padding);
 		background-color: var(--color-base-50);
+	}
 
-		.btn-close {
-			position: absolute;
-			top: 4px;
-			right: 4px;
-			z-index: 1;
-		}
+	@include e(close) {
+		position: absolute;
+		top: 4px;
+		right: 4px;
+		z-index: 1;
 	}
 
 	// 默认居中

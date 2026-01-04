@@ -5,6 +5,7 @@ import { useNamespace } from '@sets-ui/composables/use-namespace';
 import { useAnimationReverse } from '@sets-ui/composables/use-animation-reverse';
 import { SOverlay } from '@sets-ui/components/overlay';
 import { SButton } from '@sets-ui/components/button';
+import { SIcon } from '@sets-ui/components/icon';
 
 defineOptions({
   name: 'Popup',
@@ -108,13 +109,13 @@ const handleAnimationend = () => {
 </script>
 
 <template>
-  <s-overlay v-if="props.overlay" v-model="overlayVisible" :destroy-on-close="props.destroyOnClose"
+  <SOverlay v-if="props.overlay" v-model="overlayVisible" :destroy-on-close="props.destroyOnClose"
     :close-on-click-overlay="props.closeOnClickOverlay" />
   <div v-if="props.destroyOnClose ? shouldVisible : true" v-show="shouldVisible" :class="classes" v-bind="$attrs">
     <div :class="ns.e('wrapper')" :style="animationStyles" @animationstart.self="handleAnimationstart"
       @animationend.self="handleAnimationend">
-      <SButton v-if="props.showClose" text circle class="btn-close" @click="handleClose">
-        <i class="s-icon s-icon--close"></i>
+      <SButton v-if="props.showClose" :class="ns.e('close')" text circle @click="handleClose">
+        <SIcon name="close"></SIcon>
       </SButton>
       <slot></slot>
     </div>

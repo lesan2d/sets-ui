@@ -1,11 +1,21 @@
-i.s-icon {
-	display: inline-block;
-	color: inherit;
+@use '@nopon-web/styles/_mixin' as *;
+@use '@nopon-web/styles/components/icon.scss';
+
+@include b('icon') {
 	--width-border: 1px;
-	&--close {
+
+	@include when('circle') {
+		border-width: var(--width-border);
+		border-style: solid;
+		border-radius: 100%;
+		transition: border-color 0.25s ease-in-out;
+	}
+
+	&.#{bem('icon', 'close')} {
 		position: relative;
 		height: var(--text-sm);
 		width: var(--text-sm);
+
 		&::before {
 			position: absolute;
 			height: 0;
@@ -20,6 +30,7 @@ i.s-icon {
 			transition: border-color 0.25s ease-in-out;
 			transform: translateY(-50%) rotate(45deg);
 		}
+
 		&::after {
 			position: absolute;
 			left: 0;
@@ -34,11 +45,5 @@ i.s-icon {
 			transition: border-color 0.25s ease-in-out;
 			transform: translateY(-50%) rotate(-45deg);
 		}
-	}
-	&.circle {
-		border-width: var(--width-border);
-		border-style: solid;
-		border-radius: 100%;
-		transition: border-color 0.25s ease-in-out;
 	}
 }

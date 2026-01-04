@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { PropsInput } from './types';
 import { ref, computed } from 'vue';
+import { SIcon } from '@sets-ui/components/icon';
 import { useNamespace } from '@sets-ui/composables/use-namespace';
 import { useFormItem } from '@sets-ui/components/form-item/src/composables/use-form-item';
 
@@ -49,8 +50,7 @@ function handleClearable() {
       <input :class="ns.e('inner')" v-model="model" :placeholder="props.placeholder" @focus="handleFocus"
         @blur="handleBlur" />
       <div v-if="props.clearable" :class="ns.e('clearable')">
-        <!-- todo -->
-        <i v-show="model" class="s-icon s-icon--close circle" @click.stop="handleClearable"></i>
+        <SIcon name="close" circle @click.stop="handleClearable"></SIcon>
       </div>
     </div>
   </div>

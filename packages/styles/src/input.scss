@@ -24,7 +24,7 @@
 		overflow: hidden;
 
 		&:hover {
-			.s-input--clearable {
+			.#{bem('input', 'clearable')} {
 				opacity: 1;
 			}
 		}
@@ -53,7 +53,9 @@
 		transition: opacity 0.2s ease-in-out;
 
 		> i {
+			color: inherit;
 			cursor: pointer;
+			filter: contrast(0.5);
 		}
 	}
 }

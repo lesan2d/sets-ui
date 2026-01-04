@@ -4,6 +4,7 @@ export * from './dialog';
 export * from './form';
 export * from './form-item';
 export * from './grid';
+export * from './icon';
 export * from './image';
 export * from './input';
 export * from './overlay';
