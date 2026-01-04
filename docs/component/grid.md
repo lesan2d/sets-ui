@@ -6,19 +6,20 @@ title: Grid
 
 ## 基础用法
 
-代码演示
+默认 `grid` 布局，使用 `col` `gap` `wrap` 控制列数、间距、换行
 
 :::demo
 <<< @/demos/grid/grid-basic.vue
 :::
 
+## 更换布局
+
+通过 `display` 切换布局
+
+:::demo
+<<< @/demos/grid/grid-display.vue
+:::
+
 ## API
 
 ### Grid Attributes
-
-| 名称             |               说明                |                           类型 | 默认值            |
-| ---------------- | :-------------------------------: | -----------------------------: | ----------------- |
-| template-columns | 同 CSS 属性 grid-template-columns | Array[string]\| number\|string | 'repeat(24, 1fr)' |
-| template-rows    |  同 CSS 属性 grid-template-rows   | Array[string]\| number\|string | ''                |
-| gap              |       同 CSS 属性 grid-gap        | Array[string]\| number\|string | 0                 |
-

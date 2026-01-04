@@ -1,37 +1,48 @@
 <script setup lang="ts">
+import type { PropsGrid } from './types';
 import { computed } from 'vue';
+import { useNamespace } from '@sets-ui/composables/use-namespace';
 
 defineOptions({
   name: 'Grid',
 });
 
-const props = withDefaults(defineProps<{
-  templateColumns?: Array<string> | number | string,
-  templateRows?: Array<string> | number | string,
-  gap?: Array<string> | number | string,
-}>(), {
-  templateColumns: 'repeat(24, 1fr)',
-  templateRows: () => [],
-  gap: 0,
+const props = withDefaults(defineProps<PropsGrid>(), {
+  display: 'grid',
+  col: 1,
+  wrap: false,
+  gap: '0px',
+  onlyCenter: false,
 });
 
+const ns = useNamespace('grid');
+
+const classes = computed(() => [
+  ns.b(),
+  ...ns.t(),
+  ns.is('grid', props.display === 'grid'),
+  ns.is('flex', props.display === 'flex'),
+  ns.is('wrap', props.wrap),
+  ns.is('only-center', props.onlyCenter),
+]);
+
 const styles = computed(() => {
-  return {
-    'grid-template-columns': Array.isArray(props.templateColumns) ? props.templateColumns.join(' ') : props.templateColumns,
-    'grid-template-rows': Array.isArray(props.templateRows) ? props.templateRows.join(' ') : props.templateRows,
-    'grid-gap': Array.isArray(props.gap) ? props.gap.join(' ') : props.gap,
-  };
+  const values: Record<string, string> = {};
+
+  if (props.col !== undefined) {
+    values['--col'] = String(props.col);
+  }
+
+  if (props.gap !== undefined) {
+    values['--gap'] = String(props.gap);
+  }
+
+  return values;
 });
 </script>
 
 <template>
-  <div class="s-grid" :style="styles">
+  <div :class="classes" :style="styles">
     <slot></slot>
   </div>
 </template>
-
-<style>
-.s-grid {
-  display: grid;
-}
-</style>

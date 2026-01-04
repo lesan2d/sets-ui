@@ -1,5 +1,5 @@
 <template>
-  <s-grid :col="4" gap="5px" wrap>
+  <s-grid display="flex" :col="4" gap="5px">
     <s-cell style="background:red;">网格1</s-cell>
     <s-cell style="background:yellow;">网格2</s-cell>
     <s-cell style="background:blue;">网格3</s-cell>
