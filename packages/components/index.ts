@@ -9,5 +9,6 @@ export * from './image';
 export * from './input';
 export * from './overlay';
 export * from './popup';
+export * from './progress';
 export * from './radio';
 export * from './radio-group';

@@ -12,6 +12,7 @@ import { SOverlay } from '@sets-ui/components/overlay';
 import { SIcon } from '@sets-ui/components/icon';
 import { SImage } from '@sets-ui/components/image';
 import { SPopup } from '@sets-ui/components/popup';
+import { SProgress } from '@sets-ui/components/progress';
 import { SRadio } from '@sets-ui/components/radio';
 import { SRadioGroup } from '@sets-ui/components/radio-group';
 
@@ -27,6 +28,7 @@ export default [
   SIcon,
   SImage,
   SPopup,
+  SProgress,
   SRadio,
   SRadioGroup,
 ] as Plugin[];

@@ -6,6 +6,7 @@ import ImageDemos from './image';
 import InputDemos from './input';
 import OverlayDemos from './overlay';
 import PopupDemos from './popup';
+import ProgressDemos from './progress';
 import RadioDemos from './radio';
 
 const demos = [
@@ -17,6 +18,7 @@ const demos = [
 	...InputDemos,
 	...OverlayDemos,
 	...PopupDemos,
+  ...ProgressDemos,
 	...RadioDemos,
 ];
 

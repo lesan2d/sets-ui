@@ -10,6 +10,7 @@
 @use './image.scss';
 @use './input.scss';
 @use './popup.scss';
+@use './progress.scss';
 
 :root {
 	@include theme.vars;
