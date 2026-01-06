@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const stages = [
+const segments = [
   {
     text: '20%',
     value: 20,
@@ -24,5 +24,5 @@ const stages = [
 </script>
 
 <template>
-  <s-progress :stages="stages" :percentage="88.8" />
+  <s-progress :percentage="88.8" :segments="segments" />
 </template>

@@ -1,7 +1,11 @@
+export interface PropsProgressSegment {
+  value: number;
+  text: string;
+  [key: string]: any;
+}
+
 export interface PropsProgress {
   percentage?: number;
-  stages?: Array<{
-    value: number;
-    text: string;
-  }>,
+  segments?: Array<PropsProgressSegment>,
+  direction?: string,
 };
