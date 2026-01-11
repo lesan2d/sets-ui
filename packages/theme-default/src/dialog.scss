@@ -1,0 +1,19 @@
+@use './_mixin' as *;
+
+@include b(dialog) {
+	@include t() {
+		--dialog-border-width: 1px;
+		--dialog-border-style: solid;
+		--dialog-border-color: var(--color-border-500);
+
+		@include e(header) {
+			border-bottom: var(--dialog-border-width) var(--dialog-border-style) var(--dialog-border-color);
+		}
+
+		@include e(footer) {
+			@include m(action) {
+				text-align: right;
+			}
+		}
+	}
+}

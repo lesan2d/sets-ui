@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import type { PropsDialog } from './types';
 import { computed } from 'vue';
 import { SPopup } from '@sets-ui/components/popup';
 import { SButton } from '@sets-ui/components/button';
@@ -8,13 +9,7 @@ defineOptions({
   name: 'Dialog',
 });
 
-interface Props {
-  modelValue: boolean;
-  title?: string;
-  showFooter?: boolean;
-}
-
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<PropsDialog>(), {
   modelValue: false,
   showFooter: true,
 });
@@ -28,7 +23,6 @@ const classes = computed(() => [
   ...ns.t(),
 ]);
 
-
 const visible = computed({
   get() {
     return props.modelValue;
@@ -38,19 +32,19 @@ const visible = computed({
   },
 });
 
-function handleCancel() {
+function onCancel() {
   visible.value = false;
   emit('cancel');
 }
 
-function handleConfirm() {
+function onConfirm() {
   visible.value = false;
   emit('confirm');
 }
 </script>
 
 <template>
-  <s-popup v-model="visible" :class="classes">
+  <SPopup v-model="visible" :class="classes">
     <div v-if="title || $slots.header" :class="ns.e('header')">
       <slot name="header">
         <span class="s-h4">{{ title }}</span>
@@ -62,10 +56,10 @@ function handleConfirm() {
     <div v-if="showFooter" :class="ns.e('footer')">
       <slot name="footer">
         <div :class="ns.em('footer', 'action')">
-          <s-button size="small" @click="handleCancel">取消</s-button>
-          <s-button type="primary" size="small" @click="handleConfirm">确定</s-button>
+          <s-button size="small" @click="onCancel">取消</s-button>
+          <s-button type="primary" size="small" @click="onConfirm">确定</s-button>
         </div>
       </slot>
     </div>
-  </s-popup>
+  </SPopup>
 </template>
