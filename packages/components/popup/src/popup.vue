@@ -1,11 +1,14 @@
 <script lang="ts" setup>
 import type { PropsPopup } from './types';
-import { ref, computed, watch, } from 'vue';
+import { ref, computed, watch, useTemplateRef, } from 'vue';
 import { useNamespace } from '@sets-ui/composables/use-namespace';
-import { useAnimationReverse } from '@sets-ui/composables/use-animation-reverse';
+import { useAnimate } from '@sets-ui/composables/use-animate';
 import { SOverlay } from '@sets-ui/components/overlay';
 import { SButton } from '@sets-ui/components/button';
 import { SIcon } from '@sets-ui/components/icon';
+
+// 弹窗状态
+type PopupStatus = 'closed' | 'opening' | 'opened' | 'closing';
 
 defineOptions({
   name: 'Popup',
@@ -24,32 +27,39 @@ const props = withDefaults(defineProps<PropsPopup>(), {
 const emit = defineEmits(['update:modelValue', 'close', 'closed']);
 
 const ns = useNamespace('popup');
+const wrapper = useTemplateRef('wrapper');
+const animate = useAnimate(wrapper);
+
+const status = ref<PopupStatus>(props.modelValue ? 'opened' : 'closed');
 
 const classes = computed(() => [
   ns.b(),
   ...ns.t(),
   props.direction,
-  {
-    opened: opened.value,
-    closed: closed.value,
-  }
 ]);
 
-const shouldVisible = ref(props.modelValue); // 不确定的弹窗状态(判断动画过渡后才能确定显示状态)
-const opened = ref(false); // 弹窗打开中
-const closed = ref(false); // 弹窗关闭中
-let animationPlaying = ref(false); // 过渡动画播放中
-let timer: NodeJS.Timeout | number = 0;
+// popup 是否显示
+const isVisible = computed(() => status.value !== 'closed');
 
-const { style: animationReverseStyle } = useAnimationReverse(closed);
+// popup 是否渲染
+const isMounted = computed(() => {
+  if (props.destroyOnClose) {
+    return isVisible.value;
+  }
+  return true;
+});
 
-const animationStyles = computed(() => {
-  const value = {
-    ...animationReverseStyle.value,
-  };
-  return value;
-})
+// 遮罩层显示
+const visibleOverlay = computed({
+  get() {
+    return isVisible.value;
+  },
+  set(val) {
+    emit('update:modelValue', val);
+  },
+});
 
+// v-model 同步
 const visible = computed({
   get() {
     return props.modelValue;
@@ -59,62 +69,50 @@ const visible = computed({
   },
 });
 
-const overlayVisible = computed({
-  get() {
-    return shouldVisible.value;
-  },
-  set(val) {
-    emit('update:modelValue', val);
-  },
-});
-
 watch(visible, (val) => {
-  changeShouldVisible(val);
+  if (val) open();
+  else close();
 });
 
-const clearTimer = () => {
-  clearInterval(timer);
-  timer = 0;
+// 打开
+const open = () => {
+  if (status.value === 'opened' || status.value === 'opening') return;
+
+  animate.clear();
+  status.value = 'opening';
 };
 
-// 异步控制弹窗显示
-const changeShouldVisible = (val: boolean) => {
-  if (timer) clearTimer();
+// 关闭
+const close = () => {
+  if (status.value === 'closed' || status.value === 'closing') return;
 
-  opened.value = val;
-  closed.value = !val;
-  if (!val) emit('close'); // 弹窗关闭回调
-
-  timer = setInterval(() => {
-    if (animationPlaying.value) return; // 动画播放中时继续轮询
-    opened.value = false; // 重置开启中状态
-    closed.value = false; // 重置关闭中状态
-    shouldVisible.value = val; // 更新弹窗显示
-    if (timer) clearTimer();
-    if (!val) emit('closed'); // 关闭动画结束回调
-  }, 100);
+  emit('close');
+  status.value = 'closing';
+  animate.reverse();
 };
 
-const handleClose = () => {
+// 动画结束（唯一收敛点）
+const onAnimationEnd = () => {
+  if (status.value === 'opening') {
+    status.value = 'opened';
+  } else if (status.value === 'closing') {
+    animate.clear();
+    status.value = 'closed';
+    emit('closed');
+  }
+};
+
+const onClose = () => {
   visible.value = false;
 };
-
-const handleAnimationstart = () => {
-  animationPlaying.value = true;
-};
-
-const handleAnimationend = () => {
-  animationPlaying.value = false;
-}
 </script>
 
 <template>
-  <SOverlay v-if="props.overlay" v-model="overlayVisible" :destroy-on-close="props.destroyOnClose"
+  <SOverlay v-if="props.overlay" v-model="visibleOverlay" :destroy-on-close="props.destroyOnClose"
     :close-on-click-overlay="props.closeOnClickOverlay" />
-  <div v-if="props.destroyOnClose ? shouldVisible : true" v-show="shouldVisible" :class="classes" v-bind="$attrs">
-    <div :class="ns.e('wrapper')" :style="animationStyles" @animationstart.self="handleAnimationstart"
-      @animationend.self="handleAnimationend">
-      <SButton v-if="props.showClose" :class="ns.e('close')" text circle @click="handleClose">
+  <div v-if="isMounted" v-show="isVisible" :class="classes" v-bind="$attrs">
+    <div ref="wrapper" :class="ns.e('wrapper')" @animationend.self="onAnimationEnd">
+      <SButton v-if="props.showClose" :class="ns.e('close')" text circle @click="onClose">
         <SIcon name="close"></SIcon>
       </SButton>
       <slot></slot>

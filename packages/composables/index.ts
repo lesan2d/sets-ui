@@ -1,3 +1,4 @@
-export * from './use-animation-reset';
-export * from './use-animation-reverse';
+export * from './use-animate';
+export * from './use-global-config';
+export * from './use-namespace';
 export * from './use-validator';
