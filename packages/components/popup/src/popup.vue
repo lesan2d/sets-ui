@@ -35,7 +35,8 @@ const status = ref<PopupStatus>(props.modelValue ? 'opened' : 'closed');
 const classes = computed(() => [
   ns.b(),
   ...ns.t(),
-  props.direction,
+  ns.is(status.value, true),
+  props.direction && ns.is(props.direction, true),
 ]);
 
 // popup 是否显示

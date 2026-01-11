@@ -14,40 +14,40 @@
 			}
 		}
 
-		&:not(.ttb, .rtl, .btt, .ltr) {
+		&:not(#{when(ttb)}, #{when(rtl)}, #{when(btt)}, #{when(ltr)}) {
 			@include e(wrapper) {
 				animation-name: fade-in;
 			}
 		}
 
-		&.ttb {
+		@include when(ttb) {
 			@include e(wrapper) {
 				animation-name: ttb;
 			}
 		}
 
-		&.rtl {
+		@include when(rtl) {
 			@include e(wrapper) {
 				animation-name: rtl;
 			}
 		}
 
-		&.btt {
+		@include when(btt) {
 			@include e(wrapper) {
 				animation-name: btt;
 			}
 		}
 
-		&.ltr {
+		@include when(ltr) {
 			@include e(wrapper) {
 				animation-name: ltr;
 			}
 		}
 
-		&.ttb,
-		&.rtl,
-		&.btt,
-		&.ltr {
+		&#{when(ttb)},
+		&#{when(rtl)},
+		&#{when(btt)},
+		&#{when(ltr)} {
 			@include e(wrapper) {
 				animation-duration: 0.5s;
 			}
