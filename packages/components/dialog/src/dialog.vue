@@ -47,7 +47,7 @@ function onConfirm() {
   <SPopup v-model="visible" :class="classes">
     <div v-if="title || $slots.header" :class="ns.e('header')">
       <slot name="header">
-        <span class="s-h4">{{ title }}</span>
+        <span :class="ns.em('header', 'title')">{{ title }}</span>
       </slot>
     </div>
     <div :class="ns.e('body')">

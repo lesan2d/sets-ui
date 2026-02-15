@@ -1,3 +1,5 @@
+@use './src/mixin' as *;
+
 @use './animation.scss';
 
 @use './src/button.scss';
@@ -6,39 +8,7 @@
 @use './src/radio/index.scss' as radio;
 @use './src/popup.scss';
 
-// h标题
-@for $i from 1 through 6 {
-	.s-h#{$i} {
-		margin: 0;
-		line-height: 1;
-	}
-}
-
-.s-h1 {
-	font-size: var(--text-3xl);
-}
-
-.s-h2 {
-	font-size: var(--text-2xl);
-}
-
-.s-h3 {
-	font-size: var(--text-xl);
-}
-
-.s-h4 {
-	font-size: var(--text-lg);
-}
-
-.s-h5 {
-	font-size: var(--text-base);
-}
-
-.s-h6 {
-	font-size: var(--text-sm);
-}
-
 // icon
-.s-icon {
+@include b(icon) {
 	color: var(--color-icon-500);
 }
