@@ -23,7 +23,8 @@
 		"build:scss": "node ./scripts/build-scss/copy-scss.js",
 		"docs:dev": "vitepress dev docs",
 		"docs:build": "vitepress build docs",
-		"docs:preview": "vitepress preview docs"
+		"docs:preview": "vitepress preview docs",
+    "gen": "node scripts/gen-template/gen-component.cjs"
 	},
 	"workspaces": [
 		"packages/*",
