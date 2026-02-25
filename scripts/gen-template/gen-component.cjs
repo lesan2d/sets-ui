@@ -211,7 +211,7 @@ const paths = {
   pkgIndex: path.join(root, `packages/components/${name}/index.ts`),
   pkgVue: path.join(root, `packages/components/${name}/src/${name}.vue`),
   pkgTypes: path.join(root, `packages/components/${name}/src/types.ts`),
-  pkgStyle: path.join(root, `packages/styles/src/${name}.scss`)
+  pkgStyle: path.join(root, `packages/styles/components/${name}.scss`)
 }
 
 /**
