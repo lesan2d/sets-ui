@@ -1,10 +1,3 @@
 <template>
-  <div>
-    <km-{{name}}>
-      {{PascalName}} 基础示例
-    </km-{{name}}>
-  </div>
+  <s-{{name}}>{{ PascalName }}基础示例</s-{{name}}>
 </template>
-
-<script setup lang="ts">
-</script>

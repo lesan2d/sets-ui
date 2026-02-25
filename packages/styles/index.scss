@@ -1,0 +1,10 @@
+@use '@nopon-web/styles/_variables' with (
+	$size-root: 16
+);
+@use '@nopon-web/styles/theme' as theme;
+
+@use './components/index.scss';
+
+:root {
+	@include theme.vars;
+}

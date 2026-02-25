@@ -40,6 +40,7 @@ export default defineConfig({
             { text: 'Button 按钮', link: '/component/button' },
             { text: 'Grid 布局网格', link: '/component/grid' },
             { text: 'Image 图片', link: '/component/image' },
+            { text: 'Text 文本', link: '/component/text' },
           ],
         },
         {

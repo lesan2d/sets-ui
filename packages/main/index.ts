@@ -1,4 +1,4 @@
-import '@sets-ui/styles/src/index.scss';
+import '@sets-ui/styles/index.scss';
 import installer from './default';
 
 export * from '@sets-ui/components';

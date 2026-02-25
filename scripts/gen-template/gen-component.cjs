@@ -68,41 +68,123 @@ function writeFile(filePath, content) {
   console.log(`✅ 创建: ${filePath}`)
 }
 
-function appendExport(filePath, componentName) {
-  if (!fs.existsSync(filePath)) {
-    console.log(`⚠️  入口文件不存在: ${filePath}`)
-    return
-  }
+/**
+ * ============================
+ * 3️⃣ 自动生成 components.ts
+ * ============================
+ */
 
-  const fileText = fs.readFileSync(filePath, 'utf-8')
+function generateComponentsEntry(root) {
+  const componentsDir = path.join(root, 'packages/components')
+  const outputFile = path.join(root, 'packages/main/components.ts')
 
-  const exportLine = `export * from './${componentName}'`
+  const dirs = fs.readdirSync(componentsDir)
+    .filter(dir => {
+      const fullPath = path.join(componentsDir, dir)
+      return fs.statSync(fullPath).isDirectory()
+    })
+    .sort()
 
-  if (fileText.includes(exportLine)) {
-    return
-  }
+  const imports = dirs.map(dir =>
+    `import { S${toPascalCase(dir)} } from '@sets-ui/components/${dir}';`
+  )
 
-  fs.appendFileSync(filePath, `\n${exportLine}`, 'utf-8')
-  console.log('🔗 已自动注册到 components/index.ts')
-}
+  const plugins = dirs.map(dir =>
+    `  S${toPascalCase(dir)},`
+  )
 
-// 自动注册
-function appendFile(filePath, content, name) {
-  if (!fs.existsSync(filePath)) return
+  const content = `
+import type { Plugin } from 'vue';
 
-  const fileText = fs.readFileSync(filePath, 'utf-8')
+${imports.join('\n')}
 
-  if (fileText.includes(`'./${name}'`)) {
-    return
-  }
+export default [
+${plugins.join('\n')}
+] as Plugin[];
+`.trim() + '\n'
 
-  fs.appendFileSync(filePath, `\n${content}`)
-  console.log(`🔗 已自动注册`)
+  fs.writeFileSync(outputFile, content, 'utf-8')
+  console.log('🔄 已自动生成 packages/main/components.ts')
 }
 
 /**
  * ============================
- * 3️⃣ 初始化变量
+ * 4️⃣ 自动生成 styles index.scss
+ * ============================
+ */
+
+function generateStyleEntry(root) {
+  const stylesDir = path.join(root, 'packages/styles/components')
+  const outputFile = path.join(stylesDir, 'index.scss')
+
+  if (!fs.existsSync(stylesDir)) return
+
+  const files = fs.readdirSync(stylesDir)
+    .filter(file => file.endsWith('.scss') && file !== 'index.scss')
+    .sort()
+
+  const imports = files.map(file =>
+    `@use './${file}';`
+  )
+
+  fs.writeFileSync(outputFile, imports.join('\n') + '\n', 'utf-8')
+  console.log('🎨 已自动生成 styles/components/index.scss')
+}
+
+/**
+ * ============================
+ * 5️⃣ 自动生成 demos index.ts
+ * ============================
+ */
+
+function generateDemosEntry(root) {
+  const demosDir = path.join(root, 'docs/demos')
+  const outputFile = path.join(demosDir, 'index.ts')
+
+  if (!fs.existsSync(demosDir)) return
+
+  const dirs = fs.readdirSync(demosDir)
+    .filter(dir => {
+      const fullPath = path.join(demosDir, dir)
+      return fs.statSync(fullPath).isDirectory()
+    })
+    .sort()
+
+  const imports = dirs.map(dir =>
+    `import ${toPascalCase(dir)}Demos from './${dir}';`
+  )
+
+  const spreads = dirs.map(dir =>
+    `  ...${toPascalCase(dir)}Demos,`
+  )
+
+  const content = `
+${imports.join('\n')}
+
+const demos = [
+${spreads.join('\n')}
+];
+
+const installer = (plugin: Array<any>) => {
+  return {
+    install: (app: any) => {
+      plugin.forEach((i) => {
+        app.use(i);
+      });
+    },
+  };
+};
+
+export default installer(demos);
+`.trim() + '\n'
+
+  fs.writeFileSync(outputFile, content, 'utf-8')
+  console.log('📦 已自动生成 docs/demos/index.ts')
+}
+
+/**
+ * ============================
+ * 6️⃣ 初始化变量
  * ============================
  */
 
@@ -112,14 +194,11 @@ const PascalName = toPascalCase(name)
 const root = process.cwd()
 const templateDir = path.join(__dirname, 'templates')
 
-const data = {
-  name,
-  PascalName
-}
+const data = { name, PascalName }
 
 /**
  * ============================
- * 4️⃣ 路径定义
+ * 7️⃣ 路径定义
  * ============================
  */
 
@@ -132,15 +211,12 @@ const paths = {
   pkgIndex: path.join(root, `packages/components/${name}/index.ts`),
   pkgVue: path.join(root, `packages/components/${name}/src/${name}.vue`),
   pkgTypes: path.join(root, `packages/components/${name}/src/types.ts`),
-  pkgStyle: path.join(root, `packages/styles/src/${name}.scss`),
-
-  componentsEntry: path.join(root, `packages/components/index.ts`),
-  stylesEntry: path.join(root, `packages/styles/src/index.scss`)
+  pkgStyle: path.join(root, `packages/styles/src/${name}.scss`)
 }
 
 /**
  * ============================
- * 5️⃣ 创建文件
+ * 8️⃣ 创建文件
  * ============================
  */
 
@@ -182,18 +258,14 @@ fileMappings.forEach(({ output, template }) => {
   )
 })
 
-// 引入 ts
-appendFile(
-  paths.componentsEntry,
-  `export * from './${name}'`,
-  name
-)
+/**
+ * ============================
+ * 9️⃣ 自动重新生成所有入口
+ * ============================
+ */
 
-// 引入 scss
-appendFile(
-  paths.stylesEntry,
-  `@use './${name}.scss';`,
-  name
-)
+generateComponentsEntry(root)
+generateStyleEntry(root)
+generateDemosEntry(root)
 
-console.log('\n🎉 组件创建完成！\n')
+console.log('\n🎉 组件创建完成！（组件 / 样式 / demos 已自动注册）\n')
