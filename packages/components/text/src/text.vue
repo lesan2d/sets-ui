@@ -7,13 +7,16 @@ defineOptions({
   name: 'Text',
 });
 
-const props = defineProps<PropsText>()
+const props = withDefaults(defineProps<PropsText>(), {
+  size: 'md',
+});
 
 const ns = useNamespace('text');
 
 const classes = computed(() => [
   ns.b(),
   ...ns.t(),
+  ns.m(props.size),
   ns.is('ellipsis', props.ellipsis),
 ]);
 </script>
