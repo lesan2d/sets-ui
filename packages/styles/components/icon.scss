@@ -1,5 +1,5 @@
-@use "@nopon-web/styles/_function" as fn;
-@use "@nopon-web/styles/_mixin" as mx;
+@use "@nopon-web/styles/function/index" as fn;
+@use "@nopon-web/styles/mixin/index" as mx;
 @use "@nopon-web/styles/components/icon.scss";
 
 @include mx.b("icon") {

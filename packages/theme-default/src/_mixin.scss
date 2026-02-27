@@ -1,6 +1,6 @@
-@use "@nopon-web/styles/_mixin" as *;
+@use "@nopon-web/styles/mixin/index" as *;
 
-@forward "@nopon-web/styles/_mixin";
+@forward "@nopon-web/styles/mixin/index";
 
 // 定义全局主题名，使用 b() { t() } 直接生成主题 class，生成多个时传入 t(($theme-name, "coustom"))
 $theme-name: "default";
