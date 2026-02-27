@@ -1,6 +1,6 @@
-@use '@nopon-web/styles/theme' as theme;
+@use "@nopon-web/styles/theme" as theme;
 
-@use './components/index.scss';
+@use "./components/index.scss";
 
 :root {
 	@include theme.vars();

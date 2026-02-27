@@ -1,17 +1,17 @@
-@use './_mixin' as *;
+@use "./_mixin" as mx;
 
-@include b(dialog) {
-	@include t() {
+@include mx.b(dialog) {
+	@include mx.t() {
 		--dialog-border-width: 1px;
 		--dialog-border-style: solid;
 		--dialog-border-color: var(--color-border-500);
 
-		@include e(header) {
+		@include mx.e(header) {
 			border-bottom: var(--dialog-border-width) var(--dialog-border-style) var(--dialog-border-color);
 		}
 
-		@include e(footer) {
-			@include m(action) {
+		@include mx.e(footer) {
+			@include mx.m(action) {
 				text-align: right;
 			}
 		}

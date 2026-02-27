@@ -1,6 +1,7 @@
-@use '@nopon-web/styles/_mixin' as *;
+@use "@nopon-web/styles/_function" as fn;
+@use "@nopon-web/styles/_mixin" as mx;
 
-@include b(input) {
+@include mx.b(input) {
 	--s-input-border-radius: 4px;
 	--s-input-size-base: var(--text-sm);
 	--s-input-size-D: 0px;
@@ -12,7 +13,7 @@
 	font-size: 0;
 	line-height: 1;
 
-	@include e(wrapper) {
+	@include mx.e(wrapper) {
 		display: inline-flex;
 		flex-grow: 1;
 		border-width: 1px;
@@ -24,13 +25,13 @@
 		overflow: hidden;
 
 		&:hover {
-			.#{bem('input', 'clearable')} {
+			.#{fn.bem('input', 'clearable')} {
 				opacity: 1;
 			}
 		}
 	}
 
-	@include e(inner) {
+	@include mx.e(inner) {
 		flex-grow: 1;
 		min-width: 0;
 		padding: 0;
@@ -42,7 +43,7 @@
 		color: inherit;
 	}
 
-	@include e(clearable) {
+	@include mx.e(clearable) {
 		opacity: 0;
 		display: inline-flex;
 		align-items: center;

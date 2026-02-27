@@ -124,7 +124,7 @@ function generateStyleEntry(root) {
     .sort()
 
   const imports = files.map(file =>
-    `@use './${file}';`
+    `@use "./${file}";`
   )
 
   fs.writeFileSync(outputFile, imports.join('\n') + '\n', 'utf-8')

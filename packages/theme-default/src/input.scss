@@ -1,8 +1,8 @@
-@use './_mixin' as *;
+@use "./_mixin" as mx;
 
-@include b(input) {
-	@include t() {
-		@include e(wrapper) {
+@include mx.b(input) {
+	@include mx.t() {
+		@include mx.e(wrapper) {
 			transition-property: box-shadow, border-color;
 			transition-duration: 0.2s;
 			transition-timing-function: ease-in-out;

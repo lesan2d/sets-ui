@@ -1,7 +1,8 @@
-@use './_mixin' as *;
+@use "@nopon-web/styles/_function" as fn;
+@use "./_mixin" as mx;
 
-@include b(button) {
-	@include t() {
+@include mx.b(button) {
+	@include mx.t() {
 		display: inline-block;
 		border-radius: calc(4 * var(--size-unit));
 		transition: 0.1s;
@@ -20,7 +21,7 @@
 			}
 		}
 
-		&.#{bem('button', '', 'primary')} {
+		&.#{fn.bem('button', '', 'primary')} {
 			&:focus {
 				&::after {
 					filter: saturate(0.6);

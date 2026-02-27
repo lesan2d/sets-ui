@@ -1,6 +1,7 @@
-@use '@nopon-web/styles/_mixin' as *;
+@use "@nopon-web/styles/_function" as fn;
+@use "@nopon-web/styles/_mixin" as mx;
 
-@include b(button) {
+@include mx.b(button) {
 	// 按钮颜色
 	--s-button-theme-color: var(--theme-color-500);
 	--s-button-theme-color-50: var(--theme-color-50);
@@ -26,7 +27,7 @@
 	background-color: transparent;
 	overflow: hidden;
 
-	+ .#{bem('button')} {
+	+ .#{fn.bem('button')} {
 		margin-left: var(--s-button-gap);
 	}
 
@@ -43,13 +44,13 @@
 	}
 
 	// 内容
-	@include e(content) {
+	@include mx.e(content) {
 		position: relative;
 		z-index: 1;
 	}
 
 	// 类型
-	@include m(primary) {
+	@include mx.m(primary) {
 		--s-button-color-text: var(--color-text-inverse-500);
 		--s-button-color-bg: var(--s-button-theme-color);
 
@@ -61,24 +62,24 @@
 	}
 
 	// 大小
-	@include m(small) {
+	@include mx.m(small) {
 		--s-button-size: var(--text-2xl);
 		--s-button-size-text: var(--text-xs);
 		--s-button-padding: var(--text-4xs) var(--text-xs);
 	}
 
-	@include m(large) {
+	@include mx.m(large) {
 		--s-button-size: var(--text-4xl);
 		--s-button-padding: var(--text-sm) var(--text-lg);
 	}
 
 	// 椭圆
-	@include when(round) {
+	@include mx.when(round) {
 		border-radius: var(--s-button-round);
 	}
 
 	// 圆型
-	@include when(circle) {
+	@include mx.when(circle) {
 		width: var(--s-button-size);
 		height: var(--s-button-size);
 		padding: 0;
@@ -86,7 +87,7 @@
 	}
 
 	// 文本
-	@include when(text) {
+	@include mx.when(text) {
 		--s-button-color-bg: transparent;
 
 		&.s-button--primary {
@@ -95,7 +96,7 @@
 	}
 
 	// 背景
-	@include when('no-bg') {
+	@include mx.when('no-bg') {
 		--s-button-color-bg: transparent;
 		--s-button-color-bg-hover: transparent;
 		--s-button-color-text-hover: var(--s-button-theme-color);

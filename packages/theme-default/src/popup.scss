@@ -1,54 +1,55 @@
-@use './_mixin' as *;
+@use "@nopon-web/styles/_function" as fn;
+@use "./_mixin" as mx;
 
-@include b(popup) {
-	@include t() {
-		@include e(wrapper) {
+@include mx.b(popup) {
+	@include mx.t() {
+		@include mx.e(wrapper) {
 			border-radius: 4px;
 			animation-duration: 0.3s;
 			box-shadow: 0 0 10px 2px rgb(from var(--color-base-inverse-50) r g b / 30%);
 		}
 
 		&.closed {
-			@include e(wrapper) {
+			@include mx.e(wrapper) {
 				animation-fill-mode: both;
 			}
 		}
 
-		&:not(#{when(ttb)}, #{when(rtl)}, #{when(btt)}, #{when(ltr)}) {
-			@include e(wrapper) {
+		&:not(#{fn.when(ttb)}, #{fn.when(rtl)}, #{fn.when(btt)}, #{fn.when(ltr)}) {
+			@include mx.e(wrapper) {
 				animation-name: fade-in;
 			}
 		}
 
-		@include when(ttb) {
-			@include e(wrapper) {
+		@include mx.when(ttb) {
+			@include mx.e(wrapper) {
 				animation-name: ttb;
 			}
 		}
 
-		@include when(rtl) {
-			@include e(wrapper) {
+		@include mx.when(rtl) {
+			@include mx.e(wrapper) {
 				animation-name: rtl;
 			}
 		}
 
-		@include when(btt) {
-			@include e(wrapper) {
+		@include mx.when(btt) {
+			@include mx.e(wrapper) {
 				animation-name: btt;
 			}
 		}
 
-		@include when(ltr) {
-			@include e(wrapper) {
+		@include mx.when(ltr) {
+			@include mx.e(wrapper) {
 				animation-name: ltr;
 			}
 		}
 
-		&#{when(ttb)},
-		&#{when(rtl)},
-		&#{when(btt)},
-		&#{when(ltr)} {
-			@include e(wrapper) {
+		&#{fn.when(ttb)},
+		&#{fn.when(rtl)},
+		&#{fn.when(btt)},
+		&#{fn.when(ltr)} {
+			@include mx.e(wrapper) {
 				animation-duration: 0.5s;
 			}
 		}
