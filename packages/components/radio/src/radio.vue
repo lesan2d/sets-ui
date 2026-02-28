@@ -76,7 +76,7 @@ function handleChange() {
 
     &:checked {
       &+.s-radio--case {
-        border-color: var(--theme-color-500);
+        border-color: var(--color-theme-500);
 
         &::after {
           transform: translateY(-50%) scale(0.75);
@@ -102,7 +102,7 @@ function handleChange() {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background-color: var(--theme-color-500);
+      background-color: var(--color-theme-500);
       transform-origin: 50% center;
       transform: translateY(-50%) scale(0);
     }

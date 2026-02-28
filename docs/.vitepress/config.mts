@@ -136,10 +136,10 @@ export default defineConfig({
           api: 'modern',
           additionalData: `
             @forward '@nopon-web/styles/_config.scss' with (
-              $namespace: s
+              $namespace: s,
+              $layout-mode: rem
             );
             @forward '@nopon-web/styles/_variables.scss' with (
-              $size-mode: rem,
               $size-root: 16
             );
           `,

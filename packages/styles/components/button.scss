@@ -3,8 +3,8 @@
 
 @include mx.b(button) {
 	// 按钮颜色
-	--s-button-theme-color: var(--theme-color-500);
-	--s-button-theme-color-50: var(--theme-color-50);
+	--s-button-theme-color: var(--color-theme-500);
+	--s-button-theme-color-50: var(--color-theme-50);
 	--s-button-color-text: var(--color-text-500);
 	--s-button-color-text-hover: var(--s-button-theme-color);
 	--s-button-color-bg: var(--color-base-250);

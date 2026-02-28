@@ -12,8 +12,8 @@
 			}
 
 			&:focus-within {
-				--s-input-color-border: var(--theme-color-500);
-				box-shadow: 0px 0px 4px 0px rgb(from var(--theme-color-500) r g b / 0.5);
+				--s-input-color-border: var(--color-theme-500);
+				box-shadow: 0px 0px 4px 0px rgb(from var(--color-theme-500) r g b / 0.5);
 			}
 		}
 	}
