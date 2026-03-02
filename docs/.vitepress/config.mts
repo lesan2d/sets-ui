@@ -137,11 +137,14 @@ export default defineConfig({
           additionalData: `
             @forward '@nopon-web/styles/_config.scss' with (
               $namespace: s,
-              $var-registered: true
+              $var-css-registered: true,
+              $var-runtime-mode: value
             );
             @forward '@nopon-web/styles/_variables.scss' with (
-              $size-root: 16,
-              $size-mode: 1rem,
+              $size: (
+                root: 16,
+                mode: 1rem,
+              )
             );
           `,
         },
