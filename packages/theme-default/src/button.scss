@@ -3,22 +3,10 @@
 
 @include mx.b(button) {
 	@include mx.t() {
-		display: inline-block;
-		border-radius: calc(4 * var(--size-unit));
 		transition: 0.1s;
 
 		&::after {
 			transition: background-color 0.25s ease-in-out;
-		}
-
-		&:hover,
-		&:active,
-		&:focus {
-			color: var(--s-button-color-text-hover);
-
-			&::after {
-				background-color: var(--s-button-color-bg-hover);
-			}
 		}
 
 		&.#{fn.bem('button', '', 'primary')} {

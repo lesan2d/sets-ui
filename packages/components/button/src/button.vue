@@ -10,6 +10,7 @@ defineOptions({
 
 const props = withDefaults(defineProps<PropsButton>(), {
   type: 'default',
+  plain: false,
   text: false,
   bg: true,
   round: false,
@@ -23,6 +24,7 @@ const classes = computed(() => [
   ...ns.t(),
   ns.m(props.type),
   ns.m(props.size),
+  ns.is('plain', props.plain),
   ns.is('text', props.text),
   ns.is('round', props.round),
   ns.is('circle', props.circle),
@@ -37,8 +39,8 @@ const styles = computed(() => {
     let color = null;
     try {
       color = Color(props.color);
-      values['--s-button-theme-color'] = color.string();
-      values['--s-button-theme-color-50'] = color.fade(0.5).string();
+      values['--button-color-theme-500'] = color.string();
+      values['--button-color-theme-50'] = color.fade(0.5).string();
     } catch {
       console.log('Invalid color:', props.color);
     }
