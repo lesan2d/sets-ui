@@ -2,6 +2,7 @@
 @use "@nopon-web/styles/mixin/index" as mx;
 
 @include mx.b(button) {
+  @include mx.var-register(button);
 	// 按钮颜色
 	--s-button-theme-color: var(--color-theme-500);
 	--s-button-theme-color-50: var(--color-theme-50);

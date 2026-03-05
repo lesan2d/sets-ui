@@ -140,7 +140,7 @@ export default defineConfig({
               $var-css-registered: true,
               $var-runtime-mode: value
             );
-            @forward '@nopon-web/styles/_variables.scss' with (
+            @forward '@nopon-web/styles/variables/index.scss' with (
               $size: (
                 root: 16,
                 mode: 1rem,

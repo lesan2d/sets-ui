@@ -3,5 +3,5 @@
 @use "./components/index.scss";
 
 :root {
-	@include theme.vars();
+	@include theme.root-vars();
 }
